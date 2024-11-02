@@ -2,13 +2,20 @@ import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./header.module.css";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Header() {
   const location = useLocation();
   const isOnTutorialPage = location.pathname === "/how-to-play";
 
+  const theme = useTheme();
+
+  const themeStyling = {
+    backgroundColor: theme === "light" ? "white" : "black",
+  };
+
   return (
-    <header className={styles.header}>
+    <header className={styles.header} style={themeStyling}>
       <ThemeSwitcher />
       <nav className={styles.navigation}>
         <a
