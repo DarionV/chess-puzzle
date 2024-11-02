@@ -3,7 +3,8 @@ import React from "react";
 const Game = () => {
   return (
     <div>
-      <h1>Game</h1>
+      <h1>Pawn = Queen</h1>
+      <div className="puzzle-container"></div>
     </div>
   );
 };
