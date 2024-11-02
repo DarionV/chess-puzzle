@@ -1,7 +1,8 @@
-.header {
+.footer {
   background-color: black;
+  color: white;
 }
 
-.header a {
+.footer a {
   color: white;
 }
