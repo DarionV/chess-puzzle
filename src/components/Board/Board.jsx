@@ -1,6 +1,6 @@
 import React from "react";
 import Tile from "../Tile";
-import tileWhite from "../../assets/images/tile-white-2.png";
+import tileWhite from "../../assets/images/tile-white.png";
 import tileBlack from "../../assets/images/tile-black.png";
 import tileRed from "../../assets/images/tile-red.png";
 
@@ -17,9 +17,10 @@ const Board = () => {
   let color;
 
   const TILE_SIZE_IN_PX = 160;
+  const TOP_MARGIN_IN_PX = 100;
 
   board.forEach((row) => {
-    currentRow % 2 === 0 ? (color = tileWhite) : (color = tileBlack);
+    currentRow % 2 === 0 ? (color = tileBlack) : (color = tileWhite);
 
     row.forEach((tile, index) => {
       if (!tile) return;
@@ -52,7 +53,8 @@ const Board = () => {
             position: "absolute",
             top: `${
               tile.xpos * 0.29 * TILE_SIZE_IN_PX +
-              tile.ypos * 0.29 * TILE_SIZE_IN_PX
+              tile.ypos * 0.29 * TILE_SIZE_IN_PX +
+              TOP_MARGIN_IN_PX
             }px`,
             left: `${
               tile.xpos * 0.5 * TILE_SIZE_IN_PX +
