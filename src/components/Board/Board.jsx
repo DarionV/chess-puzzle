@@ -13,6 +13,9 @@ const Board = () => {
   let currentRow = 0;
   let tiles = [];
 
+  const TILE_HEIGHT_IN_PX = 160;
+  const TILE_WIDTH_IN_PX = 160;
+
   board.forEach((row) => {
     row.forEach((tile, index) => {
       if (tile) {
@@ -30,13 +33,19 @@ const Board = () => {
       {tiles.map((tile, index) => (
         <img
           src={tileWhite}
-          width="160px"
-          height="160px"
+          width={`${TILE_WIDTH_IN_PX}px`}
+          height={`${TILE_HEIGHT_IN_PX}px`}
           key={index}
           style={{
             position: "absolute",
-            top: `${tile.xpos * 1 * 60 + tile.ypos * 1 * 60}px`,
-            left: `${tile.xpos * 0.5 * 160 + tile.ypos * -0.5 * 160}px`,
+            top: `${
+              (tile.xpos * 1 * TILE_HEIGHT_IN_PX) / 2.7 +
+              (tile.ypos * 1 * TILE_HEIGHT_IN_PX) / 2.7
+            }px`,
+            left: `${
+              tile.xpos * 0.5 * TILE_WIDTH_IN_PX +
+              tile.ypos * -0.5 * TILE_WIDTH_IN_PX
+            }px`,
             zIndex: { index },
           }}
         ></img>
