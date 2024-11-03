@@ -1,6 +1,6 @@
 import React from "react";
 import Tile from "../Tile";
-import tileWhite from "../../assets/images/tile-white.png";
+import tileWhite from "../../assets/images/tile-white-2.png";
 
 const Board = () => {
   const board = [
@@ -39,8 +39,8 @@ const Board = () => {
           style={{
             position: "absolute",
             top: `${
-              (tile.xpos * 1 * TILE_HEIGHT_IN_PX) / 2.7 +
-              (tile.ypos * 1 * TILE_HEIGHT_IN_PX) / 2.7
+              tile.xpos * 0.29 * TILE_HEIGHT_IN_PX +
+              tile.ypos * 0.29 * TILE_HEIGHT_IN_PX
             }px`,
             left: `${
               tile.xpos * 0.5 * TILE_WIDTH_IN_PX +
