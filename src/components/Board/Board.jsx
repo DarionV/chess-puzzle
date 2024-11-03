@@ -4,22 +4,14 @@ import tileWhite from "../../assets/images/tile-white.png";
 import tileBlack from "../../assets/images/tile-black.png";
 import tileRed from "../../assets/images/tile-red.png";
 
-const Board = () => {
-  const board = [
-    ["empty", "empty", "empty", "empty"],
-    ["empty", "empty", "empty", null],
-    ["empty", "empty", "empty", null],
-    ["empty", "empty", "empty", "empty red"],
-  ];
-
+const Board = ({ boardArray }) => {
   let currentRow = 0;
   let tiles = [];
   let color;
 
   const TILE_SIZE_IN_PX = 160;
-  const TOP_MARGIN_IN_PX = 100;
 
-  board.forEach((row) => {
+  boardArray.forEach((row) => {
     currentRow % 2 === 0 ? (color = tileBlack) : (color = tileWhite);
 
     row.forEach((tile, index) => {
@@ -33,37 +25,20 @@ const Board = () => {
     currentRow++;
   });
 
-  console.log(tiles);
-
   return (
     <div
       style={{
         position: "relative",
-        border: "5px solid red",
-        width: "1px",
       }}
     >
       {tiles.map((tile, index) => (
-        <img
-          src={tile.color}
-          width={`${TILE_SIZE_IN_PX}px`}
-          height={`${TILE_SIZE_IN_PX}px`}
+        <Tile
+          tileSize={TILE_SIZE_IN_PX}
+          yPos={tile.ypos}
+          xPos={tile.xpos}
+          color={tile.color}
           key={index}
-          style={{
-            position: "absolute",
-            top: `${
-              tile.xpos * 0.29 * TILE_SIZE_IN_PX +
-              tile.ypos * 0.29 * TILE_SIZE_IN_PX +
-              TOP_MARGIN_IN_PX
-            }px`,
-            left: `${
-              tile.xpos * 0.5 * TILE_SIZE_IN_PX +
-              tile.ypos * -0.5 * TILE_SIZE_IN_PX -
-              TILE_SIZE_IN_PX / 2
-            }px`,
-            zIndex: { index },
-          }}
-        ></img>
+        ></Tile>
       ))}
     </div>
   );

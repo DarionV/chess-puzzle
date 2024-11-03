@@ -1,17 +1,20 @@
 import React from "react";
-import tileWhite from "..//assets/images/tile-white.png";
 
-const Tile = ({ yPos, xPos }) => {
+const Tile = ({ tileSize, yPos, xPos, color }) => {
+  const TOP_MARGIN_IN_PX = 100;
   return (
     <img
-      src={tileWhite}
-      width="160px"
-      height="160px"
-      key={colIndex}
+      src={color}
+      width={`${tileSize}px`}
+      height={`${tileSize}px`}
       style={{
-        position: "aboslute",
-        top: `${xPos}px`,
-        right: `${yPos}px`,
+        position: "absolute",
+        top: `${
+          xPos * 0.29 * tileSize + yPos * 0.29 * tileSize + TOP_MARGIN_IN_PX
+        }px`,
+        left: `${
+          xPos * 0.5 * tileSize + yPos * -0.5 * tileSize - tileSize / 2
+        }px`,
       }}
     ></img>
   );
