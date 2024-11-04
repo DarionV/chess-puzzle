@@ -4,12 +4,10 @@ import tileWhite from "../../assets/images/tile-white.png";
 import tileBlack from "../../assets/images/tile-black.png";
 import tileRed from "../../assets/images/tile-red.png";
 
-const Board = ({ boardArray }) => {
+const Board = ({ boardArray, size }) => {
   let currentRow = 0;
   let tiles = [];
   let color;
-
-  const TILE_SIZE_IN_PX = 160;
 
   const getColor = (tile = "") => {
     color === tileBlack ? (color = tileWhite) : (color = tileBlack);
@@ -44,7 +42,7 @@ const Board = ({ boardArray }) => {
     >
       {tiles.map((tile, index) => (
         <Tile
-          tileSize={TILE_SIZE_IN_PX}
+          tileSize={size}
           yPos={tile.ypos}
           xPos={tile.xpos}
           color={tile.color}

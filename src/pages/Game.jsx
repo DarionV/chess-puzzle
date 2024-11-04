@@ -1,18 +1,22 @@
 import React from "react";
 import Board from "../components/Board/Board";
 import styles from "./Game.module.css";
+import Pieces from "../components/Pieces/Pieces";
 
 const Game = () => {
+  const TILE_SIZE_IN_PX = 160;
+
   const board = [
-    ["empty", "empty", "empty", "empty"],
-    ["empty", "empty", "empty", null],
-    ["empty", null, "empty", null],
-    ["empty", "empty", "empty", "empty red"],
+    ["-", "-", "-", "P"],
+    ["-", "-", "-", null],
+    ["-", "-", "-", null],
+    ["-", "-", "-", "- red"],
   ];
   return (
     <div className={styles.boardContainer}>
       <h1>Pawn = Queen</h1>
-      <Board boardArray={board} />
+      <Board boardArray={board} size={TILE_SIZE_IN_PX} />
+      <Pieces boardArray={board} size={TILE_SIZE_IN_PX} />
     </div>
   );
 };
