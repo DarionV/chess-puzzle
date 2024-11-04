@@ -6,7 +6,8 @@ import rookWhite from "../assets/images/rook-white.png";
 import queenWhite from "../assets/images/queen-white.png";
 
 const Piece = ({ piece, size, yPos, xPos }) => {
-  const TOP_MARGIN_IN_PX = -size / 2.2;
+  const topOffset = 2.2; //To center piece in tile properly
+  const TOP_MARGIN_IN_PX = -size / topOffset + 80;
   let imageSrc = "";
 
   switch (piece) {

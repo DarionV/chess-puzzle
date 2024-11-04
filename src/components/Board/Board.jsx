@@ -4,7 +4,7 @@ import tileWhite from "../../assets/images/tile-white.png";
 import tileBlack from "../../assets/images/tile-black.png";
 import tileRed from "../../assets/images/tile-red.png";
 
-const Board = ({ boardArray, size }) => {
+const Board = ({ board, size }) => {
   let currentRow = 0;
   let tiles = [];
   let color;
@@ -15,7 +15,7 @@ const Board = ({ boardArray, size }) => {
     return color;
   };
 
-  boardArray.forEach((row) => {
+  board.forEach((row) => {
     // Alternate starting color for each row
     currentRow % 2 === 0 ? (color = tileWhite) : (color = tileBlack);
 

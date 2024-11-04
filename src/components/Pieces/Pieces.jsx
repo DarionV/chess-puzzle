@@ -1,11 +1,11 @@
 import React from "react";
 import Piece from "../Piece";
 
-const Pieces = ({ boardArray, size }) => {
+const Pieces = ({ board, size }) => {
   let currentRow = 0;
   let pieces = [];
 
-  boardArray.forEach((row) => {
+  board.forEach((row) => {
     row.forEach((tile, index) => {
       if (!tile || tile.includes("-")) return;
       const pieceObject = {
