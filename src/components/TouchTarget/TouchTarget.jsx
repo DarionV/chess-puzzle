@@ -1,14 +1,16 @@
-import React, { useState } from "react";
 import style from "./TouchTarget.module.css";
 
-const TouchTarget = ({ size, yPos, xPos, zIndex }) => {
-  const topOffset = 87; //To center piece in tile properly
+const TouchTarget = ({ size, yPos, xPos }) => {
+  //To center piece in tile properly
+  const topOffset = 87;
   const leftOffset = size * 0.15;
-  //   const TOP_MARGIN_IN_PX = -size / topOffset + 80;
 
   return (
     <button
-      className={style.touchTarget}
+      onClick={() => {
+        alert("y: " + yPos + " x: " + xPos);
+      }}
+      className={style.touchTarget} //remove this later
       style={{
         width: size * 0.7,
         height: size * 0.7,
