@@ -1,7 +1,8 @@
 .touchTarget {
-  height: 100px;
-  width: 100px;
+  /* height: 100px;
+  width: 100px; */
   border: none;
+  border: 1px solid red;
   background-color: unset;
   cursor: pointer;
   transform: scaleY(59%) rotateZ(45deg);
