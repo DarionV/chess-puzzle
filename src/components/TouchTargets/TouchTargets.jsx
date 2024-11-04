@@ -1,25 +1,25 @@
 import React from "react";
-import Piece from "../Piece";
+import TouchTarget from "../TouchTarget/TouchTarget";
 
-const Pieces = ({ board, size }) => {
+const TouchTargets = ({ board, size }) => {
   let currentRow = 0;
-  let pieces = [];
+  let targets = [];
   let zIndex = 100;
 
   board.forEach((row) => {
     row.forEach((tile, index) => {
-      if (!tile || tile.includes("-")) return;
-      const pieceObject = {
+      if (!tile) return;
+      const targetObject = {
         xpos: index,
         ypos: currentRow,
         piece: tile,
         zIndex: zIndex,
       };
-      pieces.push(pieceObject);
+      targets.push(targetObject);
       zIndex++;
     });
     currentRow++;
-    console.log(pieces);
+    console.log(targets);
   });
 
   return (
@@ -28,8 +28,8 @@ const Pieces = ({ board, size }) => {
         position: "relative",
       }}
     >
-      {pieces.map((tile, index) => (
-        <Piece
+      {targets.map((tile, index) => (
+        <TouchTarget
           size={size}
           yPos={tile.ypos}
           xPos={tile.xpos}
@@ -37,10 +37,10 @@ const Pieces = ({ board, size }) => {
           piece={tile.piece}
           key={index}
           zIndex={zIndex}
-        ></Piece>
+        ></TouchTarget>
       ))}
     </div>
   );
 };
 
-export default Pieces;
+export default TouchTargets;

@@ -1,0 +1,12 @@
+.touchTarget {
+  height: 100px;
+  width: 100px;
+  border: none;
+  background-color: unset;
+  cursor: pointer;
+  transform: scaleY(59%) rotateZ(45deg);
+}
+
+.touchTarget:hover {
+  background-color: rgba(255, 0, 0, 0.32);
+}

@@ -3,6 +3,7 @@ import Board from "../components/Board/Board";
 import styles from "./Game.module.css";
 import Pieces from "../components/Pieces/Pieces";
 import { useState, useEffect } from "react";
+import TouchTargets from "../components/TouchTargets/TouchTargets";
 
 const Game = () => {
   const [tileSize, setTileSize] = useState(200);
@@ -34,11 +35,19 @@ const Game = () => {
     };
   }, []);
 
+  const handleMouseMove = (e) => {
+    // console.log(e.clientX);
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+  }, []);
+
   const board = [
-    ["B", "N", "R", "P"],
-    ["B", "N", "R", null],
-    ["B", "N", "R", null],
-    ["B", "N", "R", "- red"],
+    ["P", "P", "P", "P"],
+    ["-", "B", "-", null],
+    ["R", "B", "-", null],
+    ["-", "P", "-", "- red"],
   ];
 
   return (
@@ -46,6 +55,7 @@ const Game = () => {
       <h1>Pawn = Queen</h1>
       <Board board={board} size={tileSize} />
       <Pieces board={board} size={tileSize} />
+      <TouchTargets board={board} size={tileSize}></TouchTargets>
     </div>
   );
 };

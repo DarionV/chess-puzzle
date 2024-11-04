@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+
 import pawnWhite from "../assets/images/pawn-white.png";
 import knightWhite from "../assets/images/knight-white.png";
 import bishopWhite from "../assets/images/bishop-white.png";
 import rookWhite from "../assets/images/rook-white.png";
 import queenWhite from "../assets/images/queen-white.png";
 
-const Piece = ({ piece, size, yPos, xPos }) => {
+const Piece = ({ piece, size, yPos, xPos, zIndex }) => {
   const topOffset = 2.2; //To center piece in tile properly
   const TOP_MARGIN_IN_PX = -size / topOffset + 80;
+  const [hoverStyle, setHoverStyle] = useState("nonHover");
   let imageSrc = "";
 
   switch (piece) {
@@ -36,8 +38,8 @@ const Piece = ({ piece, size, yPos, xPos }) => {
   return (
     <img
       src={imageSrc}
-      width={`${size}px`}
       height={`${size}px`}
+      width={`${size}px`}
       style={{
         position: "absolute",
         top: `${xPos * 0.29 * size + yPos * 0.29 * size + TOP_MARGIN_IN_PX}px`,
