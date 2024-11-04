@@ -11,16 +11,27 @@ const Board = ({ boardArray }) => {
 
   const TILE_SIZE_IN_PX = 160;
 
+  const getColor = (tile = "") => {
+    color === tileBlack ? (color = tileWhite) : (color = tileBlack);
+    if (tile.includes("red")) return tileRed;
+    return color;
+  };
+
   boardArray.forEach((row) => {
-    currentRow % 2 === 0 ? (color = tileBlack) : (color = tileWhite);
+    // Alternate starting color for each row
+    currentRow % 2 === 0 ? (color = tileWhite) : (color = tileBlack);
 
     row.forEach((tile, index) => {
-      if (!tile) return;
-      if (tile.includes("red")) color = tileRed;
-      const tileObject = { xpos: index, ypos: currentRow, color: color };
+      if (!tile) {
+        getColor(); //Alternate color even though there is no tile
+        return;
+      }
+      const tileObject = {
+        xpos: index,
+        ypos: currentRow,
+        color: getColor(tile),
+      };
       tiles.push(tileObject);
-
-      color === tileBlack ? (color = tileWhite) : (color = tileBlack);
     });
     currentRow++;
   });

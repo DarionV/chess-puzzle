@@ -6,7 +6,7 @@ const Game = () => {
   const board = [
     ["empty", "empty", "empty", "empty"],
     ["empty", "empty", "empty", null],
-    ["empty", "empty", "empty", null],
+    ["empty", null, "empty", null],
     ["empty", "empty", "empty", "empty red"],
   ];
   return (
