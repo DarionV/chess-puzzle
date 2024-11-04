@@ -4,24 +4,20 @@ import styles from "./Game.module.css";
 import Pieces from "../components/Pieces/Pieces";
 import TouchTargets from "../components/TouchTargets/TouchTargets";
 import useTileSize from "../hooks/useTileSize";
+import { BoardProvider } from "../context/BoardContext";
 
 const Game = () => {
   const tileSize = useTileSize();
 
-  const board = [
-    ["P", "P", "P", "P"],
-    ["-", "B", "-", null],
-    ["R", "B", "-", null],
-    ["-", "P", "-", "- red"],
-  ];
-
   return (
-    <div className={styles.boardContainer}>
-      <h1>Pawn = Queen</h1>
-      <Board board={board} size={tileSize} />
-      <Pieces board={board} size={tileSize} />
-      <TouchTargets board={board} size={tileSize}></TouchTargets>
-    </div>
+    <BoardProvider>
+      <div className={styles.boardContainer}>
+        <h1>Pawn = Queen</h1>
+        <Board size={tileSize} />
+        <Pieces size={tileSize} />
+        <TouchTargets size={tileSize}></TouchTargets>
+      </div>
+    </BoardProvider>
   );
 };
 

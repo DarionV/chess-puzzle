@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Piece from "../Piece";
+import BoardContext from "../../context/BoardContext";
 
-const Pieces = ({ board, size }) => {
+const Pieces = ({ size }) => {
+  const { board } = useContext(BoardContext);
   let currentRow = 0;
   let pieces = [];
   let zIndex = 100;

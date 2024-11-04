@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import TouchTarget from "../TouchTarget/TouchTarget";
+import BoardContext from "../../context/BoardContext";
 
-const TouchTargets = ({ board, size }) => {
+const TouchTargets = ({ size }) => {
+  const { board } = useContext(BoardContext);
   let currentRow = 0;
   let targets = [];
 
