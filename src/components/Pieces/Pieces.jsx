@@ -27,7 +27,7 @@ const Pieces = ({ boardArray, size }) => {
     >
       {pieces.map((tile, index) => (
         <Piece
-          size={size * 1.2}
+          size={size}
           yPos={tile.ypos}
           xPos={tile.xpos}
           color={tile.color}

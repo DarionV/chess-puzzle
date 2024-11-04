@@ -6,9 +6,8 @@ import rookWhite from "../assets/images/rook-white.png";
 import queenWhite from "../assets/images/queen-white.png";
 
 const Piece = ({ piece, size, yPos, xPos }) => {
-  const TOP_MARGIN_IN_PX = 5;
+  const TOP_MARGIN_IN_PX = -size / 2.2;
   let imageSrc = "";
-  console.log("piece " + piece);
 
   switch (piece) {
     case "P":
@@ -40,8 +39,8 @@ const Piece = ({ piece, size, yPos, xPos }) => {
       height={`${size}px`}
       style={{
         position: "absolute",
-        top: `${xPos * 0.24 * size + yPos * 0.24 * size + TOP_MARGIN_IN_PX}px`,
-        left: `${xPos * 0.42 * size + yPos * -0.42 * size - size / 2}px`,
+        top: `${xPos * 0.29 * size + yPos * 0.29 * size + TOP_MARGIN_IN_PX}px`,
+        left: `${xPos * 0.5 * size + yPos * -0.5 * size - size / 2}px`,
       }}
     ></img>
   );

@@ -4,7 +4,7 @@ import styles from "./Game.module.css";
 import Pieces from "../components/Pieces/Pieces";
 
 const Game = () => {
-  const TILE_SIZE_IN_PX = 160;
+  const TILE_SIZE_IN_PX = 200;
 
   const board = [
     ["B", "N", "R", "P"],
