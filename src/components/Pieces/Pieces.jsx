@@ -31,6 +31,7 @@ const Pieces = ({ boardArray, size }) => {
           yPos={tile.ypos}
           xPos={tile.xpos}
           color={tile.color}
+          piece={tile.piece}
           key={index}
         ></Piece>
       ))}
@@ -39,26 +40,3 @@ const Pieces = ({ boardArray, size }) => {
 };
 
 export default Pieces;
-
-// switch (tile) {
-//     case "P":
-//       console.log("Pawn");
-//       break;
-//     case "N":
-//       console.log("Knight");
-//       break;
-//     case "B":
-//       console.log("Bishop");
-//       break;
-//     case "R":
-//       console.log("Rook");
-//       break;
-//     case "Q":
-//       console.log("Queen");
-//       break;
-//     case "K":
-//       console.log("King");
-//       break;
-//     default:
-//       console.log("No piece found");
-//   }

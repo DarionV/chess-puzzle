@@ -7,10 +7,10 @@ const Game = () => {
   const TILE_SIZE_IN_PX = 160;
 
   const board = [
-    ["-", "-", "-", "P"],
-    ["-", "-", "-", null],
-    ["-", "-", "-", null],
-    ["-", "-", "-", "- red"],
+    ["B", "N", "R", "P"],
+    ["B", "N", "R", null],
+    ["B", "N", "R", null],
+    ["B", "N", "R", "- red"],
   ];
   return (
     <div className={styles.boardContainer}>
