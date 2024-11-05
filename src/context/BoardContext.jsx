@@ -4,10 +4,10 @@ export const BoardContext = createContext();
 
 export const BoardProvider = ({ children }) => {
   const [board, setBoard] = useState([
-    ["P", "P", "-", "P"],
-    ["-", "B", "B", null],
-    ["R", "N", "-", null],
-    ["B", "P", "-", "- red"],
+    ["B", "N", "R", "P"],
+    ["B", "N", "-", null],
+    ["B", "N", "R", null],
+    ["B", "N", "R", "R"],
   ]);
   return (
     <BoardContext.Provider value={{ board, setBoard }}>

@@ -7,9 +7,9 @@ const TouchTarget = ({ size, yPos, xPos }) => {
   const topOffset = 87;
   const leftOffset = size * 0.15;
 
-  const { board } = useContext(BoardContext);
+  const { board, setBoard } = useContext(BoardContext);
 
-  const searchBoard = (board, yPos, xPos) => {
+  const getTile = (board, yPos, xPos) => {
     if (
       xPos < 0 ||
       yPos < 0 ||
@@ -21,46 +21,58 @@ const TouchTarget = ({ size, yPos, xPos }) => {
     return board[yPos][xPos];
   };
 
+  const getEmptyTile = () => {
+    let position = [];
+    board.forEach((row, yPos) => {
+      row.forEach((tile, xPos) => {
+        if (tile === "-") {
+          position = [yPos, xPos];
+        }
+      });
+    });
+    return position;
+  };
+
   const checkValidMove = (piece) => {
     if (piece.includes("-")) return;
     switch (piece) {
       case "P":
-        return searchBoard(board, yPos, xPos - 1).includes("-");
+        return getTile(board, yPos, xPos - 1).includes("-");
       case "B":
         return (
-          searchBoard(board, yPos + 1, xPos - 1).includes("-") ||
-          searchBoard(board, yPos - 1, xPos + 1).includes("-") ||
-          searchBoard(board, yPos - 1, xPos - 1).includes("-") ||
-          searchBoard(board, yPos + 1, xPos + 1).includes("-")
+          getTile(board, yPos + 1, xPos - 1).includes("-") ||
+          getTile(board, yPos - 1, xPos + 1).includes("-") ||
+          getTile(board, yPos - 1, xPos - 1).includes("-") ||
+          getTile(board, yPos + 1, xPos + 1).includes("-")
         );
       case "N":
         return (
-          searchBoard(board, yPos - 2, xPos - 1).includes("-") ||
-          searchBoard(board, yPos - 2, xPos + 1).includes("-") ||
-          searchBoard(board, yPos + 2, xPos - 1).includes("-") ||
-          searchBoard(board, yPos + 2, xPos + 1).includes("-") ||
-          searchBoard(board, yPos - 1, xPos - 2).includes("-") ||
-          searchBoard(board, yPos - 1, xPos + 2).includes("-") ||
-          searchBoard(board, yPos + 1, xPos - 2).includes("-") ||
-          searchBoard(board, yPos + 1, xPos + 2).includes("-")
+          getTile(board, yPos - 2, xPos - 1).includes("-") ||
+          getTile(board, yPos - 2, xPos + 1).includes("-") ||
+          getTile(board, yPos + 2, xPos - 1).includes("-") ||
+          getTile(board, yPos + 2, xPos + 1).includes("-") ||
+          getTile(board, yPos - 1, xPos - 2).includes("-") ||
+          getTile(board, yPos - 1, xPos + 2).includes("-") ||
+          getTile(board, yPos + 1, xPos - 2).includes("-") ||
+          getTile(board, yPos + 1, xPos + 2).includes("-")
         );
       case "R":
         return (
-          searchBoard(board, yPos - 1, xPos).includes("-") ||
-          searchBoard(board, yPos + 1, xPos).includes("-") ||
-          searchBoard(board, yPos, xPos - 1).includes("-") ||
-          searchBoard(board, yPos, xPos + 1).includes("-")
+          getTile(board, yPos - 1, xPos).includes("-") ||
+          getTile(board, yPos + 1, xPos).includes("-") ||
+          getTile(board, yPos, xPos - 1).includes("-") ||
+          getTile(board, yPos, xPos + 1).includes("-")
         );
       case "Q":
         return (
-          searchBoard(board, yPos - 1, xPos).includes("-") ||
-          searchBoard(board, yPos + 1, xPos).includes("-") ||
-          searchBoard(board, yPos, xPos - 1).includes("-") ||
-          searchBoard(board, yPos, xPos + 1).includes("-") ||
-          searchBoard(board, yPos + 1, xPos - 1).includes("-") ||
-          searchBoard(board, yPos - 1, xPos + 1).includes("-") ||
-          searchBoard(board, yPos - 1, xPos - 1).includes("-") ||
-          searchBoard(board, yPos + 1, xPos + 1).includes("-")
+          getTile(board, yPos - 1, xPos).includes("-") ||
+          getTile(board, yPos + 1, xPos).includes("-") ||
+          getTile(board, yPos, xPos - 1).includes("-") ||
+          getTile(board, yPos, xPos + 1).includes("-") ||
+          getTile(board, yPos + 1, xPos - 1).includes("-") ||
+          getTile(board, yPos - 1, xPos + 1).includes("-") ||
+          getTile(board, yPos - 1, xPos - 1).includes("-") ||
+          getTile(board, yPos + 1, xPos + 1).includes("-")
         );
 
       default:
@@ -69,12 +81,22 @@ const TouchTarget = ({ size, yPos, xPos }) => {
     }
   };
 
+  const makeMove = (piece) => {
+    let newBoard = board.map((row) => [...row]);
+    const emptyTilePosition = getEmptyTile();
+    newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = piece;
+    newBoard[yPos][xPos] = "-";
+    setBoard(newBoard);
+  };
+
   const handleClick = () => {
-    const piece = searchBoard(board, yPos, xPos);
-    console.log("--------------");
-    console.log("xPos:" + xPos + " yPos:" + yPos);
-    console.log("Piece found:" + piece);
-    console.log("Is the move valid?: " + checkValidMove(piece));
+    const piece = getTile(board, yPos, xPos);
+    if (checkValidMove(piece)) makeMove(piece);
+
+    // console.log("--------------");
+    // console.log("xPos:" + xPos + " yPos:" + yPos);
+    // console.log("Piece found:" + piece);
+    // console.log("Is the move valid?: " + checkValidMove(piece));
   };
 
   return (

@@ -5,6 +5,7 @@ import BoardContext from "../../context/BoardContext";
 const Pieces = ({ size }) => {
   const { board } = useContext(BoardContext);
   let currentRow = 0;
+  let id = 1;
   let pieces = [];
   let zIndex = 100;
 
@@ -16,9 +17,11 @@ const Pieces = ({ size }) => {
         ypos: currentRow,
         piece: tile,
         zIndex: zIndex,
+        id: id,
       };
       pieces.push(pieceObject);
       zIndex++;
+      id++;
     });
     currentRow++;
   });
@@ -36,7 +39,7 @@ const Pieces = ({ size }) => {
           xPos={tile.xpos}
           color={tile.color}
           piece={tile.piece}
-          key={index}
+          key={tile.id}
           zIndex={zIndex}
         ></Piece>
       ))}

@@ -12,20 +12,27 @@ const Piece = ({ piece, size, yPos, xPos, zIndex }) => {
   const [hoverStyle, setHoverStyle] = useState("nonHover");
   let imageSrc = "";
 
-  if (piece.includes("P")) {
-    imageSrc = pawnWhite;
-  } else if (piece.includes("N")) {
-    imageSrc = knightWhite;
-  } else if (piece.includes("B")) {
-    imageSrc = bishopWhite;
-  } else if (piece.includes("R")) {
-    imageSrc = rookWhite;
-  } else if (piece.includes("Q")) {
-    imageSrc = queenWhite;
-  } else if (piece.includes("K")) {
-    console.log("King");
-  } else {
-    console.log("No piece found");
+  switch (piece) {
+    case "P":
+      imageSrc = pawnWhite;
+      break;
+    case "N":
+      imageSrc = knightWhite;
+      break;
+    case "B":
+      imageSrc = bishopWhite;
+      break;
+    case "R":
+      imageSrc = rookWhite;
+      break;
+    case "Q":
+      imageSrc = queenWhite;
+      break;
+    case "K":
+      console.log("King");
+      break;
+    default:
+      console.log("No piece found");
   }
 
   return (
@@ -37,6 +44,8 @@ const Piece = ({ piece, size, yPos, xPos, zIndex }) => {
         position: "absolute",
         top: `${xPos * 0.29 * size + yPos * 0.29 * size + TOP_MARGIN_IN_PX}px`,
         left: `${xPos * 0.5 * size + yPos * -0.5 * size - size / 2}px`,
+        // transitionProperty: "all",
+        // transitionDuration: "1s",
       }}
     ></img>
   );
