@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Piece from "../Piece";
 import BoardContext from "../../context/BoardContext";
+import TouchTargets from "../TouchTargets/TouchTargets";
 
 const Pieces = ({ size }) => {
   const { board } = useContext(BoardContext);
@@ -44,6 +45,7 @@ const Pieces = ({ size }) => {
           zIndex={zIndex}
         ></Piece>
       ))}
+      <TouchTargets size={size} pieces={pieces}></TouchTargets>
     </div>
   );
 };

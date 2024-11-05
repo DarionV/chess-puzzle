@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import TouchTarget from "../TouchTarget/TouchTarget";
 import BoardContext from "../../context/BoardContext";
 
-const TouchTargets = ({ size }) => {
+const TouchTargets = ({ size, pieces }) => {
   const { board } = useContext(BoardContext);
   let currentRow = 0;
   let targets = [];
@@ -32,6 +32,7 @@ const TouchTargets = ({ size }) => {
           yPos={tile.ypos}
           xPos={tile.xpos}
           key={index}
+          pieces={pieces}
         ></TouchTarget>
       ))}
     </div>

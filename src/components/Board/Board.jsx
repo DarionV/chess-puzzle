@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Tile from "../Tile";
-import tileWhite from "../../assets/images/tile-white.png";
-import tileBlack from "../../assets/images/tile-black.png";
+import tileWhite from "../../assets/images/tile-white-3.png";
+import tileBlack from "../../assets/images/tile-black-2.png";
 import tileRed from "../../assets/images/tile-red.png";
 import BoardContext from "../../context/BoardContext";
 

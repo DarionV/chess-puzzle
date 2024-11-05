@@ -10,10 +10,10 @@ const Tile = ({ tileSize, yPos, xPos, color }) => {
       style={{
         position: "absolute",
         top: `${
-          xPos * 0.29 * tileSize + yPos * 0.29 * tileSize + TOP_MARGIN_IN_PX
+          xPos * 0.25 * tileSize + yPos * 0.25 * tileSize + TOP_MARGIN_IN_PX
         }px`,
         left: `${
-          xPos * 0.5 * tileSize + yPos * -0.5 * tileSize - tileSize / 2
+          xPos * 0.43 * tileSize + yPos * -0.43 * tileSize - tileSize / 2
         }px`,
       }}
     ></img>

@@ -15,7 +15,7 @@ const Game = () => {
         <h1>Pawn = Queen</h1>
         <Board size={tileSize} />
         <Pieces size={tileSize} />
-        <TouchTargets size={tileSize}></TouchTargets>
+        {/* <TouchTargets size={tileSize}></TouchTargets> */}
       </div>
     </BoardProvider>
   );

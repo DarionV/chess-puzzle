@@ -2,10 +2,10 @@ import { useContext } from "react";
 import style from "./TouchTarget.module.css";
 import BoardContext from "../../context/BoardContext";
 
-const TouchTarget = ({ size, yPos, xPos }) => {
+const TouchTarget = ({ size, yPos, xPos, pieces }) => {
   //To center piece in tile properly
-  const topOffset = 87;
-  const leftOffset = size * 0.15;
+  const topOffset = 100;
+  const leftOffset = size * 0.2;
 
   const { board, setBoard } = useContext(BoardContext);
 
@@ -86,6 +86,16 @@ const TouchTarget = ({ size, yPos, xPos }) => {
     const emptyTilePosition = getEmptyTile();
     newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = piece;
     newBoard[yPos][xPos] = "-";
+
+    const targetedPiece = pieces.filter(
+      (piece) =>
+        piece.xpos === emptyTilePosition[0] &&
+        piece.ypos === emptyTilePosition[1]
+    );
+    // console.log("targeted Piece: ", targetedPiece[0].id);
+    // const targetID = targetedPiece[0].id;
+    // pieces[targetID].style= {{border: '1px solid red'}};
+
     setBoard(newBoard);
   };
 
@@ -104,12 +114,12 @@ const TouchTarget = ({ size, yPos, xPos }) => {
       onClick={handleClick}
       className={style.touchTarget} //remove this later
       style={{
-        width: size * 0.7,
-        height: size * 0.7,
+        width: size * 0.6,
+        height: size * 0.6,
         position: "absolute",
-        top: `${xPos * 0.29 * size + yPos * 0.29 * size + topOffset}px`,
+        top: `${xPos * 0.25 * size + yPos * 0.25 * size + topOffset}px`,
         left: `${
-          xPos * 0.5 * size + yPos * -0.5 * size - size / 2 + leftOffset
+          xPos * 0.43 * size + yPos * -0.43 * size - size / 2 + leftOffset
         }px`,
       }}
     ></button>
