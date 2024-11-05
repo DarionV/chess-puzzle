@@ -5,11 +5,11 @@ import BoardContext from "../../context/BoardContext";
 const Pieces = ({ size }) => {
   const { board } = useContext(BoardContext);
   let currentRow = 0;
-  let id = 1;
+  // let id = 1;
   let pieces = [];
   let zIndex = 100;
 
-  board.forEach((row) => {
+  board.forEach((row, rowIndex) => {
     row.forEach((tile, index) => {
       if (!tile || tile.includes("-")) return;
       const pieceObject = {
@@ -17,13 +17,14 @@ const Pieces = ({ size }) => {
         ypos: currentRow,
         piece: tile,
         zIndex: zIndex,
-        id: id,
+        id: `${rowIndex}${index}`,
       };
       pieces.push(pieceObject);
       zIndex++;
-      id++;
+      // id++;
     });
     currentRow++;
+    console.log(pieces);
   });
 
   return (

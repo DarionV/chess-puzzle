@@ -38,14 +38,14 @@ const Piece = ({ piece, size, yPos, xPos, zIndex }) => {
   return (
     <img
       src={imageSrc}
-      height={`${size}px`}
-      width={`${size}px`}
+      height={`150px`}
+      width={`150px`}
       style={{
         position: "absolute",
         top: `${xPos * 0.29 * size + yPos * 0.29 * size + TOP_MARGIN_IN_PX}px`,
         left: `${xPos * 0.5 * size + yPos * -0.5 * size - size / 2}px`,
-        // transitionProperty: "all",
-        // transitionDuration: "1s",
+        transitionProperty: "all",
+        transitionDuration: "0.4s",
       }}
     ></img>
   );
