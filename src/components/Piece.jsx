@@ -12,27 +12,20 @@ const Piece = ({ piece, size, yPos, xPos, zIndex }) => {
   const [hoverStyle, setHoverStyle] = useState("nonHover");
   let imageSrc = "";
 
-  switch (piece) {
-    case "P":
-      imageSrc = pawnWhite;
-      break;
-    case "N":
-      imageSrc = knightWhite;
-      break;
-    case "B":
-      imageSrc = bishopWhite;
-      break;
-    case "R":
-      imageSrc = rookWhite;
-      break;
-    case "Q":
-      imageSrc = queenWhite;
-      break;
-    case "K":
-      console.log("King");
-      break;
-    default:
-      console.log("No piece found");
+  if (piece.includes("P")) {
+    imageSrc = pawnWhite;
+  } else if (piece.includes("N")) {
+    imageSrc = knightWhite;
+  } else if (piece.includes("B")) {
+    imageSrc = bishopWhite;
+  } else if (piece.includes("R")) {
+    imageSrc = rookWhite;
+  } else if (piece.includes("Q")) {
+    imageSrc = queenWhite;
+  } else if (piece.includes("K")) {
+    console.log("King");
+  } else {
+    console.log("No piece found");
   }
 
   return (
