@@ -21,7 +21,6 @@ const Pieces = ({ size }) => {
       zIndex++;
     });
     currentRow++;
-    console.log(pieces);
   });
 
   return (
