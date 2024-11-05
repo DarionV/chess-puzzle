@@ -6,8 +6,9 @@
   cursor: pointer;
   transform: scaleY(59%) rotateZ(45deg);
   mix-blend-mode: overlay;
+  border-radius: 20px;
 }
 
 .touchTarget:hover {
-  background-color: rgba(90, 36, 36, 0.462);
+  background-color: rgba(55, 65, 16, 0.462);
 }
