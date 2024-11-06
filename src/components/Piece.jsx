@@ -5,6 +5,7 @@ import knightWhite from "../assets/images/knight-white-2.png";
 import bishopWhite from "../assets/images/bishop-white-2.png";
 import rookWhite from "../assets/images/rook-white-2.png";
 import queenWhite from "../assets/images/queen-white.png";
+import queenRed from "../assets/images/queen-red-2.png";
 
 const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
   const topOffset = 2.2; //To center piece in tile properly
@@ -27,7 +28,7 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
       imageSrc = rookWhite;
       break;
     case "Q":
-      imageSrc = queenWhite;
+      imageSrc = queenRed;
       break;
     case "K":
       console.log("King");
