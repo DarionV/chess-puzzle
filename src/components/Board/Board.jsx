@@ -26,7 +26,36 @@ const Board = ({ size }) => {
 
   function togglePromoteModal() {
     setShowPromoteModal(!showPromoteModal);
-    console.log("opening modal");
+  }
+
+  function promotePawn(piece) {
+    let rowIndex; //Row that the pawn is located at
+    board.forEach((row, index) => {
+      if (row[0] === "P") {
+        rowIndex = index;
+      }
+    });
+    let newBoard = [...board];
+
+    switch (piece) {
+      case "R":
+        newBoard[rowIndex][0] = "R";
+        break;
+      case "N":
+        newBoard[rowIndex][0] = "N";
+        break;
+      case "B":
+        newBoard[rowIndex][0] = "B";
+        break;
+      case "Q":
+        newBoard[rowIndex][0] = "Q";
+        break;
+
+      default:
+        break;
+    }
+
+    togglePromoteModal();
   }
 
   const getColor = (tile = "") => {
@@ -100,7 +129,10 @@ const Board = ({ size }) => {
         setShowPromoteModal={setShowPromoteModal}
       ></TouchTargets>
       {showPromoteModal ? (
-        <PromoteModal togglePromoteModal={togglePromoteModal} />
+        <PromoteModal
+          togglePromoteModal={togglePromoteModal}
+          promotePawn={promotePawn}
+        />
       ) : null}
     </div>
   );
