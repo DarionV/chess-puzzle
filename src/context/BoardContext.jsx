@@ -7,7 +7,7 @@ export const BoardProvider = ({ children }) => {
     ["B", "N", "R", "P"],
     ["B", "N", "R", null],
     ["B", "N", "R", null],
-    ["B", "N", "R", "-"],
+    ["B", "N", "R", "- GOAL"],
   ]);
   return (
     <BoardContext.Provider value={{ board, setBoard }}>

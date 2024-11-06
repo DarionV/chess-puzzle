@@ -5,7 +5,7 @@ import TouchTargets from "../TouchTargets/TouchTargets";
 import Tile from "../Tile";
 import tileWhite from "../../assets/images/tile-white-4.png";
 import tileBlack from "../../assets/images/tile-black-3.png";
-import tileRed from "../../assets/images/tile-red.png";
+import tileRed from "../../assets/images/tile-red-2.png";
 import PromoteModal from "../PromoteModal/PromoteModal";
 
 const Board = ({ size }) => {
@@ -60,10 +60,10 @@ const Board = ({ size }) => {
 
   const getColor = (tile = "") => {
     color === tileBlack ? (color = tileWhite) : (color = tileBlack);
-    if (tile.includes("red")) return tileRed;
+    if (tile.includes("GOAL")) return tileRed;
     return color;
   };
-
+  // Add pieces to be rendered
   board.forEach((row, rowIndex) => {
     row.forEach((tile, index) => {
       if (!tile || tile.includes("-")) return;
@@ -77,6 +77,7 @@ const Board = ({ size }) => {
     });
   });
 
+  // Add tiles to be rendered
   board.forEach((row, rowIndex) => {
     // Alternate starting color for each row
     rowIndex % 2 === 0 ? (color = tileWhite) : (color = tileBlack);

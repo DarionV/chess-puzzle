@@ -32,7 +32,8 @@ const TouchTarget = ({
     let position = [];
     board.forEach((row, yPos) => {
       row.forEach((tile, xPos) => {
-        if (tile === "-") {
+        if (!tile) return;
+        if (tile.includes("-")) {
           position = [yPos, xPos];
         }
       });
@@ -42,57 +43,63 @@ const TouchTarget = ({
 
   const checkValidMove = (piece) => {
     if (piece.includes("-")) return;
-    switch (piece) {
-      case "P":
-        return getTile(board, yPos, xPos - 1).includes("-");
-      case "B":
-        return (
-          getTile(board, yPos + 1, xPos - 1).includes("-") ||
-          getTile(board, yPos - 1, xPos + 1).includes("-") ||
-          getTile(board, yPos - 1, xPos - 1).includes("-") ||
-          getTile(board, yPos + 1, xPos + 1).includes("-")
-        );
-      case "N":
-        return (
-          getTile(board, yPos - 2, xPos - 1).includes("-") ||
-          getTile(board, yPos - 2, xPos + 1).includes("-") ||
-          getTile(board, yPos + 2, xPos - 1).includes("-") ||
-          getTile(board, yPos + 2, xPos + 1).includes("-") ||
-          getTile(board, yPos - 1, xPos - 2).includes("-") ||
-          getTile(board, yPos - 1, xPos + 2).includes("-") ||
-          getTile(board, yPos + 1, xPos - 2).includes("-") ||
-          getTile(board, yPos + 1, xPos + 2).includes("-")
-        );
-      case "R":
-        return (
-          getTile(board, yPos - 1, xPos).includes("-") ||
-          getTile(board, yPos + 1, xPos).includes("-") ||
-          getTile(board, yPos, xPos - 1).includes("-") ||
-          getTile(board, yPos, xPos + 1).includes("-")
-        );
-      case "Q":
-        return (
-          getTile(board, yPos - 1, xPos).includes("-") ||
-          getTile(board, yPos + 1, xPos).includes("-") ||
-          getTile(board, yPos, xPos - 1).includes("-") ||
-          getTile(board, yPos, xPos + 1).includes("-") ||
-          getTile(board, yPos + 1, xPos - 1).includes("-") ||
-          getTile(board, yPos - 1, xPos + 1).includes("-") ||
-          getTile(board, yPos - 1, xPos - 1).includes("-") ||
-          getTile(board, yPos + 1, xPos + 1).includes("-")
-        );
 
-      default:
-        console.log("Couldn't evaluate valid move");
-        break;
+    if (piece.includes("P")) {
+      return getTile(board, yPos, xPos - 1).includes("-");
+    } else if (piece.includes("B")) {
+      return (
+        getTile(board, yPos + 1, xPos - 1).includes("-") ||
+        getTile(board, yPos - 1, xPos + 1).includes("-") ||
+        getTile(board, yPos - 1, xPos - 1).includes("-") ||
+        getTile(board, yPos + 1, xPos + 1).includes("-")
+      );
+    } else if (piece.includes("N")) {
+      return (
+        getTile(board, yPos - 2, xPos - 1).includes("-") ||
+        getTile(board, yPos - 2, xPos + 1).includes("-") ||
+        getTile(board, yPos + 2, xPos - 1).includes("-") ||
+        getTile(board, yPos + 2, xPos + 1).includes("-") ||
+        getTile(board, yPos - 1, xPos - 2).includes("-") ||
+        getTile(board, yPos - 1, xPos + 2).includes("-") ||
+        getTile(board, yPos + 1, xPos - 2).includes("-") ||
+        getTile(board, yPos + 1, xPos + 2).includes("-")
+      );
+    } else if (piece.includes("R")) {
+      return (
+        getTile(board, yPos - 1, xPos).includes("-") ||
+        getTile(board, yPos + 1, xPos).includes("-") ||
+        getTile(board, yPos, xPos - 1).includes("-") ||
+        getTile(board, yPos, xPos + 1).includes("-")
+      );
+    } else if (piece.includes("Q")) {
+      return (
+        getTile(board, yPos - 1, xPos).includes("-") ||
+        getTile(board, yPos + 1, xPos).includes("-") ||
+        getTile(board, yPos, xPos - 1).includes("-") ||
+        getTile(board, yPos, xPos + 1).includes("-") ||
+        getTile(board, yPos + 1, xPos - 1).includes("-") ||
+        getTile(board, yPos - 1, xPos + 1).includes("-") ||
+        getTile(board, yPos - 1, xPos - 1).includes("-") ||
+        getTile(board, yPos + 1, xPos + 1).includes("-")
+      );
+    } else {
+      console.log("No valid piece found");
     }
   };
 
   const makeMove = (piece) => {
+    let pieceAbbreviation = piece[0];
+
     let newBoard = board.map((row) => [...row]);
     const emptyTilePosition = getEmptyTile();
-    newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = piece;
-    newBoard[yPos][xPos] = "-";
+    const newTileString = newBoard[emptyTilePosition[0]][
+      emptyTilePosition[1]
+    ].replace("-", pieceAbbreviation);
+    newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = newTileString;
+    console.log(newTileString);
+
+    const oldTileString = newBoard[yPos][xPos].replace(pieceAbbreviation, "-");
+    newBoard[yPos][xPos] = oldTileString;
     setBoard(newBoard);
   };
 
