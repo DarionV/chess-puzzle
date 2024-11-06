@@ -49,6 +49,7 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
         transitionProperty: "all",
         transitionDuration: "0.1s",
         transform: highlighted ? "translateY(-3px)" : "",
+        filter: highlighted ? "brightness(105%)" : "",
       }}
     ></img>
   );
