@@ -88,6 +88,9 @@ const TouchTarget = ({
   };
 
   const makeMove = (piece) => {
+    // Check if hero piece
+    let isHero = piece.includes("H");
+
     // Sometimes a tile can have extra info, eg. "R GOAL"
     // We only want the abbreviation, in this case R.
     let pieceAbbreviation = piece[0];
@@ -96,14 +99,18 @@ const TouchTarget = ({
     const emptyTilePosition = getEmptyTile();
 
     //Sometimes the target square can have extra info, eg. "- GOAL".
-    // We want to replace only the dash.
+    // We want to replace only "-", and not "GOAL".
+    // If Hero piece, make sure to keep the "H"
     const newTileString = newBoard[emptyTilePosition[0]][
       emptyTilePosition[1]
     ].replace("-", pieceAbbreviation);
-    newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = newTileString;
+    newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = isHero
+      ? newTileString + "H"
+      : newTileString;
 
     // The same thing applies to the old tile.
-    const oldTileString = newBoard[yPos][xPos].replace(pieceAbbreviation, "-");
+    let oldTileString = newBoard[yPos][xPos].replace(pieceAbbreviation, "-");
+    if (isHero) oldTileString = oldTileString.replace("H", "");
     newBoard[yPos][xPos] = oldTileString;
     setBoard(newBoard);
   };

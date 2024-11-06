@@ -17,10 +17,14 @@ const Board = ({ size }) => {
   let tiles = [];
   let color;
 
-  // Check for pawn promotions
+  // Check for pawn promotions, and for winning moves.
   useEffect(() => {
     board.forEach((row) => {
-      if (row[0] === "P") togglePromoteModal();
+      if (row[0].includes("P")) togglePromoteModal();
+      row.forEach((tile) => {
+        if (!tile) return;
+        if (tile.includes("G") && tile.includes("H")) console.log("You won!");
+      });
     });
   }, [board]);
 
@@ -31,7 +35,7 @@ const Board = ({ size }) => {
   function promotePawn(piece) {
     let rowIndex; //Row that the pawn is located at
     board.forEach((row, index) => {
-      if (row[0] === "P") {
+      if (row[0].includes("P")) {
         rowIndex = index;
       }
     });
@@ -39,16 +43,16 @@ const Board = ({ size }) => {
 
     switch (piece) {
       case "R":
-        newBoard[rowIndex][0] = "R";
+        newBoard[rowIndex][0] = "RH";
         break;
       case "N":
-        newBoard[rowIndex][0] = "N";
+        newBoard[rowIndex][0] = "NH";
         break;
       case "B":
-        newBoard[rowIndex][0] = "B";
+        newBoard[rowIndex][0] = "BH";
         break;
       case "Q":
-        newBoard[rowIndex][0] = "Q";
+        newBoard[rowIndex][0] = "QH";
         break;
 
       default:
@@ -60,7 +64,7 @@ const Board = ({ size }) => {
 
   const getColor = (tile = "") => {
     color === tileBlack ? (color = tileWhite) : (color = tileBlack);
-    if (tile.includes("GOAL")) return tileRed;
+    if (tile.includes("G")) return tileRed;
     return color;
   };
   // Add pieces to be rendered
