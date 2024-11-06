@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import Piece from "../Piece";
+import BoardContext from "../../context/BoardContext";
+import TouchTargets from "../TouchTargets/TouchTargets";
 import Tile from "../Tile";
 import tileWhite from "../../assets/images/tile-white-3.png";
 import tileBlack from "../../assets/images/tile-black-2.png";
 import tileRed from "../../assets/images/tile-red.png";
-import BoardContext from "../../context/BoardContext";
 
 const Board = ({ size }) => {
   const { board } = useContext(BoardContext);
-  let currentRow = 0;
+  const [highlightedPieceId, setHighlightedPieceId] = useState(null);
+
+  let pieces = [];
   let tiles = [];
   let color;
 
@@ -17,9 +21,22 @@ const Board = ({ size }) => {
     return color;
   };
 
-  board.forEach((row) => {
+  board.forEach((row, rowIndex) => {
+    row.forEach((tile, index) => {
+      if (!tile || tile.includes("-")) return;
+      const pieceObject = {
+        xpos: index,
+        ypos: rowIndex,
+        piece: tile,
+        id: `${rowIndex}${index}`,
+      };
+      pieces.push(pieceObject);
+    });
+  });
+
+  board.forEach((row, rowIndex) => {
     // Alternate starting color for each row
-    currentRow % 2 === 0 ? (color = tileWhite) : (color = tileBlack);
+    rowIndex % 2 === 0 ? (color = tileWhite) : (color = tileBlack);
 
     row.forEach((tile, index) => {
       if (!tile) {
@@ -28,12 +45,12 @@ const Board = ({ size }) => {
       }
       const tileObject = {
         xpos: index,
-        ypos: currentRow,
+        ypos: rowIndex,
         color: getColor(tile),
+        id: `${rowIndex}${index}`,
       };
       tiles.push(tileObject);
     });
-    currentRow++;
   });
 
   return (
@@ -42,15 +59,31 @@ const Board = ({ size }) => {
         position: "relative",
       }}
     >
-      {tiles.map((tile, index) => (
+      {tiles.map((tile) => (
         <Tile
           tileSize={size}
           yPos={tile.ypos}
           xPos={tile.xpos}
           color={tile.color}
-          key={index}
+          key={tile.id}
+          highlighted={tile.id === highlightedPieceId}
         ></Tile>
       ))}
+      {pieces.map((tile) => (
+        <Piece
+          size={size}
+          yPos={tile.ypos}
+          xPos={tile.xpos}
+          piece={tile.piece}
+          key={tile.id}
+          highlighted={tile.id === highlightedPieceId}
+        ></Piece>
+      ))}
+      <TouchTargets
+        size={size}
+        pieces={pieces}
+        setHighlightedPieceId={setHighlightedPieceId}
+      ></TouchTargets>
     </div>
   );
 };
