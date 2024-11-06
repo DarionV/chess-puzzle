@@ -3,8 +3,8 @@ import Piece from "../Piece";
 import BoardContext from "../../context/BoardContext";
 import TouchTargets from "../TouchTargets/TouchTargets";
 import Tile from "../Tile";
-import tileWhite from "../../assets/images/tile-white-3.png";
-import tileBlack from "../../assets/images/tile-black-2.png";
+import tileWhite from "../../assets/images/tile-white-4.png";
+import tileBlack from "../../assets/images/tile-black-3.png";
 import tileRed from "../../assets/images/tile-red.png";
 import PromoteModal from "../PromoteModal/PromoteModal";
 
