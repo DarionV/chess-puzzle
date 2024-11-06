@@ -1,12 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Piece from "../Piece";
 import BoardContext from "../../context/BoardContext";
 import TouchTargets from "../TouchTargets/TouchTargets";
 
 const Pieces = ({ size }) => {
   const { board } = useContext(BoardContext);
+  const [highlightedPieceId, setHighlightedPieceId] = useState(null);
+
   let currentRow = 0;
-  // let id = 1;
   let pieces = [];
   let zIndex = 100;
 
@@ -43,9 +44,14 @@ const Pieces = ({ size }) => {
           piece={tile.piece}
           key={tile.id}
           zIndex={zIndex}
+          highlighted={tile.id === highlightedPieceId}
         ></Piece>
       ))}
-      <TouchTargets size={size} pieces={pieces}></TouchTargets>
+      <TouchTargets
+        size={size}
+        pieces={pieces}
+        setHighlightedPieceId={setHighlightedPieceId}
+      ></TouchTargets>
     </div>
   );
 };

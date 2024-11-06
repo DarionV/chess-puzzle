@@ -2,7 +2,7 @@ import { useContext } from "react";
 import style from "./TouchTarget.module.css";
 import BoardContext from "../../context/BoardContext";
 
-const TouchTarget = ({ size, yPos, xPos, pieces }) => {
+const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   //To center piece in tile properly
   const topOffset = 100;
   const leftOffset = size * 0.2;
@@ -121,6 +121,16 @@ const TouchTarget = ({ size, yPos, xPos, pieces }) => {
         left: `${
           xPos * 0.43 * size + yPos * -0.43 * size - size / 2 + leftOffset
         }px`,
+      }}
+      onMouseEnter={() => {
+        const targetedPiece = pieces.filter(
+          (piece) => piece.xpos === xPos && piece.ypos === yPos
+        );
+        if (targetedPiece[0] === undefined) return;
+        setHighlightedPieceId(targetedPiece[0].id);
+      }}
+      onMouseLeave={() => {
+        setHighlightedPieceId("");
       }}
     ></button>
   );

@@ -6,7 +6,7 @@ import bishopWhite from "../assets/images/bishop-white-2.png";
 import rookWhite from "../assets/images/rook-white-2.png";
 import queenWhite from "../assets/images/queen-white.png";
 
-const Piece = ({ piece, size, yPos, xPos, zIndex }) => {
+const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
   const topOffset = 2.2; //To center piece in tile properly
   const TOP_MARGIN_IN_PX = -size / topOffset + 80;
   const [hoverStyle, setHoverStyle] = useState("nonHover");
@@ -45,8 +45,9 @@ const Piece = ({ piece, size, yPos, xPos, zIndex }) => {
         position: "absolute",
         top: `${xPos * 0.25 * size + yPos * 0.25 * size + TOP_MARGIN_IN_PX}px`,
         left: `${xPos * 0.43 * size + yPos * -0.43 * size - size / 2}px`,
-        transitionProperty: "top, leftall",
-        transitionDuration: "0.4s",
+        transitionProperty: "all",
+        transitionDuration: "0.1s",
+        transform: highlighted ? "translateY(-3px)" : "",
       }}
     ></img>
   );

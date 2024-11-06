@@ -5,10 +5,10 @@
   background-color: unset;
   cursor: pointer;
   transform: scaleY(59%) rotateZ(45deg);
-  mix-blend-mode: overlay;
+  /* mix-blend-mode: overlay; */
   border-radius: 20px;
 }
 
-.touchTarget:hover {
+/* .touchTarget:hover {
   background-color: rgba(55, 65, 16, 0.462);
-}
+} */
