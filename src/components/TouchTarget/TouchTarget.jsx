@@ -88,16 +88,21 @@ const TouchTarget = ({
   };
 
   const makeMove = (piece) => {
+    // Sometimes a tile can have extra info, eg. "R GOAL"
+    // We only want the abbreviation, in this case R.
     let pieceAbbreviation = piece[0];
 
     let newBoard = board.map((row) => [...row]);
     const emptyTilePosition = getEmptyTile();
+
+    //Sometimes the target square can have extra info, eg. "- GOAL".
+    // We want to replace only the dash.
     const newTileString = newBoard[emptyTilePosition[0]][
       emptyTilePosition[1]
     ].replace("-", pieceAbbreviation);
     newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = newTileString;
-    console.log(newTileString);
 
+    // The same thing applies to the old tile.
     const oldTileString = newBoard[yPos][xPos].replace(pieceAbbreviation, "-");
     newBoard[yPos][xPos] = oldTileString;
     setBoard(newBoard);
