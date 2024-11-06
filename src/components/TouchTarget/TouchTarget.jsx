@@ -2,7 +2,14 @@ import { useContext } from "react";
 import style from "./TouchTarget.module.css";
 import BoardContext from "../../context/BoardContext";
 
-const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
+const TouchTarget = ({
+  size,
+  yPos,
+  xPos,
+  pieces,
+  setHighlightedPieceId,
+  setShowPromoteModal,
+}) => {
   //To center piece in tile properly
   const topOffset = 100;
   const leftOffset = size * 0.2;
@@ -86,27 +93,12 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     const emptyTilePosition = getEmptyTile();
     newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = piece;
     newBoard[yPos][xPos] = "-";
-
-    const targetedPiece = pieces.filter(
-      (piece) =>
-        piece.xpos === emptyTilePosition[0] &&
-        piece.ypos === emptyTilePosition[1]
-    );
-    // console.log("targeted Piece: ", targetedPiece[0].id);
-    // const targetID = targetedPiece[0].id;
-    // pieces[targetID].style= {{border: '1px solid red'}};
-
     setBoard(newBoard);
   };
 
   const handleClick = () => {
     const piece = getTile(board, yPos, xPos);
     if (checkValidMove(piece)) makeMove(piece);
-
-    // console.log("--------------");
-    // console.log("xPos:" + xPos + " yPos:" + yPos);
-    // console.log("Piece found:" + piece);
-    // console.log("Is the move valid?: " + checkValidMove(piece));
   };
 
   return (

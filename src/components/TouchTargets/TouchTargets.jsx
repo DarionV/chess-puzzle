@@ -2,7 +2,12 @@ import React, { useContext, useEffect } from "react";
 import TouchTarget from "../TouchTarget/TouchTarget";
 import BoardContext from "../../context/BoardContext";
 
-const TouchTargets = ({ size, pieces, setHighlightedPieceId }) => {
+const TouchTargets = ({
+  size,
+  pieces,
+  setHighlightedPieceId,
+  setShowPromoteModal,
+}) => {
   const { board } = useContext(BoardContext);
   let currentRow = 0;
   let targets = [];
@@ -34,6 +39,7 @@ const TouchTargets = ({ size, pieces, setHighlightedPieceId }) => {
           key={index}
           pieces={pieces}
           setHighlightedPieceId={setHighlightedPieceId}
+          setShowPromoteModal={setShowPromoteModal}
         ></TouchTarget>
       ))}
     </div>

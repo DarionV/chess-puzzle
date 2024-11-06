@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Piece from "../Piece";
 import BoardContext from "../../context/BoardContext";
 import TouchTargets from "../TouchTargets/TouchTargets";
@@ -6,14 +6,28 @@ import Tile from "../Tile";
 import tileWhite from "../../assets/images/tile-white-3.png";
 import tileBlack from "../../assets/images/tile-black-2.png";
 import tileRed from "../../assets/images/tile-red.png";
+import PromoteModal from "../PromoteModal/PromoteModal";
 
 const Board = ({ size }) => {
   const { board } = useContext(BoardContext);
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
+  const [showPromoteModal, setShowPromoteModal] = useState(false);
 
   let pieces = [];
   let tiles = [];
   let color;
+
+  // Check for pawn promotions
+  useEffect(() => {
+    board.forEach((row) => {
+      if (row[0] === "P") togglePromoteModal();
+    });
+  }, [board]);
+
+  function togglePromoteModal() {
+    setShowPromoteModal(!showPromoteModal);
+    console.log("opening modal");
+  }
 
   const getColor = (tile = "") => {
     color === tileBlack ? (color = tileWhite) : (color = tileBlack);
@@ -83,7 +97,11 @@ const Board = ({ size }) => {
         size={size}
         pieces={pieces}
         setHighlightedPieceId={setHighlightedPieceId}
+        setShowPromoteModal={setShowPromoteModal}
       ></TouchTargets>
+      {showPromoteModal ? (
+        <PromoteModal togglePromoteModal={togglePromoteModal} />
+      ) : null}
     </div>
   );
 };
