@@ -2,9 +2,15 @@ import React from "react";
 import style from "./WinModal.module.css";
 import { Link } from "react-router-dom";
 
-const WinModal = ({ nrOfMoves, setIsPuzzleCompleted, puzzleLink = null }) => {
+const WinModal = ({
+  nrOfMoves,
+  setIsPuzzleCompleted,
+  resetPuzzle,
+  puzzleLink = null,
+}) => {
   const handlePlayAgain = () => {
     setIsPuzzleCompleted(false);
+    resetPuzzle();
   };
 
   return (
@@ -13,7 +19,9 @@ const WinModal = ({ nrOfMoves, setIsPuzzleCompleted, puzzleLink = null }) => {
         <h2>Well done!</h2>
         <h3>Completed in {nrOfMoves} moves</h3>
       </div>
-      <button className={style.button}>Play again</button>
+      <button className={style.button} onClick={handlePlayAgain}>
+        Play again
+      </button>
       <Link className={style.button}>Try another puzzle</Link>
       {puzzleLink ? (
         <a href={puzzleLink} target="blank" className={style.button}>

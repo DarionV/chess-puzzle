@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import Piece from "../Piece";
 import BoardContext from "../../context/BoardContext";
 import TouchTargets from "../TouchTargets/TouchTargets";
@@ -10,7 +10,15 @@ import PromoteModal from "../PromoteModal/PromoteModal";
 import WinModal from "../WinModal/WinModal";
 
 const Board = ({ size }) => {
-  const { board } = useContext(BoardContext);
+  const { board, setBoard } = useContext(BoardContext);
+  const initialBoardState = useMemo(() => {
+    let initialBoardState = [];
+    board.map((row) => initialBoardState.push(row));
+    console.log(initialBoardState);
+
+    return initialBoardState;
+  }, []);
+
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
   const [showPromoteModal, setShowPromoteModal] = useState(false);
   const [isPuzzleCompleted, setIsPuzzleCompleted] = useState(false);
@@ -31,7 +39,9 @@ const Board = ({ size }) => {
     });
   }, [board]);
 
-  function resetPuzzle() {}
+  function resetPuzzle() {
+    setBoard(initialBoardState);
+  }
 
   function togglePromoteModal() {
     setShowPromoteModal(!showPromoteModal);
@@ -145,7 +155,11 @@ const Board = ({ size }) => {
         />
       ) : null}
       {isPuzzleCompleted ? (
-        <WinModal setIsPuzzleCompleted={setIsPuzzleCompleted} />
+        <WinModal
+          nrOfMoves={0} //add number of moves here!!
+          setIsPuzzleCompleted={setIsPuzzleCompleted}
+          resetPuzzle={resetPuzzle}
+        />
       ) : null}
     </div>
   );
