@@ -7,11 +7,13 @@ import tileWhite from "../../assets/images/tile-white-4.png";
 import tileBlack from "../../assets/images/tile-black-3.png";
 import tileRed from "../../assets/images/tile-red-2.png";
 import PromoteModal from "../PromoteModal/PromoteModal";
+import WinModal from "../WinModal/WinModal";
 
 const Board = ({ size }) => {
   const { board } = useContext(BoardContext);
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
   const [showPromoteModal, setShowPromoteModal] = useState(false);
+  const [isPuzzleCompleted, setIsPuzzleCompleted] = useState(false);
 
   let pieces = [];
   let tiles = [];
@@ -23,10 +25,13 @@ const Board = ({ size }) => {
       if (row[0].includes("P")) togglePromoteModal();
       row.forEach((tile) => {
         if (!tile) return;
-        if (tile.includes("G") && tile.includes("H")) console.log("You won!");
+        if (tile.includes("G") && tile.includes("H"))
+          setIsPuzzleCompleted(true);
       });
     });
   }, [board]);
+
+  function resetPuzzle() {}
 
   function togglePromoteModal() {
     setShowPromoteModal(!showPromoteModal);
@@ -138,6 +143,9 @@ const Board = ({ size }) => {
           togglePromoteModal={togglePromoteModal}
           promotePawn={promotePawn}
         />
+      ) : null}
+      {isPuzzleCompleted ? (
+        <WinModal setIsPuzzleCompleted={setIsPuzzleCompleted} />
       ) : null}
     </div>
   );
