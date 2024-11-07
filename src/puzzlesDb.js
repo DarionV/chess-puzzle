@@ -10,7 +10,7 @@
 const puzzles = [
   {
     title: "Pawn = Queen",
-    info: "Use the standard chess movements to move the pawn to the red square.",
+    info: "Use the standard chess moves to get the pawn to the red square.",
     board: [
       ["B", "N", "R", "PH"],
       ["B", "N", "R", null],
@@ -19,6 +19,18 @@ const puzzles = [
     ],
     puzzleLink:
       "https://www.etsy.com/se-en/listing/1718348748/pawn-queen-puzzle-get-the-pawn-to-the?click_key=26a4b01629d1eec34fafadaa6f8b364aa3bd4245%3A1718348748&click_sum=795cbe16&ref=related-3&sts=1",
+  },
+  {
+    title: "Rook Puzzle",
+    info: "Use the standard chess moves to get the rook to the red square.",
+    board: [
+      [null, "B", "K", "P", "-G"],
+      [null, "B", "K", "P", null],
+      [null, "B", "K", "P", null],
+      ["RH", "B", "K", "P", null],
+    ],
+    puzzleLink:
+      "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
   },
 ];
 

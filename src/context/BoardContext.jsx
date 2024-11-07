@@ -4,14 +4,45 @@ import puzzles from "../puzzlesDb.js";
 export const BoardContext = createContext();
 
 export const BoardProvider = ({ children }) => {
-  const [board, setBoard] = useState([
-    ["B", "N", "R", "PH"],
-    ["B", "N", "R", null],
-    ["B", "N", "R", null],
-    ["B", "N", "RH", "-G"],
-  ]);
+  const [currentBoardIndex, setCurrentBoardIndex] = useState(0);
+  const [board, setBoard] = useState(puzzles[currentBoardIndex].board);
+
+  const resetBoard = () => {
+    setBoard(currentBoardIndex);
+  };
+
+  const getNextPuzzle = () => {
+    setCurrentBoardIndex(
+      currentBoardIndex + 1 >= puzzles.length ? 0 : currentBoardIndex + 1
+    );
+  };
+
+  const getPreviousPuzzle = () => {
+    setCurrentBoardIndex(
+      currentBoardIndex - 1 < 0 ? puzzles.length - 1 : currentBoardIndex - 1
+    );
+  };
+
+  const getTitle = () => {
+    return puzzles[currentBoardIndex].title;
+  };
+
+  const getInfo = () => {
+    return puzzles[currentBoardIndex].info;
+  };
+
   return (
-    <BoardContext.Provider value={{ board, setBoard }}>
+    <BoardContext.Provider
+      value={{
+        board,
+        setBoard,
+        getNextPuzzle,
+        getPreviousPuzzle,
+        resetBoard,
+        getTitle,
+        getInfo,
+      }}
+    >
       {children}
     </BoardContext.Provider>
   );

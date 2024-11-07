@@ -10,7 +10,6 @@ const Game = () => {
   return (
     <BoardProvider>
       <div className={styles.boardContainer}>
-        <h1>Pawn = Queen</h1>
         <Board size={tileSize} />
       </div>
     </BoardProvider>

@@ -10,11 +10,10 @@ import PromoteModal from "../PromoteModal/PromoteModal";
 import WinModal from "../WinModal/WinModal";
 
 const Board = ({ size }) => {
-  const { board, setBoard } = useContext(BoardContext);
+  const { board, setBoard, getTitle, getInfo } = useContext(BoardContext);
   const initialBoardState = useMemo(() => {
     let initialBoardState = [];
     board.map((row) => initialBoardState.push(row));
-    console.log(initialBoardState);
 
     return initialBoardState;
   }, []);
@@ -122,6 +121,8 @@ const Board = ({ size }) => {
         position: "relative",
       }}
     >
+      <h1>{getTitle()}</h1>
+      <p>{getInfo()}</p>
       {tiles.map((tile) => (
         <Tile
           tileSize={size}
