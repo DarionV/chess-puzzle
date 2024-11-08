@@ -1,7 +1,8 @@
 import React from "react";
 
 const Tile = ({ tileSize, yPos, xPos, color, highlighted }) => {
-  const TOP_MARGIN_IN_PX = 80;
+  const topMargin = 172;
+  const leftMargin = 200;
   return (
     <img
       src={color}
@@ -10,11 +11,12 @@ const Tile = ({ tileSize, yPos, xPos, color, highlighted }) => {
       style={{
         transform: highlighted ? "translateY(-3px)" : "",
         position: "absolute",
-        top: `${
-          xPos * 0.25 * tileSize + yPos * 0.25 * tileSize + TOP_MARGIN_IN_PX
-        }px`,
+        top: `${xPos * 0.25 * tileSize + yPos * 0.25 * tileSize + topMargin}px`,
         left: `${
-          xPos * 0.43 * tileSize + yPos * -0.43 * tileSize - tileSize / 2
+          xPos * 0.43 * tileSize +
+          yPos * -0.43 * tileSize -
+          tileSize / 2 +
+          leftMargin
         }px`,
       }}
     ></img>

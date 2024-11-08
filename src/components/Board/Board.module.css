@@ -1,0 +1,12 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 3rem;
+}

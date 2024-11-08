@@ -9,8 +9,8 @@ import queenRed from "../assets/images/queen-red-2.png";
 
 const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
   const topOffset = 2.2; //To center piece in tile properly
-  const TOP_MARGIN_IN_PX = -size / topOffset + 80;
-  const [hoverStyle, setHoverStyle] = useState("nonHover");
+  const leftMargin = 200;
+  const TOP_MARGIN_IN_PX = -size / topOffset + 180;
 
   let imageSrc = "";
 
@@ -38,7 +38,9 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
       style={{
         position: "absolute",
         top: `${xPos * 0.25 * size + yPos * 0.25 * size + TOP_MARGIN_IN_PX}px`,
-        left: `${xPos * 0.43 * size + yPos * -0.43 * size - size / 2}px`,
+        left: `${
+          xPos * 0.43 * size + yPos * -0.43 * size - size / 2 + leftMargin
+        }px`,
         transitionProperty: "all",
         transitionDuration: "0.1s",
         transform: highlighted ? "translateY(-3px)" : "",

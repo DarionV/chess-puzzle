@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
+import style from "./Board.module.css";
 import Piece from "../Piece";
 import BoardContext from "../../context/BoardContext";
 import TouchTargets from "../TouchTargets/TouchTargets";
@@ -116,11 +117,7 @@ const Board = ({ size }) => {
   });
 
   return (
-    <div
-      style={{
-        position: "relative",
-      }}
-    >
+    <div className={style.container}>
       <h1>{getTitle()}</h1>
       <p>{getInfo()}</p>
       {tiles.map((tile) => (
