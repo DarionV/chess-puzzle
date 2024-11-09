@@ -35,8 +35,8 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
       width={`${size}px`}
       style={{
         position: "absolute",
-        top: `${xPos * 0.25 * size + yPos * 0.25 * size - topOffset}px`,
-        left: `${xPos * 0.43 * size + yPos * -0.43 * size - size / 2}px`,
+        top: `${xPos * 0.215 * size + yPos * 0.215 * size - topOffset}px`,
+        left: `${xPos * 0.365 * size + yPos * -0.365 * size - size / 2.1}px`,
         transitionProperty: "all",
         transitionDuration: "0.1s",
         transform: highlighted ? "translateY(-3px)" : "",

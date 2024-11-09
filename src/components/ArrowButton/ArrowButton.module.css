@@ -12,6 +12,7 @@
   border-bottom-color: transparent;
   z-index: 100;
   cursor: pointer;
+  margin-top: 15%;
 }
 
 .button:hover {

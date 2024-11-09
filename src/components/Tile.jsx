@@ -11,10 +11,10 @@ const Tile = ({ tileSize, yPos, xPos, color, highlighted }) => {
       style={{
         transform: highlighted ? "translateY(-3px)" : "",
         position: "absolute",
-        top: `${xPos * 0.25 * tileSize + yPos * 0.25 * tileSize + topMargin}px`,
+        top: `${xPos * 0.21 * tileSize + yPos * 0.21 * tileSize + topMargin}px`,
         left: `${
-          xPos * 0.43 * tileSize +
-          yPos * -0.43 * tileSize -
+          xPos * 0.36 * tileSize +
+          yPos * -0.36 * tileSize -
           tileSize / 2 +
           leftMargin
         }px`,

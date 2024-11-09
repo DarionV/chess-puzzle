@@ -8,7 +8,7 @@ const useTileSize = () => {
       if (window.innerWidth >= 1300 || window.innerWidth <= 500) {
         return;
       }
-      setTileSize(window.innerWidth / 6);
+      setTileSize(window.innerWidth / 5.5);
     };
 
     handleResize();

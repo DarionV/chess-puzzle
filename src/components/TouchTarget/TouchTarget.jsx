@@ -4,8 +4,8 @@ import BoardContext from "../../context/BoardContext";
 
 const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   //To center piece in tile properly
-  const topOffset = size * 0.12;
-  const leftOffset = size * 0.2;
+  const topOffset = size * 0.19;
+  const leftOffset = size * 0.26;
 
   const { board, setBoard } = useContext(BoardContext);
 
@@ -118,12 +118,12 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
       onClick={handleClick}
       className={style.touchTarget} //remove this later
       style={{
-        width: size * 0.6,
-        height: size * 0.6,
+        width: size * 0.48,
+        height: size * 0.48,
         position: "absolute",
-        top: `${xPos * 0.25 * size + yPos * 0.25 * size + topOffset}px`,
+        top: `${xPos * 0.21 * size + yPos * 0.21 * size + topOffset}px`,
         left: `${
-          xPos * 0.43 * size + yPos * -0.43 * size - size / 2 + leftOffset
+          xPos * 0.36 * size + yPos * -0.36 * size - size / 2 + leftOffset
         }px`,
       }}
       onMouseEnter={() => {
