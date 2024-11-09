@@ -1,8 +1,8 @@
 import React from "react";
 
 const Tile = ({ tileSize, yPos, xPos, color, highlighted }) => {
-  const topMargin = 172;
-  const leftMargin = 200;
+  const topMargin = 0; //172
+  const leftMargin = 0; //200
   return (
     <img
       src={color}

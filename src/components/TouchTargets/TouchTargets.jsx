@@ -26,11 +26,7 @@ const TouchTargets = ({
   });
 
   return (
-    <div
-      style={{
-        position: "relative",
-      }}
-    >
+    <div>
       {targets.map((tile, index) => (
         <TouchTarget
           size={size}

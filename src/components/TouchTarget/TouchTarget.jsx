@@ -2,16 +2,9 @@ import { useContext } from "react";
 import style from "./TouchTarget.module.css";
 import BoardContext from "../../context/BoardContext";
 
-const TouchTarget = ({
-  size,
-  yPos,
-  xPos,
-  pieces,
-  setHighlightedPieceId,
-  setShowPromoteModal,
-}) => {
+const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   //To center piece in tile properly
-  const topOffset = 100;
+  const topOffset = size * 0.12;
   const leftOffset = size * 0.2;
 
   const { board, setBoard } = useContext(BoardContext);

@@ -8,9 +8,7 @@ import queenWhite from "../assets/images/queen-white.png";
 import queenRed from "../assets/images/queen-red-2.png";
 
 const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
-  const topOffset = 2.2; //To center piece in tile properly
-  const leftMargin = 200;
-  const TOP_MARGIN_IN_PX = -size / topOffset + 180;
+  const topOffset = size * 0.43; // To center piece in tile properly. Based on size to scale properly.
 
   let imageSrc = "";
 
@@ -37,10 +35,8 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
       width={`${size}px`}
       style={{
         position: "absolute",
-        top: `${xPos * 0.25 * size + yPos * 0.25 * size + TOP_MARGIN_IN_PX}px`,
-        left: `${
-          xPos * 0.43 * size + yPos * -0.43 * size - size / 2 + leftMargin
-        }px`,
+        top: `${xPos * 0.25 * size + yPos * 0.25 * size - topOffset}px`,
+        left: `${xPos * 0.43 * size + yPos * -0.43 * size - size / 2}px`,
         transitionProperty: "all",
         transitionDuration: "0.1s",
         transform: highlighted ? "translateY(-3px)" : "",

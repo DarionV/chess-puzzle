@@ -9,6 +9,7 @@ import tileBlack from "../../assets/images/tile-black-3.png";
 import tileRed from "../../assets/images/tile-red-2.png";
 import PromoteModal from "../PromoteModal/PromoteModal";
 import WinModal from "../WinModal/WinModal";
+import ArrowButton from "../ArrowButton/ArrowButton";
 
 const Board = ({ size }) => {
   const { board, setBoard, getTitle, getInfo } = useContext(BoardContext);
@@ -120,45 +121,53 @@ const Board = ({ size }) => {
     <div className={style.container}>
       <h1>{getTitle()}</h1>
       <p>{getInfo()}</p>
-      {tiles.map((tile) => (
-        <Tile
-          tileSize={size}
-          yPos={tile.ypos}
-          xPos={tile.xpos}
-          color={tile.color}
-          key={tile.id}
-          highlighted={tile.id === highlightedPieceId}
-        ></Tile>
-      ))}
-      {pieces.map((tile) => (
-        <Piece
-          size={size}
-          yPos={tile.ypos}
-          xPos={tile.xpos}
-          piece={tile.piece}
-          key={tile.id}
-          highlighted={tile.id === highlightedPieceId}
-        ></Piece>
-      ))}
-      <TouchTargets
-        size={size}
-        pieces={pieces}
-        setHighlightedPieceId={setHighlightedPieceId}
-        setShowPromoteModal={setShowPromoteModal}
-      ></TouchTargets>
-      {showPromoteModal ? (
-        <PromoteModal
-          togglePromoteModal={togglePromoteModal}
-          promotePawn={promotePawn}
-        />
-      ) : null}
-      {isPuzzleCompleted ? (
-        <WinModal
-          nrOfMoves={0} //add number of moves here!!
-          setIsPuzzleCompleted={setIsPuzzleCompleted}
-          resetPuzzle={resetPuzzle}
-        />
-      ) : null}
+      <div className={style.gameContainer}>
+        <ArrowButton />
+        <div className={style.boardContainer}>
+          <div className={style.centeringContainer}>
+            {tiles.map((tile) => (
+              <Tile
+                tileSize={size}
+                yPos={tile.ypos}
+                xPos={tile.xpos}
+                color={tile.color}
+                key={tile.id}
+                highlighted={tile.id === highlightedPieceId}
+              ></Tile>
+            ))}
+            {pieces.map((tile) => (
+              <Piece
+                size={size}
+                yPos={tile.ypos}
+                xPos={tile.xpos}
+                piece={tile.piece}
+                key={tile.id}
+                highlighted={tile.id === highlightedPieceId}
+              ></Piece>
+            ))}
+            <TouchTargets
+              size={size}
+              pieces={pieces}
+              setHighlightedPieceId={setHighlightedPieceId}
+              setShowPromoteModal={setShowPromoteModal}
+            ></TouchTargets>
+            {showPromoteModal ? (
+              <PromoteModal
+                togglePromoteModal={togglePromoteModal}
+                promotePawn={promotePawn}
+              />
+            ) : null}
+            {isPuzzleCompleted ? (
+              <WinModal
+                nrOfMoves={0} //add number of moves here!!
+                setIsPuzzleCompleted={setIsPuzzleCompleted}
+                resetPuzzle={resetPuzzle}
+              />
+            ) : null}
+          </div>
+        </div>
+        <ArrowButton />
+      </div>
     </div>
   );
 };

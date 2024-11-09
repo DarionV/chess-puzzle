@@ -3,10 +3,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  border: 1px solid blue;
+  width: 100%;
+  height: calc(100% - 120px);
+  margin: auto;
 }
 
 .container h1 {
   text-align: center;
   font-size: 3rem;
+}
+
+.gameContainer {
+  border: 2px solid green;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0px 100px;
+}
+
+.gameContainer {
+  width: 100%;
+  height: 100%;
+  padding-top: 10vh;
+}
+
+.boardContainer {
+  height: 100%;
+  width: 100%;
+  border: 1px solid orange;
+  display: flex;
+  justify-content: center;
+}
+
+.centeringContainer {
+  position: relative;
+  width: 1px;
+  border: 1px solid black;
 }

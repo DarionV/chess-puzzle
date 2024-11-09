@@ -1,0 +1,19 @@
+.button {
+  background-color: unset;
+  height: 20px;
+  width: 20px;
+  border-top-width: 20px;
+  border-bottom-width: 20px;
+  border-left-width: 30px;
+  border-right-width: 0px;
+  border-left-color: #999999;
+  /* border-right-color: transparent; */
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-left-color: #f24747;
+}

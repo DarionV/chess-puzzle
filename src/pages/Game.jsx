@@ -9,9 +9,9 @@ const Game = () => {
 
   return (
     <BoardProvider>
-      <div className={styles.boardContainer}>
-        <Board size={tileSize} />
-      </div>
+      {/* <div className={styles.boardContainer}> */}
+      <Board size={tileSize} />
+      {/* </div> */}
     </BoardProvider>
   );
 };
