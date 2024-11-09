@@ -12,15 +12,17 @@ export const BoardProvider = ({ children }) => {
   };
 
   const getNextPuzzle = () => {
-    setCurrentBoardIndex(
-      currentBoardIndex + 1 >= puzzles.length ? 0 : currentBoardIndex + 1
-    );
+    const newIndex =
+      currentBoardIndex + 1 >= puzzles.length ? 0 : currentBoardIndex + 1;
+    setCurrentBoardIndex(newIndex);
+    setBoard(puzzles[newIndex].board);
   };
 
   const getPreviousPuzzle = () => {
-    setCurrentBoardIndex(
-      currentBoardIndex - 1 < 0 ? puzzles.length - 1 : currentBoardIndex - 1
-    );
+    const newIndex =
+      currentBoardIndex - 1 < 0 ? puzzles.length - 1 : currentBoardIndex - 1;
+    setCurrentBoardIndex(newIndex);
+    setBoard(puzzles[newIndex].board);
   };
 
   const getTitle = () => {

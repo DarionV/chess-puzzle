@@ -12,7 +12,14 @@ import WinModal from "../WinModal/WinModal";
 import ArrowButton from "../ArrowButton/ArrowButton";
 
 const Board = ({ size }) => {
-  const { board, setBoard, getTitle, getInfo } = useContext(BoardContext);
+  const {
+    board,
+    setBoard,
+    getTitle,
+    getInfo,
+    getNextPuzzle,
+    getPreviousPuzzle,
+  } = useContext(BoardContext);
   const initialBoardState = useMemo(() => {
     let initialBoardState = [];
     board.map((row) => initialBoardState.push(row));
@@ -31,6 +38,7 @@ const Board = ({ size }) => {
   // Check for pawn promotions, and for winning moves.
   useEffect(() => {
     board.forEach((row) => {
+      if (!row[0]) return;
       if (row[0].includes("P")) togglePromoteModal();
       row.forEach((tile) => {
         if (!tile) return;
@@ -51,6 +59,7 @@ const Board = ({ size }) => {
   function promotePawn(piece) {
     let rowIndex; //Row that the pawn is located at
     board.forEach((row, index) => {
+      if (!row[0]) return;
       if (row[0].includes("P")) {
         rowIndex = index;
       }
@@ -122,7 +131,7 @@ const Board = ({ size }) => {
       <h1>{getTitle()}</h1>
       <p>{getInfo()}</p>
       <div className={style.gameContainer}>
-        <ArrowButton />
+        <ArrowButton handleClick={getPreviousPuzzle} direction="left" />
         <div className={style.boardContainer}>
           <div className={style.centeringContainer}>
             {tiles.map((tile) => (
@@ -166,7 +175,7 @@ const Board = ({ size }) => {
             ) : null}
           </div>
         </div>
-        <ArrowButton />
+        <ArrowButton handleClick={getNextPuzzle} />
       </div>
     </div>
   );
