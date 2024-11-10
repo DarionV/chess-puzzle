@@ -22,16 +22,14 @@
   transition-duration: 1s; */
 }
 
-.footer:hover {
-  color: #d43030;
-}
-
 .footer.light {
   color: rgb(54, 54, 54);
 }
 
 .footer.light a {
   color: rgb(54, 54, 54);
+  transition-property: all;
+  transition-duration: 0.5s;
 }
 
 .footer.light a:hover {

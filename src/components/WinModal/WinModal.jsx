@@ -14,8 +14,8 @@ const WinModal = ({ setIsPuzzleCompleted, resetPuzzle, puzzleLink = null }) => {
   return (
     <div className={style.container}>
       <div className={style.banner}>
-        <h2>Well done!</h2>
-        <h3>Completed in {moveCount} moves</h3>
+        <h2>Well done</h2>
+        <h3>Solved in {moveCount} moves</h3>
       </div>
       <button className={style.button} onClick={handlePlayAgain}>
         Play again

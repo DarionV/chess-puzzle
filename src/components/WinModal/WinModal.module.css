@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  z-index: 500;
 }
 
 .banner {
@@ -24,11 +25,19 @@
   animation: slideIn 0.8s ease-out forwards;
   opacity: 0%;
   animation-delay: 0.2s;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
 }
 
 .banner h2 {
-  color: #47ad40;
+  color: #8b7d45;
   font-size: 5rem;
+  letter-spacing: 20px;
+  font-weight: 100;
 }
 
 .banner h3 {
@@ -50,6 +59,12 @@
   animation: fadeIn 0.8s ease-out forwards;
   animation-delay: 1s;
   opacity: 0%;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  transition-property: all;
+  transition-duration: 0.5s;
 }
 
 .button:hover {
