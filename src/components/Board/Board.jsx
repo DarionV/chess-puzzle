@@ -10,6 +10,7 @@ import tileRed from "../../assets/images/tile-red.png";
 import PromoteModal from "../PromoteModal/PromoteModal";
 import WinModal from "../WinModal/WinModal";
 import ArrowButton from "../ArrowButton/ArrowButton";
+import { useMoveCount } from "../../context/MoveCountContext";
 
 const Board = ({ size }) => {
   const {
@@ -31,6 +32,8 @@ const Board = ({ size }) => {
   const [showPromoteModal, setShowPromoteModal] = useState(false);
   const [isPuzzleCompleted, setIsPuzzleCompleted] = useState(false);
 
+  const { moveCount, setMoveCount } = useMoveCount();
+
   let pieces = [];
   let tiles = [];
   let color;
@@ -50,6 +53,7 @@ const Board = ({ size }) => {
 
   function resetPuzzle() {
     setBoard(initialBoardState);
+    setMoveCount(0);
   }
 
   function togglePromoteModal() {
@@ -168,7 +172,6 @@ const Board = ({ size }) => {
             ) : null}
             {isPuzzleCompleted ? (
               <WinModal
-                nrOfMoves={0} //add number of moves here!!
                 setIsPuzzleCompleted={setIsPuzzleCompleted}
                 resetPuzzle={resetPuzzle}
               />

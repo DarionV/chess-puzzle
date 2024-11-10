@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import style from "./TouchTarget.module.css";
 import BoardContext from "../../context/BoardContext";
+import { useMoveCount } from "../../context/MoveCountContext";
 
 const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   //To center piece in tile properly
@@ -8,6 +9,7 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   const leftOffset = size * 0.26;
 
   const { board, setBoard } = useContext(BoardContext);
+  const { moveCount, setMoveCount } = useMoveCount();
 
   const getTile = (board, yPos, xPos) => {
     if (
@@ -81,8 +83,6 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   };
 
   const makeMove = (piece) => {
-    console.log(board);
-
     // Check if hero piece
     let isHero = piece.includes("H");
 
@@ -108,6 +108,8 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     if (isHero) oldTileString = oldTileString.replace("H", "");
     newBoard[yPos][xPos] = oldTileString;
     setBoard(newBoard);
+
+    setMoveCount(moveCount + 1);
   };
 
   const handleClick = () => {

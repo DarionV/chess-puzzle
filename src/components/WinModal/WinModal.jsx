@@ -1,23 +1,21 @@
 import React from "react";
 import style from "./WinModal.module.css";
 import { Link } from "react-router-dom";
+import { useMoveCount } from "../../context/MoveCountContext";
 
-const WinModal = ({
-  nrOfMoves,
-  setIsPuzzleCompleted,
-  resetPuzzle,
-  puzzleLink = null,
-}) => {
+const WinModal = ({ setIsPuzzleCompleted, resetPuzzle, puzzleLink = null }) => {
   const handlePlayAgain = () => {
     setIsPuzzleCompleted(false);
     resetPuzzle();
   };
 
+  const { moveCount } = useMoveCount();
+
   return (
     <div className={style.container}>
       <div className={style.banner}>
         <h2>Well done!</h2>
-        <h3>Completed in {nrOfMoves} moves</h3>
+        <h3>Completed in {moveCount} moves</h3>
       </div>
       <button className={style.button} onClick={handlePlayAgain}>
         Play again
