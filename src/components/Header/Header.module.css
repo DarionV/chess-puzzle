@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 16px;
   position: fixed;
@@ -9,6 +9,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 0.9rem;
+  z-index: 200;
 }
 
 .navigation {
@@ -20,4 +21,12 @@
   text-decoration: none;
   width: 130px;
   text-align: center;
+  color: black;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+
+.navigation a:hover {
+  color: #d43030;
 }

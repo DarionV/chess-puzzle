@@ -22,12 +22,14 @@
   letter-spacing: 20px;
   font-style: normal;
   text-transform: uppercase;
+  opacity: 0%;
+  animation: fadeIn 2s ease-out forwards;
 }
 
 .container p {
   text-align: center;
   font-size: 0.9rem;
-
+  animation: fadeIn 2s ease-out forwards;
   margin-bottom: 20px;
 }
 
@@ -61,4 +63,13 @@
   position: relative;
   width: 1px;
   /* border: 1px solid black; */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }
