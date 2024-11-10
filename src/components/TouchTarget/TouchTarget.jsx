@@ -81,6 +81,8 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   };
 
   const makeMove = (piece) => {
+    console.log(board);
+
     // Check if hero piece
     let isHero = piece.includes("H");
 

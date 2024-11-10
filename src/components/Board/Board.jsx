@@ -38,8 +38,8 @@ const Board = ({ size }) => {
   // Check for pawn promotions, and for winning moves.
   useEffect(() => {
     board.forEach((row) => {
-      if (!row[0]) return;
-      if (row[0].includes("P")) togglePromoteModal();
+      if (row[0] && row[0].includes("P")) togglePromoteModal();
+
       row.forEach((tile) => {
         if (!tile) return;
         if (tile.includes("G") && tile.includes("H"))
