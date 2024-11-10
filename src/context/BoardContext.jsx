@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import puzzles from "../puzzlesDb.js";
 import { Navigate, replace } from "react-router";
+import { useMoveCount } from "./MoveCountContext.jsx";
 
 export const BoardContext = createContext();
 
@@ -8,6 +9,7 @@ export const BoardProvider = ({ children, puzzleUrl }) => {
   const [currentBoardIndex, setCurrentBoardIndex] = useState(0);
   const [board, setBoard] = useState(puzzles[currentBoardIndex].board);
   const [redirectUrl, setRedirectUrl] = useState(null);
+  const { setMoveCount } = useMoveCount();
 
   useEffect(() => {
     const selectedPuzzle = puzzles.find((puzzle) => puzzle.url === puzzleUrl);
@@ -26,6 +28,7 @@ export const BoardProvider = ({ children, puzzleUrl }) => {
     setCurrentBoardIndex(newIndex);
     setBoard(puzzles[newIndex].board);
     setRedirectUrl(puzzles[newIndex].url);
+    setMoveCount(0);
   };
 
   const getPreviousPuzzle = () => {
@@ -34,6 +37,7 @@ export const BoardProvider = ({ children, puzzleUrl }) => {
     setCurrentBoardIndex(newIndex);
     setBoard(puzzles[newIndex].board);
     setRedirectUrl(puzzles[newIndex].url);
+    setMoveCount(0);
   };
 
   const getTitle = () => puzzles[currentBoardIndex].title;

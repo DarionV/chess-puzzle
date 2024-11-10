@@ -11,11 +11,11 @@ const Game = () => {
   const { puzzleId } = useParams();
 
   return (
-    <BoardProvider puzzleUrl={puzzleId}>
-      <MoveCountProvider>
+    <MoveCountProvider>
+      <BoardProvider puzzleUrl={puzzleId}>
         <Board size={tileSize} />
-      </MoveCountProvider>
-    </BoardProvider>
+      </BoardProvider>
+    </MoveCountProvider>
   );
 };
 
