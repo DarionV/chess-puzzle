@@ -12,7 +12,7 @@ const puzzles = [
     title: "Pawn = Queen",
     info: "Use the standard chess moves to get the pawn to the red square.",
     board: [
-      ["B", "N", "R", "PH"],
+      ["B", "N", "R", "QH"],
       ["B", "N", "R", null],
       ["B", "N", "R", null],
       ["B", "N", "R", "-G"],

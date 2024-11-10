@@ -7,23 +7,35 @@
   padding: 16px;
   margin-top: auto;
   width: 100%;
-  transition-property: all;
-  transition-duration: 1s;
+  /* transition-property: all;
+  transition-duration: 1s; */
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9rem;
 }
 
 .footer a {
   text-decoration: none;
   padding-left: 5px;
-  transition-property: all;
-  transition-duration: 1s;
+  /* transition-property: all;
+  transition-duration: 1s; */
+}
+
+.footer:hover {
+  color: #d43030;
 }
 
 .footer.light {
-  color: black;
+  color: rgb(54, 54, 54);
 }
 
 .footer.light a {
-  color: black;
+  color: rgb(54, 54, 54);
+}
+
+.footer.light a:hover {
+  color: #d43030;
 }
 
 .footer.dark {
