@@ -27,10 +27,10 @@ main {
 
 main.light {
   background-color: rgb(244, 244, 244);
-  background: url("/paper-texture.webp");
+  /* background: url("/paper-texture.webp");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 main.dark {
