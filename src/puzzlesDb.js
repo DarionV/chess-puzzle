@@ -12,7 +12,7 @@ const puzzles = [
     title: "Pawn = Queen",
     info: "Use the standard chess moves to get the pawn to the red square.",
     board: [
-      ["B", "N", "R", "PD"],
+      ["B", "N", "R", "PH"],
       ["B", "N", "R", null],
       ["B", "N", "R", null],
       ["B", "N", "R", "-G"],
@@ -39,13 +39,17 @@ const puzzles = [
     info: "Use the standard chess moves to exchange the kings. No capturing allowed.",
     board: [
       [null, null, null, null, null],
-      ["N", "R", null, "P", "N"],
-      [null, "KD1G2", "-", "K2G1", null],
-      ["B", "N", null, "N", "B"],
+      ["ND", "RD", null, "R", "N"],
+      [null, "K4G1", "-", "K3DG2", null],
+      ["BD", "ND", null, "N", "B"],
     ],
     puzzleLink:
       "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
     url: "exchange-the-kings",
+    goals: [
+      [2, 1],
+      [2, 3],
+    ],
   },
 ];
 

@@ -86,8 +86,17 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     // Check if hero piece
     let isHero = piece.includes("H");
 
-    //Ceck id dark piece
+    //Check if dark piece
     let isDark = piece.includes("D");
+
+    //Check if special ID - used if 2 goals available
+    // IDs are always placed right after the piece abbrevation, hence piece[0] + id.
+    // Ids are either 3 or 4, to not clash with the goals Ids which are 1 and 2.
+    // Goal 1 corresponds to 3, and goal 2 to 4. (for checking winning positions)
+    let hasId =
+      piece.includes(piece[0] + "3") || piece.includes(piece[0] + "4");
+    let id = "";
+    if (hasId) id = piece.includes(piece[0] + "3") ? 3 : 4;
 
     // Sometimes a tile can have extra info, eg. "RG"
     // We only want the abbreviation, in this case R.
@@ -101,7 +110,7 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     // If Hero piece, make sure to keep the "H"
     const newTileString = newBoard[emptyTilePosition[0]][
       emptyTilePosition[1]
-    ].replace("-", pieceAbbreviation);
+    ].replace("-", pieceAbbreviation + id);
     newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = isHero
       ? newTileString + "H"
       : isDark
@@ -112,10 +121,13 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     let oldTileString = newBoard[yPos][xPos].replace(pieceAbbreviation, "-");
     if (isHero) oldTileString = oldTileString.replace("H", "");
     if (isDark) oldTileString = oldTileString.replace("D", "");
+    if (hasId) oldTileString = oldTileString.replace(id, "");
     newBoard[yPos][xPos] = oldTileString;
     setBoard(newBoard);
 
     setMoveCount(moveCount + 1);
+
+    // console.log(board);
   };
 
   const handleClick = () => {

@@ -20,6 +20,7 @@ const Board = ({ size }) => {
     getInfo,
     getNextPuzzle,
     getPreviousPuzzle,
+    getGoals,
   } = useContext(BoardContext);
   const initialBoardState = useMemo(() => {
     let initialBoardState = [];
@@ -42,12 +43,27 @@ const Board = ({ size }) => {
   useEffect(() => {
     board.forEach((row) => {
       if (row[0] && row[0].includes("P")) togglePromoteModal();
+    });
 
-      row.forEach((tile) => {
-        if (!tile) return;
-        if (tile.includes("G") && tile.includes("H"))
-          setIsPuzzleCompleted(true);
-      });
+    // Check if multiple goal tiles available in current puzzle
+    if (getGoals()) {
+      let goals = getGoals();
+
+      let goal1 = goals[0];
+      let goal2 = goals[1];
+      console.log(board[goal1[0]][goal1[1]]);
+      console.log(board[goal2[0]][goal2[1]]);
+      if (
+        board[goal1[0]][goal1[1]].includes("3") &&
+        board[goal2[0]][goal2[1]].includes("4")
+      ) {
+        setIsPuzzleCompleted(true);
+      }
+    }
+
+    board.forEach((tile) => {
+      if (!tile) return;
+      if (tile.includes("G") && tile.includes("H")) setIsPuzzleCompleted(true);
     });
   }, [board]);
 
