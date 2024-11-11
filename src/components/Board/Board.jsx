@@ -60,11 +60,15 @@ const Board = ({ size }) => {
         setIsPuzzleCompleted(true);
       }
     }
-
-    board.forEach((tile) => {
-      if (!tile) return;
-      if (tile.includes("G") && tile.includes("H")) setIsPuzzleCompleted(true);
-    });
+    if (!getGoals()) {
+      board.forEach((row) => {
+        row.forEach((tile) => {
+          if (!tile) return;
+          if (tile.includes("G") && tile.includes("H"))
+            setIsPuzzleCompleted(true);
+        });
+      });
+    }
   }, [board]);
 
   function resetPuzzle() {
