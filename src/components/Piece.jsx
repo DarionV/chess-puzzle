@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import pawnWhite from "../assets/images/pawn-white.png";
+import pawnBlack from "../assets/images/pawn-black.png";
 import pawnRed from "../assets/images/pawn-red.png";
 import knightWhite from "../assets/images/knight-white.png";
 import knightRed from "../assets/images/knight-red.png";
@@ -11,6 +12,7 @@ import rookRed from "../assets/images/rook-red.png";
 import queenWhite from "../assets/images/queen-white.png";
 import queenRed from "../assets/images/queen-red.png";
 import kingWhite from "../assets/images/king-white.png";
+import kingBlack from "../assets/images/king-black.png";
 import kingRed from "../assets/images/king-red.png";
 
 const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
@@ -19,7 +21,11 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
   let imageSrc = "";
 
   if (piece.includes("P")) {
-    imageSrc = piece.includes("H") ? pawnRed : pawnWhite;
+    imageSrc = piece.includes("H")
+      ? pawnRed
+      : piece.includes("D")
+      ? pawnBlack
+      : pawnWhite;
   } else if (piece.includes("N")) {
     imageSrc = piece.includes("H") ? knightRed : knightWhite;
   } else if (piece.includes("B")) {
@@ -29,7 +35,11 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
   } else if (piece.includes("Q")) {
     imageSrc = piece.includes("H") ? queenRed : queenWhite;
   } else if (piece.includes("K")) {
-    imageSrc = piece.includes("H") ? kingRed : kingWhite;
+    imageSrc = piece.includes("H")
+      ? kingRed
+      : piece.includes("D")
+      ? kingBlack
+      : kingWhite;
   } else {
     console.log("Could not find the piece " + piece);
   }

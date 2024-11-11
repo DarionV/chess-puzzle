@@ -59,7 +59,7 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
         getTile(board, yPos + 1, xPos - 2).includes("-") ||
         getTile(board, yPos + 1, xPos + 2).includes("-")
       );
-    } else if (piece.includes("R")) {
+    } else if (piece.includes("R") || piece.includes("K")) {
       return (
         getTile(board, yPos - 1, xPos).includes("-") ||
         getTile(board, yPos + 1, xPos).includes("-") ||
@@ -86,26 +86,32 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     // Check if hero piece
     let isHero = piece.includes("H");
 
-    // Sometimes a tile can have extra info, eg. "R GOAL"
+    //Ceck id dark piece
+    let isDark = piece.includes("D");
+
+    // Sometimes a tile can have extra info, eg. "RG"
     // We only want the abbreviation, in this case R.
     let pieceAbbreviation = piece[0];
 
     let newBoard = board.map((row) => [...row]);
     const emptyTilePosition = getEmptyTile();
 
-    //Sometimes the target square can have extra info, eg. "- GOAL".
-    // We want to replace only "-", and not "GOAL".
+    //Sometimes the target square can have extra info, eg. "-G".
+    // We want to replace only "-", and not "G".
     // If Hero piece, make sure to keep the "H"
     const newTileString = newBoard[emptyTilePosition[0]][
       emptyTilePosition[1]
     ].replace("-", pieceAbbreviation);
     newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = isHero
       ? newTileString + "H"
+      : isDark
+      ? newTileString + "D"
       : newTileString;
 
     // The same thing applies to the old tile.
     let oldTileString = newBoard[yPos][xPos].replace(pieceAbbreviation, "-");
     if (isHero) oldTileString = oldTileString.replace("H", "");
+    if (isDark) oldTileString = oldTileString.replace("D", "");
     newBoard[yPos][xPos] = oldTileString;
     setBoard(newBoard);
 
