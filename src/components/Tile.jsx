@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import BoardContext from "../context/BoardContext";
 
 const Tile = ({ tileSize, yPos, xPos, color, highlighted }) => {
-  const topMargin = 0; //172
-  const leftMargin = 0; //200
+  const { board } = useContext(BoardContext);
+  let leftOffset;
+
+  leftOffset = (board[0].length - board.length) * (tileSize / 6);
+
   return (
     <img
       src={color}
@@ -11,12 +15,12 @@ const Tile = ({ tileSize, yPos, xPos, color, highlighted }) => {
       style={{
         transform: highlighted ? "translateY(-3px)" : "",
         position: "absolute",
-        top: `${xPos * 0.21 * tileSize + yPos * 0.21 * tileSize + topMargin}px`,
+        top: `${xPos * 0.21 * tileSize + yPos * 0.21 * tileSize}px`,
         left: `${
           xPos * 0.36 * tileSize +
           yPos * -0.36 * tileSize -
-          tileSize / 2 +
-          leftMargin
+          tileSize / 2 -
+          leftOffset
         }px`,
       }}
     ></img>

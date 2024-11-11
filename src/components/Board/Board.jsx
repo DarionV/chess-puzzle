@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import style from "./Board.module.css";
-import Piece from "../Piece";
+import Piece from "../Piece/Piece.jsx";
 import BoardContext from "../../context/BoardContext";
 import TouchTargets from "../TouchTargets/TouchTargets";
 import Tile from "../Tile";
