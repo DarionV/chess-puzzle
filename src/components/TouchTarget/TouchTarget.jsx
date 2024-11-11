@@ -4,12 +4,13 @@ import BoardContext from "../../context/BoardContext";
 import { useMoveCount } from "../../context/MoveCountContext";
 
 const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
-  //To center piece in tile properly
-  const topOffset = size * 0.19;
-  const leftOffset = size * 0.26;
-
   const { board, setBoard } = useContext(BoardContext);
   const { moveCount, setMoveCount } = useMoveCount();
+
+  //To center piece in tile properly
+  const topOffset = size * 0.19;
+  const leftOffset =
+    size * 0.26 - (board[0].length - board.length) * (size / 6);
 
   const getTile = (board, yPos, xPos) => {
     if (
