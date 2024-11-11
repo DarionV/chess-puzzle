@@ -12,10 +12,10 @@ const puzzles = [
     title: "Pawn = Queen",
     info: "Use the standard chess moves to get the pawn to the red square.",
     board: [
-      ["B", "N", "R", "P"],
+      ["B", "N", "R", "PD"],
       ["B", "N", "R", null],
       ["B", "N", "R", null],
-      ["B", "N", "RH", "-G"],
+      ["B", "N", "R", "-G"],
     ],
     puzzleLink:
       "https://www.etsy.com/se-en/listing/1718348748/pawn-queen-puzzle-get-the-pawn-to-the?click_key=26a4b01629d1eec34fafadaa6f8b364aa3bd4245%3A1718348748&click_sum=795cbe16&ref=related-3&sts=1",
@@ -33,6 +33,19 @@ const puzzles = [
     puzzleLink:
       "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
     url: "rook-puzzle",
+  },
+  {
+    title: "Exchange the Kings",
+    info: "Use the standard chess moves to exchange the kings. No capturing allowed.",
+    board: [
+      [null, null, null, null, null],
+      ["N", "R", null, "P", "N"],
+      [null, "KD1G2", "-", "K2G1", null],
+      ["B", "N", null, "N", "B"],
+    ],
+    puzzleLink:
+      "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
+    url: "exchange-the-kings",
   },
 ];
 
