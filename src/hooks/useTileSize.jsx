@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 
 const useTileSize = () => {
   const [tileSize, setTileSize] = useState(200);
+  const MAX_SIZE = 220;
+
+  const handleResize = () => {
+    const newSize = window.innerWidth / 5.5;
+    setTileSize((prevSize) => (newSize > MAX_SIZE ? MAX_SIZE : newSize));
+  };
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1300 || window.innerWidth <= 500) {
-        return;
-      }
-      setTileSize(window.innerWidth / 5.5);
-    };
-
     handleResize();
 
     window.addEventListener("resize", handleResize);
