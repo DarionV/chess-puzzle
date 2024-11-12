@@ -46,8 +46,8 @@ const puzzles = [
       "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
     url: "exchange-the-kings-puzzle",
     goals: [
-      [2, 1],
-      [2, 3],
+      [1, 1],
+      [1, 3],
     ],
   },
   {
