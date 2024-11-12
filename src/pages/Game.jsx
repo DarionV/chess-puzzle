@@ -8,7 +8,6 @@ import MoveCountProvider from "../context/MoveCountContext";
 
 const Game = () => {
   const tileSize = useTileSize();
-
   const { puzzleId } = useParams();
 
   return (
