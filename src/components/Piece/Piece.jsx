@@ -81,7 +81,7 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
         left: `${
           xPos * 0.365 * size + yPos * -0.365 * size - size / 2.1 - leftOffset
         }px`,
-        transitionProperty: "all",
+        transitionProperty: "transform",
         transitionDuration: "0.1s",
         transform: highlighted ? "translateY(-3px)" : "",
         filter: highlighted ? "brightness(105%)" : "",
