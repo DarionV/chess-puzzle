@@ -84,19 +84,20 @@ const Board = ({ size }) => {
       }
     });
     let newBoard = [...board];
+    let piecePosition = newBoard[rowIndex][0];
 
     switch (piece) {
       case "R":
-        newBoard[rowIndex][0] = "RH";
+        newBoard[rowIndex][0] = piecePosition.replace("P", "R");
         break;
       case "N":
-        newBoard[rowIndex][0] = "NH";
+        newBoard[rowIndex][0] = piecePosition.replace("P", "N");
         break;
       case "B":
-        newBoard[rowIndex][0] = "BH";
+        newBoard[rowIndex][0] = piecePosition.replace("P", "B");
         break;
       case "Q":
-        newBoard[rowIndex][0] = "QH";
+        newBoard[rowIndex][0] = piecePosition.replace("P", "Q");
         break;
 
       default:
