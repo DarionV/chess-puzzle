@@ -5,11 +5,16 @@ import { useMoveCount } from "../../context/MoveCountContext";
 import BoardContext from "../../context/BoardContext";
 
 const WinModal = ({ setIsPuzzleCompleted, puzzleLink = null }) => {
-  const { resetBoard } = useContext(BoardContext);
+  const { resetBoard, getNextPuzzle } = useContext(BoardContext);
 
   const handlePlayAgain = () => {
     setIsPuzzleCompleted(false);
     resetBoard();
+  };
+
+  const handleTryAnotherPuzzle = () => {
+    getNextPuzzle();
+    setIsPuzzleCompleted(false);
   };
 
   const { moveCount } = useMoveCount();
@@ -23,7 +28,9 @@ const WinModal = ({ setIsPuzzleCompleted, puzzleLink = null }) => {
       <button className={style.button} onClick={handlePlayAgain}>
         Play again
       </button>
-      <Link className={style.button}>Try another puzzle</Link>
+      <button className={style.button} onClick={handleTryAnotherPuzzle}>
+        Try another puzzle
+      </button>
       {puzzleLink ? (
         <a href={puzzleLink} target="blank" className={style.button}>
           Buy this puzzle
