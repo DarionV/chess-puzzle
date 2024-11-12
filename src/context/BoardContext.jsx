@@ -19,7 +19,8 @@ export const BoardProvider = ({ children, puzzleUrl }) => {
   }, [puzzleUrl]);
 
   const resetBoard = () => {
-    setBoard(currentBoardIndex);
+    setBoard(puzzles[currentBoardIndex].board);
+    setMoveCount(0);
   };
 
   const getNextPuzzle = () => {

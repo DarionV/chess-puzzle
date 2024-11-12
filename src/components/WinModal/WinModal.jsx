@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./WinModal.module.css";
 import { Link } from "react-router-dom";
 import { useMoveCount } from "../../context/MoveCountContext";
+import BoardContext from "../../context/BoardContext";
 
-const WinModal = ({ setIsPuzzleCompleted, resetPuzzle, puzzleLink = null }) => {
+const WinModal = ({ setIsPuzzleCompleted, puzzleLink = null }) => {
+  const { resetBoard } = useContext(BoardContext);
+
   const handlePlayAgain = () => {
     setIsPuzzleCompleted(false);
-    resetPuzzle();
+    resetBoard();
   };
 
   const { moveCount } = useMoveCount();
