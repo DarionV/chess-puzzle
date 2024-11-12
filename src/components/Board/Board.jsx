@@ -71,11 +71,6 @@ const Board = ({ size }) => {
     }
   }, [board]);
 
-  function resetPuzzle() {
-    setBoard(initialBoardState);
-    setMoveCount(0);
-  }
-
   function togglePromoteModal() {
     setShowPromoteModal(!showPromoteModal);
   }
@@ -191,10 +186,7 @@ const Board = ({ size }) => {
               />
             ) : null}
             {isPuzzleCompleted ? (
-              <WinModal
-                setIsPuzzleCompleted={setIsPuzzleCompleted}
-                resetPuzzle={resetPuzzle}
-              />
+              <WinModal setIsPuzzleCompleted={setIsPuzzleCompleted} />
             ) : null}
           </div>
         </div>
