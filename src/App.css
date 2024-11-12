@@ -23,16 +23,11 @@ main {
   align-items: center;
   transition-property: all;
   transition-duration: 0.5s;
-}
 
-main.light {
-  background-color: rgb(244, 244, 244);
-  /* background: url("/paper-texture.webp");
+  /* background-color: rgb(115, 14, 14); */
+  background: linear-gradient(#fbfbfa, #cbc9c1);
+  /* background: url("/paper-texture.webp"); */
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; */
-}
-
-main.dark {
-  background-color: rgb(45, 45, 45);
+  background-repeat: no-repeat;
 }

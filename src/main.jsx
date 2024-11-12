@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import Game from "./pages/Game";
 import App from "./App";
-import { ThemeContextProvider } from "./context/ThemeContext";
 
 const router = createBrowserRouter([
   {
@@ -29,8 +28,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeContextProvider>
-      <RouterProvider router={router} />
-    </ThemeContextProvider>
+    <RouterProvider router={router} />
   </StrictMode>
 );

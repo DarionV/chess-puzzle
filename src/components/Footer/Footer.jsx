@@ -1,20 +1,16 @@
 import React from "react";
 import style from "./Footer.module.css";
-import { useTheme } from "../../context/ThemeContext";
 
 const Footer = () => {
-  const theme = useTheme();
-  const themeStyling = theme === "light" ? "light" : "dark";
-
   return (
-    <footer className={`${style.footer} ${style[themeStyling]}`}>
-      Original puzzle by{" "}
+    <footer className={style.footer}>
+      Original puzzles by{" "}
       <a href="#" target="blank">
         Sherzod Khaydarbekov
       </a>
-      . Created by{" "}
+      . Developed by{" "}
       <a href="#" target="blank">
-        Darion Valdez
+        DarionV
       </a>
       .
     </footer>

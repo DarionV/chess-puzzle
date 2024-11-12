@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: 100%;
   height: 100%;
   margin: auto;
@@ -24,6 +24,7 @@
   text-transform: uppercase;
   opacity: 0%;
   animation: fadeIn 2s ease-out forwards;
+  user-select: none;
 }
 
 .container p {
@@ -31,6 +32,7 @@
   font-size: 0.9rem;
   animation: fadeIn 2s ease-out forwards;
   margin-bottom: 20px;
+  user-select: none;
 }
 
 .gameContainer {

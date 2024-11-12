@@ -7,8 +7,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <button>Mute</button>
-      <button onClick={resetBoard}>Reset puzzle</button>
+      <button onClick={resetBoard}>RESET PUZZLE</button>
       <a href={getBuyLink()} target="blank">
         BUY THIS PUZZLE
       </a>

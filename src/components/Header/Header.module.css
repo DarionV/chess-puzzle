@@ -10,14 +10,15 @@
   font-style: normal;
   font-size: 0.9rem;
   z-index: 200;
+  justify-content: space-between;
 }
 
-.navigation {
+/* .navigation {
   display: flex;
   gap: 16px;
-}
+} */
 
-.navigation a {
+.header a {
   text-decoration: none;
   width: 130px;
   text-align: center;
@@ -27,6 +28,15 @@
   transition-duration: 0.5s;
 }
 
-.navigation a:hover {
+.header button {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+
+.header a:hover,
+.header button:hover {
   color: #d43030;
 }
