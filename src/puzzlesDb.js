@@ -23,7 +23,7 @@ const puzzles = [
   },
   {
     title: "The Rook",
-    info: "Use the standard chess movevemnts to get the red rook to the red square",
+    info: "Use the standard chess movements to get the red rook to the red square",
     board: [
       [null, "B", "N", "P", "-G"],
       [null, "B", "N", "P", null],
