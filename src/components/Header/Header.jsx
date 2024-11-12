@@ -7,10 +7,13 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <button onClick={resetBoard}>RESET PUZZLE</button>
       <a href={getBuyLink()} target="blank">
         BUY THIS PUZZLE
       </a>
+      <div className={styles.container}>
+        <button onClick={resetBoard}>RESET PUZZLE</button>
+        <button onClick={resetBoard}>CREDITS</button>
+      </div>
     </header>
   );
 }

@@ -8,33 +8,38 @@
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 0.9rem;
   z-index: 200;
   justify-content: space-between;
 }
 
-/* .navigation {
+.container {
   display: flex;
-  gap: 16px;
-} */
+  gap: 20px;
+}
 
-.header a {
+.header a,
+.header button {
+  /* border: 1px solid red; */
+  background-color: unset;
+  border: none;
   text-decoration: none;
-  width: 130px;
+  /* width: 130px; */
   text-align: center;
-  color: black;
+  color: rgb(116, 116, 116);
   cursor: pointer;
   transition-property: all;
   transition-duration: 0.5s;
+  font-size: 0.9rem;
+  height: 20px;
 }
 
-.header button {
+/* .header button {
   background-color: unset;
   border: none;
   cursor: pointer;
   transition-property: all;
   transition-duration: 0.5s;
-}
+} */
 
 .header a:hover,
 .header button:hover {
