@@ -5,11 +5,9 @@
   padding: 16px;
   position: fixed;
   width: 100%;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
   z-index: 200;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 20px;
 }
 
 .container {
@@ -20,10 +18,10 @@
 .header a,
 .header button {
   /* border: 1px solid red; */
+  font-family: "Open Sans", sans-serif;
   background-color: unset;
   border: none;
   text-decoration: none;
-  /* width: 130px; */
   text-align: center;
   color: rgb(116, 116, 116);
   cursor: pointer;
@@ -31,15 +29,8 @@
   transition-duration: 0.5s;
   font-size: 0.9rem;
   height: 20px;
+  font-weight: 900;
 }
-
-/* .header button {
-  background-color: unset;
-  border: none;
-  cursor: pointer;
-  transition-property: all;
-  transition-duration: 0.5s;
-} */
 
 .header a:hover,
 .header button:hover {
