@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import style from "./AnimatedHeading.module.css";
 
 const AnimatedHeading = ({ heading }) => {
+  const initialLoadHeading = heading;
   const [oldHeading, setOldHeading] = useState(heading);
-  const [animationClass, setAnimationClass] = useState("");
+  const [animationClass, setAnimationClass] = useState(style.fadeIn);
 
   useEffect(() => {
-    setAnimationClass(style.fadeOut);
-    setTimeout(() => {
-      setOldHeading(heading);
-      setAnimationClass(style.fadeIn);
-    }, 300);
+    if (heading !== oldHeading) {
+      setAnimationClass(style.fadeOut);
+      setTimeout(() => {
+        setOldHeading(heading);
+        setAnimationClass(style.fadeIn);
+      }, 300);
+    }
   }, [heading]);
 
   return (

@@ -6,7 +6,9 @@ import { useMoveCount } from "./MoveCountContext.jsx";
 export const BoardContext = createContext();
 
 export const BoardProvider = ({ children, puzzleUrl }) => {
-  const [currentBoardIndex, setCurrentBoardIndex] = useState(0);
+  const [currentBoardIndex, setCurrentBoardIndex] = useState(
+    puzzles.findIndex((puzzle) => puzzle.url === puzzleUrl)
+  );
   const [board, setBoard] = useState(puzzles[currentBoardIndex].board);
   const [redirectUrl, setRedirectUrl] = useState(null);
   const { setMoveCount } = useMoveCount();
