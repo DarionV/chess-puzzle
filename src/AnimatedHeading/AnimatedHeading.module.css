@@ -1,0 +1,84 @@
+.container {
+  position: relative;
+  border: 1px solid red;
+  margin-bottom: 60px;
+}
+
+.layer0,
+.layer1,
+.layer2,
+.layer3 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 3rem;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  letter-spacing: 20px;
+  font-style: normal;
+  text-transform: uppercase;
+  color: rgb(174, 49, 49);
+  user-select: none;
+  width: 1000px;
+  opacity: 0%;
+}
+
+.layer0.fadeIn {
+  animation: fadeIn 0.25s linear 0.25s forwards;
+}
+.layer1.fadeIn {
+  mask-image: url("/heading-mask-1.png");
+  animation: fadeIn 0.25s linear 0.1s forwards;
+}
+.layer2.fadeIn {
+  mask-image: url("/heading-mask-2.png");
+  animation: fadeIn 0.25s linear 0.05s forwards;
+}
+.layer3.fadeIn {
+  mask-image: url("/heading-mask-3.png");
+  animation: fadeIn 0.25s linear forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.layer0.fadeOut {
+  animation: fadeOut 0.125s linear forwards;
+}
+.layer1.fadeOut {
+  mask-image: url("/heading-mask-1.png");
+  animation: fadeOut 0.125s linear 0.025s forwards;
+}
+.layer2.fadeOut {
+  mask-image: url("/heading-mask-2.png");
+  animation: fadeOut 0.125s linear 0.05s forwards;
+}
+.layer3.fadeOut {
+  mask-image: url("/heading-mask-3.png");
+  animation: fadeOut 0.125s linear 0.125s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+/* .container h1 { */
+/* opacity: 0%;
+    animation: fadeIn 2s ease-out forwards; */
+/* background: url("/noiseTexture.png") repeat; */
+/* mask-image: url("/public/noiseTexture.png"); */
+/* -webkit-mask-image: url("/noiseTexture.png"); */
+/* } */

@@ -11,6 +11,7 @@ import PromoteModal from "../PromoteModal/PromoteModal";
 import WinModal from "../WinModal/WinModal";
 import ArrowButton from "../ArrowButton/ArrowButton";
 import { useMoveCount } from "../../context/MoveCountContext";
+import AnimatedHeading from "../../AnimatedHeading/AnimatedHeading.jsx";
 
 const Board = ({ size }) => {
   const {
@@ -148,7 +149,7 @@ const Board = ({ size }) => {
 
   return (
     <div className={style.container}>
-      <h1>{getTitle()}</h1>
+      <AnimatedHeading heading={getTitle()} />
       <p>{getInfo()}</p>
       <div className={style.gameContainer}>
         <ArrowButton handleClick={getPreviousPuzzle} direction="left" />

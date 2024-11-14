@@ -14,20 +14,6 @@
   font-style: normal;
 }
 
-.container h1 {
-  text-align: center;
-  font-size: 3rem;
-  font-family: "EB Garamond", serif;
-  font-weight: 400;
-  letter-spacing: 20px;
-  font-style: normal;
-  text-transform: uppercase;
-  opacity: 0%;
-  animation: fadeIn 2s ease-out forwards;
-  user-select: none;
-  color: rgb(174, 49, 49);
-}
-
 .container p {
   text-align: center;
   font-size: 0.9rem;
