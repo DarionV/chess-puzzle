@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import style from "./AnimatedHeading.module.css";
 
 const AnimatedHeading = ({ heading }) => {
-  const initialLoadHeading = heading;
   const [oldHeading, setOldHeading] = useState(heading);
   const [animationClass, setAnimationClass] = useState(style.fadeIn);
 
