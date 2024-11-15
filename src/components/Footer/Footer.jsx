@@ -9,16 +9,12 @@ const Footer = () => {
         <a href="#" target="blank">
           Sherzod Khaydarbekov
         </a>
-        {/* . Developed by{" "}
+        . Developed by{" "}
         <a href="#" target="blank">
           DarionV
-        </a> */}
+        </a>
         .
       </div>
-      <p>
-        We use affiliate links, which help us earn commissions from purchases
-        made through this site.
-      </p>
     </footer>
   );
 };

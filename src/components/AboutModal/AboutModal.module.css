@@ -53,6 +53,12 @@
   color: rgb(174, 49, 49);
 }
 
+.modal p {
+  font-size: 0.8rem;
+  opacity: 70%;
+  font-style: italic;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0%;

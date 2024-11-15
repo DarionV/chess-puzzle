@@ -26,6 +26,10 @@ const AboutModal = ({ toggleAbout }) => {
         >
           Chess icons created by rizal2109 - Flaticon
         </a>
+        <p>
+          We use affiliate links, which help us earn commissions from purchases
+          made through this site.
+        </p>
       </div>
     </div>
   );

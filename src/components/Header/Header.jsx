@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import styles from "./header.module.css";
 import BoardContext from "../../context/BoardContext";
+import { Tooltip } from "@mantine/core";
 
 export default function Header({ toggleAbout }) {
   const { getBuyLink, resetBoard } = useContext(BoardContext);
@@ -8,9 +9,15 @@ export default function Header({ toggleAbout }) {
   return (
     <header className={styles.header}>
       <button onClick={resetBoard}>RESET</button>
-      <a href={getBuyLink()} target="blank">
-        BUY THIS PUZZLE
-      </a>
+      <Tooltip
+        label="Affiliate link"
+        withArrow
+        transitionProps={{ transition: "fade", duration: 500 }}
+      >
+        <a href={getBuyLink()} target="blank">
+          BUY THIS PUZZLE
+        </a>
+      </Tooltip>
       <button onClick={toggleAbout}>ABOUT</button>
     </header>
   );
