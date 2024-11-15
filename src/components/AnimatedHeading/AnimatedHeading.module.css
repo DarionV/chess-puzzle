@@ -25,7 +25,7 @@
 }
 
 .layer0.fadeIn {
-  animation: fadeIn 0.25s linear 0.25s forwards;
+  animation: fadeIn 0.5s linear 0.25s forwards;
 }
 .layer1.fadeIn {
   mask-image: url("/heading-mask-1.png");
@@ -73,11 +73,3 @@
     opacity: 0%;
   }
 }
-
-/* .container h1 { */
-/* opacity: 0%;
-    animation: fadeIn 2s ease-out forwards; */
-/* background: url("/noiseTexture.png") repeat; */
-/* mask-image: url("/public/noiseTexture.png"); */
-/* -webkit-mask-image: url("/noiseTexture.png"); */
-/* } */
