@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import styles from "./header.module.css";
+import styles from "./Header.module.css";
 import BoardContext from "../../context/BoardContext";
 import { Tooltip } from "@mantine/core";
 
