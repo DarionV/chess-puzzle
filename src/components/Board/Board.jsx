@@ -16,25 +16,16 @@ import AnimatedHeading from "../AnimatedHeading/AnimatedHeading.jsx";
 const Board = ({ size }) => {
   const {
     board,
-    setBoard,
     getTitle,
     getInfo,
     getNextPuzzle,
     getPreviousPuzzle,
     getGoals,
   } = useContext(BoardContext);
-  const initialBoardState = useMemo(() => {
-    let initialBoardState = [];
-    board.map((row) => initialBoardState.push(row));
-
-    return initialBoardState;
-  }, []);
 
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
   const [showPromoteModal, setShowPromoteModal] = useState(false);
   const [isPuzzleCompleted, setIsPuzzleCompleted] = useState(false);
-
-  const { moveCount, setMoveCount } = useMoveCount();
 
   let pieces = [];
   let tiles = [];
@@ -49,11 +40,12 @@ const Board = ({ size }) => {
     // Check if multiple goal tiles available in current puzzle
     if (getGoals()) {
       let goals = getGoals();
-
+      // Get goal coordinates
       let goal1 = goals[0];
       let goal2 = goals[1];
-      console.log(board[goal1[0]][goal1[1]]);
-      console.log(board[goal2[0]][goal2[1]]);
+      // If two G (goal) available, the goals are numbered - G1, and G2.
+      // There are two H (hero) pieces available, H3, and H4.
+      // H3s goal is G1, H4s goal is G2. Check for these conditions.
       if (
         board[goal1[0]][goal1[1]].includes("3") &&
         board[goal2[0]][goal2[1]].includes("4")
@@ -61,7 +53,10 @@ const Board = ({ size }) => {
         setIsPuzzleCompleted(true);
       }
     }
+
     if (!getGoals()) {
+      // This means only single goal tile available.
+      // Check for tiles that includes both G (goal) and H (Hero)
       board.forEach((row) => {
         row.forEach((tile) => {
           if (!tile) return;
@@ -102,17 +97,19 @@ const Board = ({ size }) => {
         break;
 
       default:
+        console.log("Could not promote to " + piece);
         break;
     }
-
     togglePromoteModal();
   }
 
+  // Used for alternating tile colors when rendering out the tiles.
   const getColor = (tile = "") => {
     color === tileBlack ? (color = tileWhite) : (color = tileBlack);
     if (tile.includes("G")) return tileRed;
     return color;
   };
+
   // Add pieces to be rendered
   board.forEach((row, rowIndex) => {
     row.forEach((tile, index) => {

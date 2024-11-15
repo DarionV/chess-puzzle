@@ -6,10 +6,13 @@ const AboutModal = ({ toggleAbout }) => {
     <div className={style.overlay} onClick={toggleAbout}>
       <div className={style.modal}>
         <h2>Royal Riddles</h2>
-        <a href="https://www.linkedin.com/in/darion-valdez-a63629176/">
+        <a
+          href="https://www.linkedin.com/in/darion-valdez-a63629176/"
+          target="blank"
+        >
           Developed by DarionV
         </a>
-        <a href="https://uz.linkedin.com/in/khaydarbekoff">
+        <a href="https://uz.linkedin.com/in/khaydarbekoff" target="blank">
           Puzzle designs by Sherzod Khaydarbekov
         </a>
         <a

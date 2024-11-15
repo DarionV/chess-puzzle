@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import puzzles from "../puzzlesDb.js";
-import { Navigate, replace } from "react-router";
+import { Navigate } from "react-router";
 import { useMoveCount } from "./MoveCountContext.jsx";
 
 export const BoardContext = createContext();

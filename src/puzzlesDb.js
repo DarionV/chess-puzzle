@@ -3,10 +3,12 @@
 // B: Bishop
 // R: Rook
 // Q: Queen
-// K: King - (not implemented)
+// K: King
 // G: Goal - Red goal square.
 // H: Hero - Piece that needs to reach the goal.
 // Always start with Piece abbreviation - PH, RH etc.
+// If two goals available, there needs to be two H pieces available.
+// Name them G1, G2, H3, H4. H3s goal is G1 and H4s goal is G2. See "exchange the kings" puzzle for reference.
 const puzzles = [
   {
     title: "Pawn = Queen",

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import pawnWhite from "../../assets/images/pawn-white.png";
 import pawnBlack from "../../assets/images/pawn-black.png";
@@ -26,7 +26,7 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
   const { board } = useContext(BoardContext);
   let leftOffset;
 
-  leftOffset = (board[0].length - board.length) * (size / 6);
+  leftOffset = (board[0].length - board.length) * (size / 6); //Manually adjusted to fit in tile.
 
   let imageSrc = "";
 
@@ -67,7 +67,7 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
       ? kingBlack
       : kingWhite;
   } else {
-    console.log("Could not find the piece " + piece);
+    console.log("Could not find graphic for the piece " + piece);
   }
 
   return (

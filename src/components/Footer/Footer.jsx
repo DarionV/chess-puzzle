@@ -10,7 +10,10 @@ const Footer = () => {
           Sherzod Khaydarbekov
         </a>
         . Developed by{" "}
-        <a href="#" target="blank">
+        <a
+          href="https://www.linkedin.com/in/darion-valdez-a63629176/"
+          target="blank"
+        >
           DarionV
         </a>
         .

@@ -3,15 +3,22 @@ import style from "./TouchTarget.module.css";
 import BoardContext from "../../context/BoardContext";
 import { useMoveCount } from "../../context/MoveCountContext";
 
+// The function of the TouchTarget is to act as a button or selector for the tiles.
+// Each TouchTarget is overlayed on top of each tile.
+// When clicked, it evaluated if there is a legal move available for that piece.
+
 const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   const { board, setBoard } = useContext(BoardContext);
   const { moveCount, setMoveCount } = useMoveCount();
 
-  //To center piece in tile properly
+  //To center piece in tile properly, adjusted manually.
   const topOffset = size * 0.19;
   const leftOffset =
     size * 0.26 - (board[0].length - board.length) * (size / 6);
 
+  // Input x and y and retrieve the tile in that position.
+  // Pieces close to the edge will try to retrieve tiles outside of the board
+  // when checking for legal moves. The if clause checks for those cases.
   const getTile = (board, yPos, xPos) => {
     if (
       xPos < 0 ||
@@ -93,20 +100,20 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     //Check if special ID - used if 2 goals available
     // IDs are always placed right after the piece abbrevation, hence piece[0] + id.
     // Ids are either 3 or 4, to not clash with the goals Ids which are 1 and 2.
-    // Goal 1 corresponds to 3, and goal 2 to 4. (for checking winning positions)
+    // Goal1 corresponds to 3, and Goal2 to 4. (for checking winning positions)
     let hasId =
       piece.includes(piece[0] + "3") || piece.includes(piece[0] + "4");
     let id = "";
     if (hasId) id = piece.includes(piece[0] + "3") ? 3 : 4;
 
-    // Sometimes a tile can have extra info, eg. "RG"
-    // We only want the abbreviation, in this case R.
+    // Sometimes a tile can have extra info, eg. "RG" (Rook on a Goal tile)
+    // We only want the abbreviation, in this case R. (Rook)
     let pieceAbbreviation = piece[0];
 
     let newBoard = board.map((row) => [...row]);
     const emptyTilePosition = getEmptyTile();
 
-    //Sometimes the target square can have extra info, eg. "-G".
+    //Sometimes the target square can have extra info, eg. "-G". (Empty Goal tile)
     // We want to replace only "-", and not "G".
     // If Hero piece, make sure to keep the "H"
     const newTileString = newBoard[emptyTilePosition[0]][
@@ -127,8 +134,6 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     setBoard(newBoard);
 
     setMoveCount(moveCount + 1);
-
-    // console.log(board);
   };
 
   const handleClick = () => {
@@ -139,7 +144,7 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   return (
     <button
       onClick={handleClick}
-      className={style.touchTarget} //remove this later
+      className={style.touchTarget}
       style={{
         width: size * 0.48,
         height: size * 0.48,

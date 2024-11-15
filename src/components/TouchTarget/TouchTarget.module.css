@@ -1,13 +1,7 @@
 .touchTarget {
   border: none;
-  /* border: 1px solid red; */
   background-color: unset;
   cursor: pointer;
   transform: scaleY(59%) rotateZ(45deg);
-  /* mix-blend-mode: overlay; */
   border-radius: 12px;
 }
-
-/* .touchTarget:hover {
-  background-color: rgba(55, 65, 16, 0.462);
-} */
