@@ -11,7 +11,7 @@ import PromoteModal from "../PromoteModal/PromoteModal";
 import WinModal from "../WinModal/WinModal";
 import ArrowButton from "../ArrowButton/ArrowButton";
 import { useMoveCount } from "../../context/MoveCountContext";
-import AnimatedHeading from "../../AnimatedHeading/AnimatedHeading.jsx";
+import AnimatedHeading from "../AnimatedHeading/AnimatedHeading.jsx";
 
 const Board = ({ size }) => {
   const {
