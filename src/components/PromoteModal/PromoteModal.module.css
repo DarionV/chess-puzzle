@@ -38,6 +38,13 @@
 .modal button img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 70%;
+}
+
+@media screen and (max-width: 450px) {
+  .modal {
+    width: 90vw;
+    gap: 12px;
+  }
 }

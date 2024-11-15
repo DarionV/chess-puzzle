@@ -90,3 +90,14 @@
     opacity: 100%;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .banner h2 {
+    font-size: 3rem;
+    line-height: 2.5rem;
+  }
+
+  .banner h3 {
+    font-size: 1.5rem;
+  }
+}
