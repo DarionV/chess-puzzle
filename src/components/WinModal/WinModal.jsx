@@ -3,6 +3,7 @@ import style from "./WinModal.module.css";
 import { Link } from "react-router-dom";
 import { useMoveCount } from "../../context/MoveCountContext";
 import BoardContext from "../../context/BoardContext";
+import { Tooltip } from "@mantine/core";
 
 const WinModal = ({ setIsPuzzleCompleted }) => {
   const { resetBoard, getNextPuzzle, getBuyLink } = useContext(BoardContext);
@@ -34,9 +35,11 @@ const WinModal = ({ setIsPuzzleCompleted }) => {
         Try another puzzle
       </button>
       {buyLink ? (
-        <a href={buyLink} target="blank" className={style.button}>
-          Buy this puzzle
-        </a>
+        <Tooltip label="Affiliate link" withArrow position="bottom">
+          <a href={buyLink} target="blank" className={style.button}>
+            Buy this puzzle
+          </a>
+        </Tooltip>
       ) : null}
     </div>
   );
