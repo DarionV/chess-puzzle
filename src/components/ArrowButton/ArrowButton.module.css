@@ -20,7 +20,7 @@
   border-left-color: #f24747;
 }
 
-@media screen and (min-width: 300px) {
+@media screen and (max-width: 450px) {
   .button {
     margin-top: auto;
     margin-bottom: 10vh;
