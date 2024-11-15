@@ -23,7 +23,7 @@
 @media screen and (max-width: 450px) {
   .button {
     margin-top: auto;
-    margin-bottom: 10vh;
+    margin-bottom: 20vh;
   }
   .button:hover {
     border-left-color: #999999;

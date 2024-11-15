@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 
 .layer0,
@@ -20,8 +20,9 @@
   text-transform: uppercase;
   color: rgb(174, 49, 49);
   user-select: none;
-  width: 1000px;
+  width: 100vw;
   opacity: 0%;
+  line-height: 2.5rem;
 }
 
 .layer0.fadeIn {
@@ -71,5 +72,15 @@
   }
   to {
     opacity: 0%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .layer0,
+  .layer1,
+  .layer2,
+  .layer3 {
+    font-size: 2rem;
+    letter-spacing: 10px;
   }
 }

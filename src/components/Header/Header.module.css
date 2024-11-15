@@ -36,3 +36,11 @@
 .header button:hover {
   color: #d43030;
 }
+
+@media screen and (max-width: 450px) {
+  .header {
+    justify-content: space-evenly;
+    bottom: 0;
+    margin-bottom: 7vh;
+  }
+}
