@@ -5,6 +5,8 @@ const Tile = ({ tileSize, yPos, xPos, color, highlighted }) => {
   const { board } = useContext(BoardContext);
   let leftOffset;
 
+  const isEmptyTile = board[yPos][xPos].includes("-");
+
   leftOffset = (board[0].length - board.length) * (tileSize / 6);
 
   return (
@@ -13,7 +15,11 @@ const Tile = ({ tileSize, yPos, xPos, color, highlighted }) => {
       width={`${tileSize}px`}
       height={`${tileSize}px`}
       style={{
-        transform: highlighted ? "translateY(-3px)" : "",
+        transform: highlighted
+          ? "translateY(-3px)"
+          : isEmptyTile
+          ? "translateY(-3px)"
+          : "",
         position: "absolute",
         top: `${xPos * 0.21 * tileSize + yPos * 0.21 * tileSize}px`,
         left: `${
