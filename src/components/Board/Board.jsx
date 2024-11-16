@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Board.module.css";
 import Piece from "../Piece/Piece.jsx";
 import BoardContext from "../../context/BoardContext";
@@ -10,8 +10,8 @@ import tileRed from "../../assets/images/tile-red.png";
 import PromoteModal from "../PromoteModal/PromoteModal";
 import WinModal from "../WinModal/WinModal";
 import ArrowButton from "../ArrowButton/ArrowButton";
-import { useMoveCount } from "../../context/MoveCountContext";
 import AnimatedHeading from "../AnimatedHeading/AnimatedHeading.jsx";
+import { Helmet } from "react-helmet";
 
 const Board = ({ size }) => {
   const {
@@ -21,6 +21,7 @@ const Board = ({ size }) => {
     getNextPuzzle,
     getPreviousPuzzle,
     getGoals,
+    getMetaDescription,
   } = useContext(BoardContext);
 
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
@@ -146,6 +147,10 @@ const Board = ({ size }) => {
 
   return (
     <div className={style.container}>
+      <Helmet>
+        <title>{getTitle()}</title>
+        <meta name="description" content={getMetaDescription()} />
+      </Helmet>
       <AnimatedHeading heading={getTitle()} />
       <p>{getInfo()}</p>
       <div className={style.gameContainer}>

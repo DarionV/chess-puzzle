@@ -51,6 +51,8 @@ export const BoardProvider = ({ children, puzzleUrl }) => {
 
   const getBuyLink = () => puzzles[currentBoardIndex].puzzleLink;
 
+  const getMetaDescription = () => puzzles[currentBoardIndex].metaDescription;
+
   return (
     <BoardContext.Provider
       value={{
@@ -63,6 +65,7 @@ export const BoardProvider = ({ children, puzzleUrl }) => {
         getInfo,
         getGoals,
         getBuyLink,
+        getMetaDescription,
       }}
     >
       {redirectUrl && <Navigate to={"/" + redirectUrl} replace />}
