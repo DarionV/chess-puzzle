@@ -6,6 +6,7 @@ import { BoardProvider } from "../context/BoardContext";
 import { useParams } from "react-router";
 import MoveCountProvider from "../context/MoveCountContext";
 import AboutModal from "../components/AboutModal/AboutModal";
+import { ImageLoader } from "../components/ImageLoader/ImageLoader";
 
 const Game = () => {
   const tileSize = useTileSize();

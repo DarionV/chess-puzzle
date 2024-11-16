@@ -12,6 +12,7 @@ import WinModal from "../WinModal/WinModal";
 import ArrowButton from "../ArrowButton/ArrowButton";
 import AnimatedHeading from "../AnimatedHeading/AnimatedHeading.jsx";
 import { Helmet } from "react-helmet";
+import { ImageLoader } from "../ImageLoader/ImageLoader.jsx";
 
 const Board = ({ size }) => {
   const {
@@ -172,7 +173,7 @@ const Board = ({ size }) => {
   });
 
   return (
-    <div className={style.container}>
+    <ImageLoader>
       <Helmet>
         <title>{getTitle()}</title>
         <meta name="description" content={getMetaDescription()} />
@@ -222,7 +223,7 @@ const Board = ({ size }) => {
         </div>
         <ArrowButton handleClick={loadNextPuzzle} />
       </div>
-    </div>
+    </ImageLoader>
   );
 };
 
