@@ -20,6 +20,8 @@ import kingBlack from "../../assets/images/king-black.png";
 import kingRed from "../../assets/images/king-red.png";
 import BoardContext from "../../context/BoardContext";
 
+import style from "./Piece.module.css";
+
 const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
   const topOffset = size * 0.43; // To center piece in tile properly. Based on size to scale properly.
 
@@ -72,6 +74,7 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
 
   return (
     <img
+      className={style.piece}
       src={imageSrc}
       height={`${size}px`}
       width={`${size}px`}

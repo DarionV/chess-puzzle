@@ -1,0 +1,12 @@
+.piece {
+  animation: dropDown 0.1s ease-in-out forwards;
+}
+
+@keyframes dropDown {
+  from {
+    translate: 0px -10px;
+  }
+  to {
+    translate: 0px 0px;
+  }
+}
