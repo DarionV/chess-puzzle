@@ -125,6 +125,18 @@ const Board = ({ size }) => {
     }, 500);
   }
 
+  function loadPreviousPuzzle() {
+    setBoardContainerStyle(style.fadeOut);
+    //Allow time for fade out animation
+    setTimeout(() => {
+      getPreviousPuzzle();
+    }, 300);
+
+    setTimeout(() => {
+      setBoardContainerStyle(style.fadeIn);
+    }, 500);
+  }
+
   // Add pieces to be rendered
   board.forEach((row, rowIndex) => {
     row.forEach((tile, index) => {
@@ -168,7 +180,7 @@ const Board = ({ size }) => {
       <AnimatedHeading heading={getTitle()} />
       <p>{getInfo()}</p>
       <div className={style.gameContainer}>
-        <ArrowButton handleClick={getPreviousPuzzle} direction="left" />
+        <ArrowButton handleClick={loadPreviousPuzzle} direction="left" />
         <div className={`${style.boardContainer} ${boardContainerStyle}`}>
           <div className={style.centeringContainer}>
             {tiles.map((tile) => (
