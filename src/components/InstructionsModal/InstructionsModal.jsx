@@ -36,6 +36,10 @@ const InstructionsModal = () => {
       </p>
       <p>Rearrange the pieces to guide the red piece to the red tile.</p>
       <p>Standard chess movements apply, but no capturing is allowed.</p>
+      <p>
+        <b>Special Puzzle:</b> In "Exchange the Kings," simply swap the
+        positions of the kings.
+      </p>
 
       <button
         onClick={close}
