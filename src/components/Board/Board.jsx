@@ -13,6 +13,7 @@ import ArrowButton from "../ArrowButton/ArrowButton";
 import AnimatedHeading from "../AnimatedHeading/AnimatedHeading.jsx";
 import { Helmet } from "react-helmet";
 import { ImageLoader } from "../ImageLoader/ImageLoader.jsx";
+import InstructionsModal from "../InstructionsModal/InstructionsModal.jsx";
 
 const Board = ({ size }) => {
   const {
@@ -179,7 +180,8 @@ const Board = ({ size }) => {
         <meta name="description" content={getMetaDescription()} />
       </Helmet>
       <AnimatedHeading heading={getTitle()} />
-      <p>{getInfo()}</p>
+      <InstructionsModal />
+      {/* <p>{getInfo()}</p> */}
       <div className={style.gameContainer}>
         <ArrowButton handleClick={loadPreviousPuzzle} direction="left" />
         <div className={`${style.boardContainer} ${boardContainerStyle}`}>

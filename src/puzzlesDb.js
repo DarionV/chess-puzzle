@@ -12,7 +12,7 @@
 const puzzles = [
   {
     title: "Pawn = Queen",
-    info: "Use the standard chess movements to get the red pawn to the red square",
+    info: "Get the red pawn to the red square",
     board: [
       ["B", "N", "R", "PH"],
       ["B", "N", "R", null],
@@ -27,7 +27,7 @@ const puzzles = [
   },
   {
     title: "The Rook",
-    info: "Use the standard chess movements to get the red rook to the red square",
+    info: "Get the red rook to the red square",
     board: [
       [null, "B", "N", "P", "-G"],
       [null, "B", "N", "P", null],
@@ -43,7 +43,7 @@ const puzzles = [
 
   {
     title: "Exchange the Kings",
-    info: "Use the standard chess movements to exchange the kings. No capturing allowed.",
+    info: "Exchange the kings",
     board: [
       ["ND", "RD", null, "R", "N"],
       [null, "K4G1", "-", "K3DG2", null],
@@ -61,7 +61,7 @@ const puzzles = [
   },
   {
     title: "The Knight",
-    info: "Use the standard chess movements to get the red knight to the red square",
+    info: "Get the red knight to the red square",
     board: [
       ["NH", "B", "B", "B", "B", "R"],
       ["N", "N", "N", "N", "R", "R"],
