@@ -11,13 +11,14 @@ const Game = () => {
   const tileSize = useTileSize();
   const { puzzleId } = useParams();
   const [showAbout, setShowAbout] = useState(false);
-  const toggleAbout = () => setShowAbout(!showAbout);
+  const [opened, setOpened] = useState(false);
+  const toggleAbout = () => setOpened(!opened);
 
   return (
     <MoveCountProvider>
       <BoardProvider puzzleUrl={puzzleId}>
         <Header toggleAbout={toggleAbout} />
-        {showAbout ? <AboutModal toggleAbout={toggleAbout} /> : null}
+        <AboutModal opened={opened} toggleAbout={toggleAbout} />
         <Board size={tileSize} />
       </BoardProvider>
     </MoveCountProvider>
