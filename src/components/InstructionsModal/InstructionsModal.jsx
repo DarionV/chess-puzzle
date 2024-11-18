@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import StandardButton from "../standardButton/standardButton";
 
 const InstructionsModal = () => {
   const [opened, { open, close }] = useDisclosure(true);
@@ -41,7 +42,7 @@ const InstructionsModal = () => {
         positions of the kings.
       </p>
 
-      <button
+      {/* <button
         onClick={close}
         style={{
           color: "rgb(174, 49, 49)",
@@ -54,7 +55,8 @@ const InstructionsModal = () => {
         }}
       >
         Play
-      </button>
+      </button> */}
+      <StandardButton handleClick={close}>Play</StandardButton>
     </Modal>
   );
 };
