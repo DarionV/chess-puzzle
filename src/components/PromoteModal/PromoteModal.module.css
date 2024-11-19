@@ -1,7 +1,6 @@
 .modal {
   display: flex;
   gap: 20px;
-  padding: 20px;
 }
 
 .modal button {
@@ -27,7 +26,7 @@
 
 @media screen and (max-width: 450px) {
   .modal {
-    width: 90vw;
+    width: 50vw;
     gap: 12px;
   }
 }

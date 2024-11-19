@@ -4,7 +4,7 @@ import { useDisclosure } from "@mantine/hooks";
 import StandardButton from "../standardButton/standardButton";
 
 const InstructionsModal = () => {
-  const [opened, { open, close }] = useDisclosure(true);
+  const [opened, { close }] = useDisclosure(true);
 
   return (
     <Modal
@@ -41,21 +41,6 @@ const InstructionsModal = () => {
         <b>Special Puzzle:</b> In "Exchange the Kings," simply swap the
         positions of the kings.
       </p>
-
-      {/* <button
-        onClick={close}
-        style={{
-          color: "rgb(174, 49, 49)",
-          border: "none",
-          backgroundColor: "unset",
-          padding: "12px",
-          fontFamily: `"EB Garamond", serif`,
-          fontSize: "2rem",
-          cursor: "pointer",
-        }}
-      >
-        Play
-      </button> */}
       <StandardButton handleClick={close}>Play</StandardButton>
     </Modal>
   );

@@ -5,17 +5,15 @@ import { useMoveCount } from "../../context/MoveCountContext";
 import BoardContext from "../../context/BoardContext";
 import { Tooltip } from "@mantine/core";
 
-const WinModal = ({ setIsPuzzleCompleted }) => {
+const WinModal = () => {
   const { resetBoard, getNextPuzzle, getBuyLink } = useContext(BoardContext);
 
   const handlePlayAgain = () => {
-    // setIsPuzzleCompleted(false);
     resetBoard();
   };
 
   const handleTryAnotherPuzzle = () => {
     getNextPuzzle();
-    // setIsPuzzleCompleted(false);
   };
 
   const buyLink = getBuyLink();

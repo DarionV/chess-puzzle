@@ -57,6 +57,16 @@ const PromoteModal = ({ promotePawn }) => {
       withCloseButton={false}
       centered
       opened={opened}
+      styles={{
+        body: {
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          textAlign: "center",
+          gap: "12px",
+          fontFamily: `"Open Sans", sans-serif`,
+        },
+      }}
     >
       <button
         aria-label="promote to rook"
