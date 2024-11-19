@@ -27,7 +27,6 @@ const Board = ({ size }) => {
   } = useContext(BoardContext);
 
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
-  const [showPromoteModal, setShowPromoteModal] = useState(false);
   const [isPuzzleCompleted, setIsPuzzleCompleted] = useState(false);
 
   let pieces = [];
@@ -39,14 +38,6 @@ const Board = ({ size }) => {
   let nrOfGoals = goalTiles.length;
 
   useEffect(() => {
-    // Check for pawn promotions
-    board.forEach((row) => {
-      if (row[0] && row[0].includes("P")) togglePromoteModal();
-    });
-
-    //Compare goal tiles to the board.
-    //If all match, winning conditions are met and the puzzle is solved.
-
     let nrOfGoalsCompleted = 0;
     const solution = getSolution();
     goalTiles.forEach((tile) => {
@@ -55,42 +46,6 @@ const Board = ({ size }) => {
     });
     if (nrOfGoalsCompleted === nrOfGoals) setIsPuzzleCompleted(true);
   }, [board]);
-
-  function togglePromoteModal() {
-    setShowPromoteModal(!showPromoteModal);
-  }
-
-  function promotePawn(piece) {
-    let rowIndex; //Row that the pawn is located at
-    board.forEach((row, index) => {
-      if (!row[0]) return;
-      if (row[0].includes("P")) {
-        rowIndex = index;
-      }
-    });
-    let newBoard = [...board];
-    let piecePosition = newBoard[rowIndex][0];
-
-    switch (piece) {
-      case "R":
-        newBoard[rowIndex][0] = piecePosition.replace("P", "R");
-        break;
-      case "N":
-        newBoard[rowIndex][0] = piecePosition.replace("P", "N");
-        break;
-      case "B":
-        newBoard[rowIndex][0] = piecePosition.replace("P", "B");
-        break;
-      case "Q":
-        newBoard[rowIndex][0] = piecePosition.replace("P", "Q");
-        break;
-
-      default:
-        console.log("Could not promote to " + piece);
-        break;
-    }
-    togglePromoteModal();
-  }
 
   // Used for alternating tile colors when rendering out the tiles.
   const getColor = (tile = "") => {
@@ -196,14 +151,10 @@ const Board = ({ size }) => {
               size={size}
               pieces={pieces}
               setHighlightedPieceId={setHighlightedPieceId}
-              setShowPromoteModal={setShowPromoteModal}
             ></TouchTargets>
-            {showPromoteModal ? (
-              <PromoteModal
-                togglePromoteModal={togglePromoteModal}
-                promotePawn={promotePawn}
-              />
-            ) : null}
+
+            <PromoteModal />
+
             {isPuzzleCompleted ? (
               <WinModal setIsPuzzleCompleted={setIsPuzzleCompleted} />
             ) : null}
