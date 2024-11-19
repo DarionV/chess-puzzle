@@ -12,6 +12,7 @@ import InstructionsModal from "../InstructionsModal/InstructionsModal.jsx";
 import useGoalTiles from "../../hooks/useGoalTiles.jsx";
 import Pieces from "../Pieces/Pieces.jsx";
 import Tiles from "../Tiles/Tiles.jsx";
+import useCheckForWins from "../../hooks/useCheckForWins.jsx";
 
 const Board = () => {
   const {
@@ -20,28 +21,15 @@ const Board = () => {
     getNextPuzzle,
     getPreviousPuzzle,
     getMetaDescription,
-    getSolution,
   } = useContext(BoardContext);
 
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
-  const [isPuzzleCompleted, setIsPuzzleCompleted] = useState(false);
+  // const [isPuzzleCompleted, setIsPuzzleCompleted] = useState(false);
   const [pieces, setPieces] = useState([]);
 
-  // Retrieve the tiles which to check for winning conditions.
-  let goalTiles = useGoalTiles();
-  let nrOfGoals = goalTiles.length;
-
-  useEffect(() => {
-    let nrOfGoalsCompleted = 0;
-    const solution = getSolution();
-    goalTiles.forEach((tile) => {
-      if (board[tile[0]][tile[1]].includes(solution[tile[0]][tile[1]]))
-        nrOfGoalsCompleted++;
-    });
-    if (nrOfGoalsCompleted === nrOfGoals) setIsPuzzleCompleted(true);
-  }, [board]);
-
   const [boardContainerStyle, setBoardContainerStyle] = useState("");
+
+  const isSolved = useCheckForWins();
 
   function loadNextPuzzle() {
     setBoardContainerStyle(style.fadeOut);
@@ -89,9 +77,7 @@ const Board = () => {
               setHighlightedPieceId={setHighlightedPieceId}
             ></TouchTargets>
             <PromoteModal />
-            {isPuzzleCompleted ? (
-              <WinModal setIsPuzzleCompleted={setIsPuzzleCompleted} />
-            ) : null}
+            {isSolved ? <WinModal /> : null}
           </div>
         </div>
         <ArrowButton handleClick={loadNextPuzzle} />

@@ -9,13 +9,13 @@ const WinModal = ({ setIsPuzzleCompleted }) => {
   const { resetBoard, getNextPuzzle, getBuyLink } = useContext(BoardContext);
 
   const handlePlayAgain = () => {
-    setIsPuzzleCompleted(false);
+    // setIsPuzzleCompleted(false);
     resetBoard();
   };
 
   const handleTryAnotherPuzzle = () => {
     getNextPuzzle();
-    setIsPuzzleCompleted(false);
+    // setIsPuzzleCompleted(false);
   };
 
   const buyLink = getBuyLink();
