@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import TouchTarget from "../TouchTarget/TouchTarget";
 import BoardContext from "../../context/BoardContext";
+import useTileSize from "../../hooks/useTileSize";
 
-const TouchTargets = ({ size, pieces, setHighlightedPieceId }) => {
+const TouchTargets = ({ pieces, setHighlightedPieceId }) => {
   const { board } = useContext(BoardContext);
   let currentRow = 0;
   let targets = [];
+  const size = useTileSize();
 
   board.forEach((row) => {
     row.forEach((tile, index) => {

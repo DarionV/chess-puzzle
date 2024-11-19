@@ -1,12 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import style from "./Board.module.css";
-import Piece from "../Piece/Piece.jsx";
 import BoardContext from "../../context/BoardContext";
 import TouchTargets from "../TouchTargets/TouchTargets";
-import Tile from "../Tile";
-import tileWhite from "../../assets/images/tile-white.png";
-import tileBlack from "../../assets/images/tile-black.png";
-import tileRed from "../../assets/images/tile-red.png";
 import PromoteModal from "../PromoteModal/PromoteModal";
 import WinModal from "../WinModal/WinModal";
 import ArrowButton from "../ArrowButton/ArrowButton";
@@ -15,8 +10,10 @@ import { Helmet } from "react-helmet";
 import { ImageLoader } from "../ImageLoader/ImageLoader.jsx";
 import InstructionsModal from "../InstructionsModal/InstructionsModal.jsx";
 import useGoalTiles from "../../hooks/useGoalTiles.jsx";
+import Pieces from "../Pieces/Pieces.jsx";
+import Tiles from "../Tiles/Tiles.jsx";
 
-const Board = ({ size }) => {
+const Board = () => {
   const {
     board,
     getTitle,
@@ -28,10 +25,7 @@ const Board = ({ size }) => {
 
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
   const [isPuzzleCompleted, setIsPuzzleCompleted] = useState(false);
-
-  let pieces = [];
-  let tiles = [];
-  let color;
+  const [pieces, setPieces] = useState([]);
 
   // Retrieve the tiles which to check for winning conditions.
   let goalTiles = useGoalTiles();
@@ -46,13 +40,6 @@ const Board = ({ size }) => {
     });
     if (nrOfGoalsCompleted === nrOfGoals) setIsPuzzleCompleted(true);
   }, [board]);
-
-  // Used for alternating tile colors when rendering out the tiles.
-  const getColor = (tile = "") => {
-    color === tileBlack ? (color = tileWhite) : (color = tileBlack);
-    if (tile.includes("G")) return tileRed;
-    return color;
-  };
 
   const [boardContainerStyle, setBoardContainerStyle] = useState("");
 
@@ -80,40 +67,6 @@ const Board = ({ size }) => {
     }, 500);
   }
 
-  // Add pieces to be rendered
-  board.forEach((row, rowIndex) => {
-    row.forEach((tile, index) => {
-      if (!tile || tile.includes("-")) return;
-      const pieceObject = {
-        xpos: index,
-        ypos: rowIndex,
-        piece: tile,
-        id: `${rowIndex}${index}`,
-      };
-      pieces.push(pieceObject);
-    });
-  });
-
-  // Add tiles to be rendered
-  board.forEach((row, rowIndex) => {
-    // Alternate starting color for each row
-    rowIndex % 2 === 0 ? (color = tileWhite) : (color = tileBlack);
-
-    row.forEach((tile, index) => {
-      if (!tile) {
-        getColor(); //Alternate color even though there is no tile
-        return;
-      }
-      const tileObject = {
-        xpos: index,
-        ypos: rowIndex,
-        color: getColor(tile),
-        id: `${rowIndex}${index}`,
-      };
-      tiles.push(tileObject);
-    });
-  });
-
   return (
     <ImageLoader>
       <Helmet>
@@ -122,39 +75,20 @@ const Board = ({ size }) => {
       </Helmet>
       <AnimatedHeading heading={getTitle()} />
       <InstructionsModal />
-      {/* <p>{getInfo()}</p> */}
       <div className={style.gameContainer}>
         <ArrowButton handleClick={loadPreviousPuzzle} direction="left" />
         <div className={`${style.boardContainer} ${boardContainerStyle}`}>
           <div className={style.centeringContainer}>
-            {tiles.map((tile) => (
-              <Tile
-                tileSize={size}
-                yPos={tile.ypos}
-                xPos={tile.xpos}
-                color={tile.color}
-                key={tile.id}
-                highlighted={tile.id === highlightedPieceId}
-              ></Tile>
-            ))}
-            {pieces.map((tile) => (
-              <Piece
-                size={size}
-                yPos={tile.ypos}
-                xPos={tile.xpos}
-                piece={tile.piece}
-                key={tile.id}
-                highlighted={tile.id === highlightedPieceId}
-              ></Piece>
-            ))}
+            <Tiles highlightedPieceId={highlightedPieceId} pieces={pieces} />
+            <Pieces
+              highlightedPieceId={highlightedPieceId}
+              setPieces={setPieces}
+            />
             <TouchTargets
-              size={size}
               pieces={pieces}
               setHighlightedPieceId={setHighlightedPieceId}
             ></TouchTargets>
-
             <PromoteModal />
-
             {isPuzzleCompleted ? (
               <WinModal setIsPuzzleCompleted={setIsPuzzleCompleted} />
             ) : null}
