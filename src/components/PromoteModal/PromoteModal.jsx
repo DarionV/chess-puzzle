@@ -10,7 +10,7 @@ import { useContext } from "react";
 import BoardContext from "../../context/BoardContext";
 
 const PromoteModal = ({ promotePawn }) => {
-  const { board } = useContext(BoardContext);
+  const { setBoard, board } = useContext(BoardContext);
   const [opened, { toggle }] = useDisclosure(false);
 
   useEffect(() => {
@@ -48,6 +48,7 @@ const PromoteModal = ({ promotePawn }) => {
         console.log("Could not promote to " + piece);
         break;
     }
+    setBoard(newBoard);
     toggle();
   }
 
