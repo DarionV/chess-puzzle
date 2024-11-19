@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import style from "./Board.module.css";
 import BoardContext from "../../context/BoardContext";
 import TouchTargets from "../TouchTargets/TouchTargets";
@@ -9,51 +9,21 @@ import AnimatedHeading from "../AnimatedHeading/AnimatedHeading.jsx";
 import { Helmet } from "react-helmet";
 import { ImageLoader } from "../ImageLoader/ImageLoader.jsx";
 import InstructionsModal from "../InstructionsModal/InstructionsModal.jsx";
-import useGoalTiles from "../../hooks/useGoalTiles.jsx";
 import Pieces from "../Pieces/Pieces.jsx";
 import Tiles from "../Tiles/Tiles.jsx";
 import useCheckForWins from "../../hooks/useCheckForWins.jsx";
+import { usePuzzleNavigation } from "../../hooks/usePuzzleNavigation.jsx";
 
 const Board = () => {
-  const {
-    board,
-    getTitle,
-    getNextPuzzle,
-    getPreviousPuzzle,
-    getMetaDescription,
-  } = useContext(BoardContext);
-
+  const { getTitle, getMetaDescription } = useContext(BoardContext);
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
-  // const [isPuzzleCompleted, setIsPuzzleCompleted] = useState(false);
   const [pieces, setPieces] = useState([]);
-
-  const [boardContainerStyle, setBoardContainerStyle] = useState("");
-
   const isSolved = useCheckForWins();
-
-  function loadNextPuzzle() {
-    setBoardContainerStyle(style.fadeOut);
-    //Allow time for fade out animation
-    setTimeout(() => {
-      getNextPuzzle();
-    }, 300);
-
-    setTimeout(() => {
-      setBoardContainerStyle(style.fadeIn);
-    }, 500);
-  }
-
-  function loadPreviousPuzzle() {
-    setBoardContainerStyle(style.fadeOut);
-    //Allow time for fade out animation
-    setTimeout(() => {
-      getPreviousPuzzle();
-    }, 300);
-
-    setTimeout(() => {
-      setBoardContainerStyle(style.fadeIn);
-    }, 500);
-  }
+  const [boardContainerStyle, setBoardContainerStyle] = useState("");
+  const { loadNextPuzzle, loadPreviousPuzzle } = usePuzzleNavigation(
+    setBoardContainerStyle,
+    style
+  );
 
   return (
     <ImageLoader>
