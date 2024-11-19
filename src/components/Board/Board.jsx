@@ -14,16 +14,16 @@ import AnimatedHeading from "../AnimatedHeading/AnimatedHeading.jsx";
 import { Helmet } from "react-helmet";
 import { ImageLoader } from "../ImageLoader/ImageLoader.jsx";
 import InstructionsModal from "../InstructionsModal/InstructionsModal.jsx";
+import useGoalTiles from "../../hooks/useGoalTiles.jsx";
 
 const Board = ({ size }) => {
   const {
     board,
     getTitle,
-    getInfo,
     getNextPuzzle,
     getPreviousPuzzle,
-    getGoals,
     getMetaDescription,
+    getSolution,
   } = useContext(BoardContext);
 
   const [highlightedPieceId, setHighlightedPieceId] = useState(null);
@@ -34,40 +34,26 @@ const Board = ({ size }) => {
   let tiles = [];
   let color;
 
-  // Check for pawn promotions, and for winning moves.
+  // Retrieve the tiles which to check for winning conditions.
+  let goalTiles = useGoalTiles();
+  let nrOfGoals = goalTiles.length;
+
   useEffect(() => {
+    // Check for pawn promotions
     board.forEach((row) => {
       if (row[0] && row[0].includes("P")) togglePromoteModal();
     });
 
-    // Check if multiple goal tiles available in current puzzle
-    if (getGoals()) {
-      let goals = getGoals();
-      // Get goal coordinates
-      let goal1 = goals[0];
-      let goal2 = goals[1];
-      // If two G (goal) available, the goals are numbered - G1, and G2.
-      // There are two H (hero) pieces available, H3, and H4.
-      // H3s goal is G1, H4s goal is G2. Check for these conditions.
-      if (
-        board[goal1[0]][goal1[1]].includes("3") &&
-        board[goal2[0]][goal2[1]].includes("4")
-      ) {
-        setIsPuzzleCompleted(true);
-      }
-    }
+    //Compare goal tiles to the board.
+    //If all match, winning conditions are met and the puzzle is solved.
 
-    if (!getGoals()) {
-      // This means only single goal tile available.
-      // Check for tiles that includes both G (goal) and H (Hero)
-      board.forEach((row) => {
-        row.forEach((tile) => {
-          if (!tile) return;
-          if (tile.includes("G") && tile.includes("H"))
-            setIsPuzzleCompleted(true);
-        });
-      });
-    }
+    let nrOfGoalsCompleted = 0;
+    const solution = getSolution();
+    goalTiles.forEach((tile) => {
+      if (board[tile[0]][tile[1]].includes(solution[tile[0]][tile[1]]))
+        nrOfGoalsCompleted++;
+    });
+    if (nrOfGoalsCompleted === nrOfGoals) setIsPuzzleCompleted(true);
   }, [board]);
 
   function togglePromoteModal() {
