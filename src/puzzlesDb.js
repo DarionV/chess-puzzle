@@ -55,7 +55,7 @@ const puzzles = [
     ],
     solution: [[null], [null, "KD", null, "K", null], [null]],
     puzzleLink:
-      "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
+      "https://www.etsy.com/se-en/listing/1742748085/exchange-the-kings-3rd-puzzle-in-the?click_key=913514fb65155ac31caa7ce804e62cb56a0ea4f8%3A1742748085&click_sum=c72c6abd&ref=shop_home_active_13&pro=1&sts=1",
     url: "exchange-the-kings-puzzle",
     metaDescription:
       "Play the Exchange The Kings chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
@@ -70,7 +70,7 @@ const puzzles = [
     ],
     solution: [[null], [null], [null, null, null, null, null, "H"]],
     puzzleLink:
-      "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
+      "https://www.etsy.com/se-en/listing/1717635447/black-knight-puzzle-a-fun-mix-of-chess?click_key=22a031becf478b4d38b252f6b7d865758820b092%3A1717635447&click_sum=0bc9fc9e&ref=shop_home_active_4&pro=1&sts=1",
     url: "the-knight-puzzle",
     metaDescription:
       "Play The Black Knight chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",

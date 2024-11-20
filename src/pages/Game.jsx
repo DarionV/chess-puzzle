@@ -10,7 +10,6 @@ import AboutModal from "../components/AboutModal/AboutModal";
 const Game = () => {
   const tileSize = useTileSize();
   const { puzzleId } = useParams();
-  const [showAbout, setShowAbout] = useState(false);
   const [opened, setOpened] = useState(false);
   const toggleAbout = () => setOpened(!opened);
 

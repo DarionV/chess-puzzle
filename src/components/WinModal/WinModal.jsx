@@ -33,12 +33,12 @@ const WinModal = () => {
         Try another puzzle
       </button>
       {buyLink ? (
-        <Tooltip label="Affiliate link" withArrow position="bottom">
-          <a href={buyLink} target="blank" className={style.button}>
-            Buy this puzzle
-          </a>
-        </Tooltip>
-      ) : null}
+        //  <Tooltip label="Affiliate link" withArrow position="bottom">
+        <a href={buyLink} target="blank" className={style.button}>
+          Buy this puzzle
+        </a>
+      ) : // </Tooltip>
+      null}
     </div>
   );
 };
