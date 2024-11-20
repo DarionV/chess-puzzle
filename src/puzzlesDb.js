@@ -16,10 +16,10 @@ const puzzles = [
     title: "Pawn = Queen",
     info: "Get the red pawn to the red square",
     board: [
-      ["B", "N", "R", "PH"],
-      ["B", "N", "R", null],
-      ["B", "N", "R", null],
-      ["B", "N", "R", "-G"],
+      ["N", "B", "R", "PH"],
+      ["N", "B", "R", null],
+      ["N", "B", "R", null],
+      ["N", "B", "R", "-G"],
     ],
     solution: [[null], [null], [null], [null, null, null, "H"]],
     puzzleLink:
