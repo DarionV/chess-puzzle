@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import StandardButton from "../standardButton/standardButton";
+import StandardButton from "../StandardButton/StandardButton";
 
 const InstructionsModal = () => {
   const [opened, { close }] = useDisclosure(true);
