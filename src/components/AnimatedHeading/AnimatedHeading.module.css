@@ -1,3 +1,8 @@
+:root {
+  /* Change TRANSITION_DURATION in AnimatedHeading.jsx together with this variable */
+  --transitionDuration: 0.5s;
+}
+
 .container {
   position: relative;
   margin-bottom: 70px;
@@ -7,6 +12,7 @@
 .layer1,
 .layer2,
 .layer3 {
+  height: 3.5rem;
   position: absolute;
   top: 0;
   left: 50%;
@@ -21,24 +27,35 @@
   color: rgb(174, 49, 49);
   user-select: none;
   width: 100vw;
-  opacity: 0%;
   line-height: 2.5rem;
+  mask-size: 200px;
+}
+
+.fadeOut {
+  opacity: 100%;
+}
+
+.fadeIn {
+  opacity: 0%;
 }
 
 .layer0.fadeIn {
-  animation: fadeIn 0.5s linear 0.25s forwards;
+  animation: fadeIn calc(var(--transitionDuration) * 2) linear
+    calc(var(--transitionDuration) * 0.5) forwards;
 }
 .layer1.fadeIn {
   mask-image: url("/heading-mask-1.png");
-  animation: fadeIn 0.25s linear 0.1s forwards;
+  animation: fadeIn var(--transitionDuration)
+    calc(var(--transitionDuration) * 0.25) forwards;
 }
 .layer2.fadeIn {
   mask-image: url("/heading-mask-2.png");
-  animation: fadeIn 0.25s linear 0.05s forwards;
+  animation: fadeIn var(--transitionDuration) linear
+    calc(var(--transitionDuration) * 0.1) forwards;
 }
 .layer3.fadeIn {
   mask-image: url("/heading-mask-3.png");
-  animation: fadeIn 0.25s linear forwards;
+  animation: fadeIn var(--transitionDuration) linear forwards;
 }
 
 @keyframes fadeIn {
@@ -51,19 +68,22 @@
 }
 
 .layer0.fadeOut {
-  animation: fadeOut 0.125s linear forwards;
+  animation: fadeOut calc(var(--transitionDuration) * 0.5) linear forwards;
 }
 .layer1.fadeOut {
   mask-image: url("/heading-mask-1.png");
-  animation: fadeOut 0.125s linear 0.025s forwards;
+  animation: fadeOut calc(var(--transitionDuration) * 0.5) linear
+    calc(var(--transitionDuration) * 0.1) forwards;
 }
 .layer2.fadeOut {
   mask-image: url("/heading-mask-2.png");
-  animation: fadeOut 0.125s linear 0.05s forwards;
+  animation: fadeOut calc(var(--transitionDuration) * 0.5) linear
+    calc(var(--transitionDuration) * 0.25) forwards;
 }
 .layer3.fadeOut {
   mask-image: url("/heading-mask-3.png");
-  animation: fadeOut 0.125s linear 0.125s forwards;
+  animation: fadeOut calc(var(--transitionDuration) * 0.5) linear
+    calc(var(--transitionDuration) * 0.5) forwards;
 }
 
 @keyframes fadeOut {

@@ -4,6 +4,7 @@ import style from "./AnimatedHeading.module.css";
 const AnimatedHeading = ({ heading }) => {
   const [oldHeading, setOldHeading] = useState(heading);
   const [animationClass, setAnimationClass] = useState(style.fadeIn);
+  const TRANSITION_DURATION = 700;
 
   useEffect(() => {
     if (heading !== oldHeading) {
@@ -11,7 +12,7 @@ const AnimatedHeading = ({ heading }) => {
       setTimeout(() => {
         setOldHeading(heading);
         setAnimationClass(style.fadeIn);
-      }, 300);
+      }, TRANSITION_DURATION);
     }
   }, [heading]);
 
