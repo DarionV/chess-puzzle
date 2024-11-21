@@ -28,22 +28,22 @@ const puzzles = [
     metaDescription:
       "Play the Pawn = Queen chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
   },
-  {
-    title: "The Rook",
-    info: "Get the red rook to the red square",
-    board: [
-      [null, "B", "N", "P", "-G"],
-      [null, "B", "N", "P", null],
-      [null, "B", "N", "P", null],
-      ["RH", "B", "N", "P", null],
-    ],
-    solution: [[null, null, null, null, "H"], [null], [null], [null]],
-    puzzleLink:
-      "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
-    url: "the-rook-puzzle",
-    metaDescription:
-      "Play The Rook chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-  },
+  // {
+  //   title: "The Rook",
+  //   info: "Get the red rook to the red square",
+  //   board: [
+  //     [null, "B", "N", "P", "-G"],
+  //     [null, "B", "N", "P", null],
+  //     [null, "B", "N", "P", null],
+  //     ["RH", "B", "N", "P", null],
+  //   ],
+  //   solution: [[null, null, null, null, "H"], [null], [null], [null]],
+  //   puzzleLink:
+  //     "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
+  //   url: "the-rook-puzzle",
+  //   metaDescription:
+  //     "Play The Rook chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+  // },
 
   {
     title: "Exchange the Kings",
@@ -60,21 +60,21 @@ const puzzles = [
     metaDescription:
       "Play the Exchange The Kings chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
   },
-  {
-    title: "The Knight",
-    info: "Get the red knight to the red square",
-    board: [
-      ["NH", "B", "B", "B", "B", "R"],
-      ["N", "N", "N", "N", "R", "R"],
-      [null, null, null, null, "R", "-G"],
-    ],
-    solution: [[null], [null], [null, null, null, null, null, "H"]],
-    puzzleLink:
-      "https://www.etsy.com/se-en/listing/1717635447/black-knight-puzzle-a-fun-mix-of-chess?click_key=22a031becf478b4d38b252f6b7d865758820b092%3A1717635447&click_sum=0bc9fc9e&ref=shop_home_active_4&pro=1&sts=1",
-    url: "the-knight-puzzle",
-    metaDescription:
-      "Play The Black Knight chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-  },
+  // {
+  //   title: "The Knight",
+  //   info: "Get the red knight to the red square",
+  //   board: [
+  //     ["NH", "B", "B", "B", "B", "R"],
+  //     ["N", "N", "N", "N", "R", "R"],
+  //     [null, null, null, null, "R", "-G"],
+  //   ],
+  //   solution: [[null], [null], [null, null, null, null, null, "H"]],
+  //   puzzleLink:
+  //     "https://www.etsy.com/se-en/listing/1717635447/black-knight-puzzle-a-fun-mix-of-chess?click_key=22a031becf478b4d38b252f6b7d865758820b092%3A1717635447&click_sum=0bc9fc9e&ref=shop_home_active_4&pro=1&sts=1",
+  //   url: "the-knight-puzzle",
+  //   metaDescription:
+  //     "Play The Black Knight chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+  // },
 ];
 
 export default puzzles;
