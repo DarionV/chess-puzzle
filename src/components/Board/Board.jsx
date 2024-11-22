@@ -47,7 +47,7 @@ const Board = () => {
               setHighlightedPieceId={setHighlightedPieceId}
             ></TouchTargets>
             <PromoteModal />
-            {isSolved ? <WinModal /> : null}
+            {isSolved ? <WinModal loadNextPuzzle={loadNextPuzzle} /> : null}
           </div>
         </div>
         <ArrowButton handleClick={loadNextPuzzle} />
