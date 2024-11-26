@@ -1,10 +1,6 @@
-import React, { useContext } from "react";
-import BoardContext from "../context/BoardContext";
 import useGetPiece from "./useGetPiece";
 
 const useHasValidMove = () => {
-  const { board } = useContext(BoardContext);
-
   const getPiece = useGetPiece();
 
   const hasValidMove = (piece) => {

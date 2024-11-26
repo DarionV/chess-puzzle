@@ -14,6 +14,7 @@ const useCheckForWins = () => {
     let nrOfGoalsCompleted = 0;
     const solution = getSolution();
     goalTiles.forEach((tile) => {
+      // tile[0] refers to Y position, tile[1] refers to X position.
       if (board[tile[0]][tile[1]].includes(solution[tile[0]][tile[1]]))
         nrOfGoalsCompleted++;
     });
