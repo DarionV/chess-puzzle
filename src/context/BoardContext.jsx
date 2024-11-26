@@ -12,7 +12,7 @@ export const BoardProvider = ({ children, puzzleUrl }) => {
   );
   const [board, setBoard] = useState(puzzles[currentBoardIndex].board);
   const [redirectUrl, setRedirectUrl] = useState(null);
-  const [setMoveCount] = useRecoilState(moveCountState);
+  const [moveCount, setMoveCount] = useRecoilState(moveCountState);
 
   useEffect(() => {
     const selectedPuzzle = puzzles.find((puzzle) => puzzle.url === puzzleUrl);
