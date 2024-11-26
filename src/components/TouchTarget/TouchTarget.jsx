@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import style from "./TouchTarget.module.css";
 import BoardContext from "../../context/BoardContext";
-import { hasValidMove } from "../../utilities/hasValidMove";
-import { getPiece } from "../../utilities/getPiece";
-import { makeMove } from "../../utilities/makeMove";
 import { useRecoilState } from "recoil";
 import { moveCountState } from "../../pages/Game";
+import useHasValidMove from "../../hooks/useHasValidMove";
+import useMakeMove from "../../hooks/useMakeMove";
+import useGetPiece from "../../hooks/useGetPiece";
 
 // The function of the TouchTarget is to act as a button or selector for the tiles.
 // Each TouchTarget is overlayed on top of each tile.
@@ -14,6 +14,9 @@ import { moveCountState } from "../../pages/Game";
 const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   const { board, setBoard } = useContext(BoardContext);
   const [moveCount, setMoveCount] = useRecoilState(moveCountState);
+  const hasValidMove = useHasValidMove();
+  const makeMove = useMakeMove();
+  const getPiece = useGetPiece();
 
   //To center piece in tile properly, adjusted manually.
   const topOffset = size * 0.19;
@@ -21,9 +24,10 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     size * 0.26 - (board[0].length - board.length) * (size / 6);
 
   const handleClick = () => {
-    const piece = getPiece(board, yPos, xPos);
-    if (hasValidMove(piece, board, yPos, xPos)) {
-      setBoard(makeMove(piece, board, yPos, xPos));
+    const piece = getPiece(yPos, xPos);
+
+    if (hasValidMove(piece)) {
+      makeMove(piece);
       setMoveCount(moveCount + 1);
     }
   };
