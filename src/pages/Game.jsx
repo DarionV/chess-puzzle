@@ -6,6 +6,12 @@ import { BoardProvider } from "../context/BoardContext";
 import { useParams } from "react-router";
 import MoveCountProvider from "../context/MoveCountContext";
 import AboutModal from "../components/AboutModal/AboutModal";
+import { atom } from "recoil";
+
+export const moveCountState = atom({
+  key: "moveCount",
+  default: 0,
+});
 
 const Game = () => {
   const tileSize = useTileSize();

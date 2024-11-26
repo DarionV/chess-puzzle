@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import style from "./WinModal.module.css";
 
-import { useMoveCount } from "../../context/MoveCountContext";
 import BoardContext from "../../context/BoardContext";
 import { Tooltip } from "@mantine/core";
+import { useRecoilState } from "recoil";
+import { moveCountState } from "../../pages/Game";
 
 const WinModal = ({ loadNextPuzzle }) => {
   const { resetBoard, getBuyLink } = useContext(BoardContext);
@@ -18,7 +19,7 @@ const WinModal = ({ loadNextPuzzle }) => {
 
   const buyLink = getBuyLink();
 
-  const { moveCount } = useMoveCount();
+  const [moveCount] = useRecoilState(moveCountState);
 
   return (
     <div className={style.container}>

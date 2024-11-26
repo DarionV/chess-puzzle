@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
 import puzzles from "../puzzlesDb.js";
 import { Navigate } from "react-router";
-import { useMoveCount } from "./MoveCountContext.jsx";
+import { useRecoilState } from "recoil";
+import { moveCountState } from "../pages/Game.jsx";
 
 export const BoardContext = createContext();
 
@@ -11,7 +12,7 @@ export const BoardProvider = ({ children, puzzleUrl }) => {
   );
   const [board, setBoard] = useState(puzzles[currentBoardIndex].board);
   const [redirectUrl, setRedirectUrl] = useState(null);
-  const { setMoveCount } = useMoveCount();
+  const [setMoveCount] = useRecoilState(moveCountState);
 
   useEffect(() => {
     const selectedPuzzle = puzzles.find((puzzle) => puzzle.url === puzzleUrl);

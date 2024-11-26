@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import style from "./TouchTarget.module.css";
 import BoardContext from "../../context/BoardContext";
-import { useMoveCount } from "../../context/MoveCountContext";
 import { hasValidMove } from "../../utilities/hasValidMove";
 import { getPiece } from "../../utilities/getPiece";
 import { makeMove } from "../../utilities/makeMove";
+import { useRecoilState } from "recoil";
+import { moveCountState } from "../../pages/Game";
 
 // The function of the TouchTarget is to act as a button or selector for the tiles.
 // Each TouchTarget is overlayed on top of each tile.
@@ -12,7 +13,7 @@ import { makeMove } from "../../utilities/makeMove";
 
 const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   const { board, setBoard } = useContext(BoardContext);
-  const { moveCount, setMoveCount } = useMoveCount();
+  const [moveCount, setMoveCount] = useRecoilState(moveCountState);
 
   //To center piece in tile properly, adjusted manually.
   const topOffset = size * 0.19;

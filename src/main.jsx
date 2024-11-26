@@ -9,6 +9,7 @@ import {
 import Game from "./pages/Game";
 import App from "./App";
 import { MantineProvider } from "@mantine/core";
+import { RecoilRoot } from "recoil";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <MantineProvider withGlobalStyles withNormalizeCSS>
-      <RouterProvider router={router} />
+      <RecoilRoot>
+        <RouterProvider router={router} />
+      </RecoilRoot>
     </MantineProvider>
   </StrictMode>
 );
