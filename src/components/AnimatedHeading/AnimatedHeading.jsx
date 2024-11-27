@@ -4,7 +4,12 @@ import style from "./AnimatedHeading.module.css";
 const AnimatedHeading = ({ heading }) => {
   const [oldHeading, setOldHeading] = useState(heading);
   const [animationClass, setAnimationClass] = useState(style.fadeIn);
-  const TRANSITION_DURATION = 700;
+  const TRANSITION_DURATION_IN_MS = 500;
+  const root = document.documentElement;
+  root.style.setProperty(
+    "--transitionDuration",
+    `${TRANSITION_DURATION_IN_MS}ms`
+  );
 
   useEffect(() => {
     if (heading !== oldHeading) {
@@ -12,7 +17,7 @@ const AnimatedHeading = ({ heading }) => {
       setTimeout(() => {
         setOldHeading(heading);
         setAnimationClass(style.fadeIn);
-      }, TRANSITION_DURATION);
+      }, TRANSITION_DURATION_IN_MS + 200);
     }
   }, [heading]);
 

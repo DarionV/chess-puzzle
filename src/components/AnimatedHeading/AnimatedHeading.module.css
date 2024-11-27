@@ -1,8 +1,3 @@
-:root {
-  /* Change TRANSITION_DURATION in AnimatedHeading.jsx together with this variable */
-  --transitionDuration: 0.5s;
-}
-
 .container {
   position: relative;
   margin-bottom: 70px;
