@@ -27,39 +27,9 @@ const puzzles = [
     url: "pawn-queen-puzzle",
     metaDescription:
       "Play the Pawn = Queen chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+    desginer: "Sherzod Khaydarbekov",
   },
-  // {
-  //   title: "The Rook",
-  //   info: "Get the red rook to the red square",
-  //   board: [
-  //     [null, "B", "N", "P", "-G"],
-  //     [null, "B", "N", "P", null],
-  //     [null, "B", "N", "P", null],
-  //     ["RH", "B", "N", "P", null],
-  //   ],
-  //   solution: [[null, null, null, null, "H"], [null], [null], [null]],
-  //   puzzleLink:
-  //     "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
-  //   url: "the-rook-puzzle",
-  //   metaDescription:
-  //     "Play The Rook chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-  // },
 
-  {
-    title: "Exchange the Kings",
-    info: "Exchange the kings",
-    board: [
-      ["ND", "RD", null, "R", "N"],
-      [null, "KG", "-", "KDG", null],
-      ["BD", "ND", null, "N", "B"],
-    ],
-    solution: [[null], [null, "KD", null, "K", null], [null]],
-    puzzleLink:
-      "https://www.etsy.com/se-en/listing/1742748085/exchange-the-kings-3rd-puzzle-in-the?click_key=913514fb65155ac31caa7ce804e62cb56a0ea4f8%3A1742748085&click_sum=c72c6abd&ref=shop_home_active_13&pro=1&sts=1",
-    url: "exchange-the-kings-puzzle",
-    metaDescription:
-      "Play the Exchange The Kings chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-  },
   {
     title: "The Bishop",
     info: "Exchange the kings",
@@ -75,6 +45,7 @@ const puzzles = [
     url: "the-bishop",
     metaDescription:
       "Play the The Bishop chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+    desginer: "DarionV",
   },
   {
     title: "Back and forth",
@@ -89,6 +60,7 @@ const puzzles = [
     url: "back-and-forth",
     metaDescription:
       "Play the The Back and Forth chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+    desginer: "DarionV",
   },
   {
     title: "The Four Horsemen",
@@ -111,6 +83,7 @@ const puzzles = [
     url: "the-four-horsemen",
     metaDescription:
       "Play the The Four Horses chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+    desginer: "DarionV",
   },
   {
     title: "Jumping Horses",
@@ -132,6 +105,23 @@ const puzzles = [
     url: "jumping-horses",
     metaDescription:
       "Play the The Jumping Horses chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+    desginer: "DarionV",
+  },
+  {
+    title: "Exchange the Kings",
+    info: "Exchange the kings",
+    board: [
+      ["ND", "RD", null, "R", "N"],
+      [null, "KG", "-", "KDG", null],
+      ["BD", "ND", null, "N", "B"],
+    ],
+    solution: [[null], [null, "KD", null, "K", null], [null]],
+    puzzleLink:
+      "https://www.etsy.com/se-en/listing/1742748085/exchange-the-kings-3rd-puzzle-in-the?click_key=913514fb65155ac31caa7ce804e62cb56a0ea4f8%3A1742748085&click_sum=c72c6abd&ref=shop_home_active_13&pro=1&sts=1",
+    url: "exchange-the-kings-puzzle",
+    metaDescription:
+      "Play the Exchange The Kings chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+    desginer: "Sherzod Khaydarbekov",
   },
   // {
   //   title: "The Knight",
@@ -147,6 +137,22 @@ const puzzles = [
   //   url: "the-knight-puzzle",
   //   metaDescription:
   //     "Play The Black Knight chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+  // },
+  // {
+  //   title: "The Rook",
+  //   info: "Get the red rook to the red square",
+  //   board: [
+  //     [null, "B", "N", "P", "-G"],
+  //     [null, "B", "N", "P", null],
+  //     [null, "B", "N", "P", null],
+  //     ["RH", "B", "N", "P", null],
+  //   ],
+  //   solution: [[null, null, null, null, "H"], [null], [null], [null]],
+  //   puzzleLink:
+  //     "https://www.etsy.com/se-en/listing/1771561993/rook-puzzle-get-the-rook-to-the-black?click_key=95399a6e49a5ec679cee8d83c673a8e126a91f29%3A1771561993&click_sum=280691d9&ref=shop_home_active_1&crt=1&sts=1",
+  //   url: "the-rook-puzzle",
+  //   metaDescription:
+  //     "Play The Rook chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
   // },
 ];
 

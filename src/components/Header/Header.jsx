@@ -10,9 +10,9 @@ export default function Header({ toggleAbout }) {
     <header className={styles.header}>
       <button onClick={resetBoard}>RESET</button>
       {/* <Tooltip label="Affiliate link" withArrow> */}
-      <a href={getBuyLink()} target="blank">
+      {/* <a href={getBuyLink()} target="blank">
         BUY THIS PUZZLE
-      </a>
+      </a> */}
       {/* </Tooltip> */}
       <button onClick={toggleAbout}>ABOUT</button>
     </header>
