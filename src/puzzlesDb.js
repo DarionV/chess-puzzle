@@ -91,7 +91,7 @@ const puzzles = [
       "Play the The Back and Forth chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
   },
   {
-    title: "Four Horses",
+    title: "The Four Horsemen",
     info: "-",
     board: [
       ["NH", null, "R", null, "NH"],
@@ -108,9 +108,30 @@ const puzzles = [
       [null],
     ],
     puzzleLink: null,
-    url: "four-horses",
+    url: "the-four-horsemen",
     metaDescription:
       "Play the The Four Horses chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+  },
+  {
+    title: "Jumping Horses",
+    info: "-",
+    board: [
+      ["N", "PH", null, null, "B"],
+      ["B", null, null, "N", "R"],
+      ["R", "N", null, null, "B"],
+      ["R", null, null, "-G", "R"],
+    ],
+    solution: [
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+      [null, null, null, "H", null],
+      ,
+    ],
+    puzzleLink: null,
+    url: "jumping-horses",
+    metaDescription:
+      "Play the The Jumping Horses chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
   },
   // {
   //   title: "The Knight",
