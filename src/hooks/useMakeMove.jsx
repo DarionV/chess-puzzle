@@ -23,19 +23,17 @@ const useMakeMove = () => {
       emptyTilePosition[1]
     ].replace("-", isDark ? name + "D" : name);
 
-    // If Hero piece, make sure to keep the "H"
-    newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = isHero
-      ? newTileString + "H"
-      : newTileString;
+    newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = newTileString;
 
-    // The same thing applies to the old tile.
     let oldTileString = newBoard[yPos][xPos].replace(name, "-");
     if (isHero) oldTileString = oldTileString.replace("H", "");
     if (isDark) oldTileString = oldTileString.replace("D", "");
+
     newBoard[yPos][xPos] = oldTileString;
 
     setBoard(newBoard);
     setMoveCount(moveCount + 1);
+    console.log(board);
   };
 
   return makeMove;
