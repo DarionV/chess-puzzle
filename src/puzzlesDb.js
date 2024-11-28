@@ -71,11 +71,40 @@ const puzzles = [
       ["BH", null, null, null, null],
     ],
     solution: [[null, null, null, null, "H"], [null], [null], [null]],
-    puzzleLink:
-      "https://www.etsy.com/se-en/listing/1742748085/exchange-the-kings-3rd-puzzle-in-the?click_key=913514fb65155ac31caa7ce804e62cb56a0ea4f8%3A1742748085&click_sum=c72c6abd&ref=shop_home_active_13&pro=1&sts=1",
-    url: "exchange-the-kings-puzzle",
+    puzzleLink: null,
+    url: "the-bishop",
     metaDescription:
-      "Play the Exchange The Kings chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+      "Play the The Bishop chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+  },
+  {
+    title: "Back and forth",
+    info: "-",
+    board: [
+      [null, "B", null, "N", null, null],
+      ["R", "N", "B", "N", "PH", "-G"],
+      [null, "B", null, "N", null, null],
+    ],
+    solution: [[null], [null, null, null, null, null, "H"], [null]],
+    puzzleLink: null,
+    url: "back-and-forth",
+    metaDescription:
+      "Play the The Back and Forth chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+  },
+  {
+    title: "The Bishop",
+    info: "Exchange the kings",
+    board: [
+      [null, null, null, null, "GB"],
+      [null, "R", "N", "R", null],
+      [null, "N", "Q", "N", null],
+      [null, "-", "N", "R", null],
+      ["BH", null, null, null, null],
+    ],
+    solution: [[null, null, null, null, "H"], [null], [null], [null]],
+    puzzleLink: null,
+    url: "the-bishop",
+    metaDescription:
+      "Play the The Bishop chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
   },
   // {
   //   title: "The Knight",
