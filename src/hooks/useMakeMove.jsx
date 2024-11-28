@@ -33,7 +33,6 @@ const useMakeMove = () => {
 
     setBoard(newBoard);
     setMoveCount(moveCount + 1);
-    console.log(board);
   };
 
   return makeMove;
