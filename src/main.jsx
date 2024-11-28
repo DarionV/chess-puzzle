@@ -10,15 +10,18 @@ import Game from "./pages/Game";
 import App from "./App";
 import { MantineProvider } from "@mantine/core";
 import { RecoilRoot } from "recoil";
+import Error from "./pages/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/pawn-queen-puzzle" replace />,
+    errorElement: <Error />,
   },
   {
     path: "/:puzzleId",
-    element: <App />,
+    element: <Game />,
+    errorElement: <Error />,
     children: [
       {
         path: "/:puzzleId",
