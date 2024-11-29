@@ -33,7 +33,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      defaultColorScheme="auto"
+    >
       <RecoilRoot>
         <RouterProvider router={router} />
       </RecoilRoot>

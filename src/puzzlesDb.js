@@ -27,7 +27,7 @@ const puzzles = [
     url: "pawn-queen-puzzle",
     metaDescription:
       "Play the Pawn = Queen chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-    desginer: "Sherzod Khaydarbekov",
+    desginer: "Designed by Sherzod Khaydarbekov. Developed by DarionV",
   },
 
   {
@@ -45,7 +45,7 @@ const puzzles = [
     url: "the-bishop",
     metaDescription:
       "Play the The Bishop chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-    desginer: "DarionV",
+    desginer: "Designed and developed by DarionV",
   },
   {
     title: "Back and forth",
@@ -60,7 +60,7 @@ const puzzles = [
     url: "back-and-forth",
     metaDescription:
       "Play the The Back and Forth chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-    desginer: "DarionV",
+    desginer: "Designed and developed by DarionV",
   },
   {
     title: "The Four Horsemen",
@@ -83,7 +83,7 @@ const puzzles = [
     url: "the-four-horsemen",
     metaDescription:
       "Play the The Four Horses chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-    desginer: "DarionV",
+    desginer: "Designed and developed by DarionV",
   },
   {
     title: "Jumping Horses",
@@ -105,7 +105,7 @@ const puzzles = [
     url: "jumping-horses",
     metaDescription:
       "Play the The Jumping Horses chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-    desginer: "DarionV",
+    desginer: "Designed and developed by DarionV",
   },
   {
     title: "Exchange the Kings",
@@ -121,7 +121,7 @@ const puzzles = [
     url: "exchange-the-kings-puzzle",
     metaDescription:
       "Play the Exchange The Kings chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-    desginer: "Sherzod Khaydarbekov",
+    desginer: "Designed by Sherzod Khaydarbekov. Developed by DarionV",
   },
   // {
   //   title: "The Knight",

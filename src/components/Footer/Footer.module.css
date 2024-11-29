@@ -12,11 +12,11 @@
   font-weight: 400;
   font-style: normal;
   font-size: 0.7rem;
-  color: rgb(73, 73, 73);
+  /* color: rgb(73, 73, 73); */
 }
 
 .footer a {
-  color: rgb(73, 73, 73);
+  /* color: rgb(73, 73, 73); */
   text-decoration: none;
   transition-property: all;
   transition-duration: 0.5s;
