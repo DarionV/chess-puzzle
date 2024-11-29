@@ -48,7 +48,7 @@ const puzzles = [
     desginer: "Designed and developed by DarionV",
   },
   {
-    title: "There and back",
+    title: "Pawn's Journey",
     info: "-",
     board: [
       [null, "B", null, "N", null, null],
@@ -57,9 +57,9 @@ const puzzles = [
     ],
     solution: [[null], [null, null, null, null, null, "H"], [null]],
     puzzleLink: null,
-    url: "there-and-back",
+    url: "pawns-journey",
     metaDescription:
-      "Play the There and back chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+      "Play the Pawn's Journey chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
     desginer: "Designed and developed by DarionV",
   },
   {
@@ -86,7 +86,7 @@ const puzzles = [
     desginer: "Designed and developed by DarionV",
   },
   {
-    title: "Knight's crossing",
+    title: "Knight's Crossing",
     info: "-",
     board: [
       ["N", "PH", null, null, "B"],
