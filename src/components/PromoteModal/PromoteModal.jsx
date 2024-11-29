@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import style from "./PromoteModal.module.css";
-import rookIcon from "../../assets/icons/rook-black.png";
-import knightIcon from "../../assets/icons/knight-black.png";
-import bishopIcon from "../../assets/icons/bishop-black.png";
-import queenIcon from "../../assets/icons/queen-black.png";
 import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useContext } from "react";
 import BoardContext from "../../context/BoardContext";
+import {
+  IconChessQueenFilled,
+  IconChessRookFilled,
+  IconChessKnightFilled,
+  IconChessBishopFilled,
+} from "@tabler/icons-react";
 
 const PromoteModal = ({ promotePawn }) => {
   const { setBoard, board } = useContext(BoardContext);
@@ -75,7 +77,9 @@ const PromoteModal = ({ promotePawn }) => {
           promotePawn("R");
         }}
       >
-        <img src={rookIcon} alt="rook" />
+        <IconChessRookFilled
+          style={{ width: "100%", height: "100%", opacity: "70%" }}
+        />
       </button>
       <button
         aria-label="promote to knight"
@@ -83,7 +87,9 @@ const PromoteModal = ({ promotePawn }) => {
           promotePawn("N");
         }}
       >
-        <img src={knightIcon} alt="knight" />
+        <IconChessKnightFilled
+          style={{ width: "100%", height: "100%", opacity: "70%" }}
+        />
       </button>
       <button
         aria-label="promote to bishop"
@@ -91,7 +97,9 @@ const PromoteModal = ({ promotePawn }) => {
           promotePawn("B");
         }}
       >
-        <img src={bishopIcon} alt="bishop" />
+        <IconChessBishopFilled
+          style={{ width: "100%", height: "100%", opacity: "70%" }}
+        />
       </button>
       <button
         aria-label="promote to queen"
@@ -99,7 +107,9 @@ const PromoteModal = ({ promotePawn }) => {
           promotePawn("Q");
         }}
       >
-        <img src={queenIcon} alt="queen" />
+        <IconChessQueenFilled
+          style={{ width: "100%", height: "100%", opacity: "70%" }}
+        />
       </button>
     </Modal>
   );
