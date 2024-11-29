@@ -48,7 +48,7 @@ const puzzles = [
     desginer: "Designed and developed by DarionV",
   },
   {
-    title: "Back and forth",
+    title: "There and back",
     info: "-",
     board: [
       [null, "B", null, "N", null, null],
@@ -57,9 +57,9 @@ const puzzles = [
     ],
     solution: [[null], [null, null, null, null, null, "H"], [null]],
     puzzleLink: null,
-    url: "back-and-forth",
+    url: "there-and-back",
     metaDescription:
-      "Play the The Back and Forth chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+      "Play the There and back chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
     desginer: "Designed and developed by DarionV",
   },
   {
@@ -82,11 +82,11 @@ const puzzles = [
     puzzleLink: null,
     url: "the-four-horsemen",
     metaDescription:
-      "Play the The Four Horses chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+      "Play the The Four Horsemen chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
     desginer: "Designed and developed by DarionV",
   },
   {
-    title: "Jumping Horses",
+    title: "Knight's crossing",
     info: "-",
     board: [
       ["N", "PH", null, null, "B"],
@@ -102,9 +102,9 @@ const puzzles = [
       ,
     ],
     puzzleLink: null,
-    url: "jumping-horses",
+    url: "knights-crossing",
     metaDescription:
-      "Play the The Jumping Horses chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+      "Play the The Knight's Crossing chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
     desginer: "Designed and developed by DarionV",
   },
   {
