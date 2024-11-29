@@ -23,8 +23,8 @@ export default function Header({ toggleAbout }) {
   const [isDark, setIsDark] = useState(colorScheme);
 
   useEffect(() => {
-    setIsDark(colorScheme === "light");
-  }, [colorScheme]);
+    setIsDark(computedColorScheme === "light");
+  }, [computedColorScheme]);
 
   const moonIcon = <IconMoonFilled style={{ width: 20, height: 20 }} />;
   const sunIcon = <IconSunFilled style={{ width: 20, height: 20 }} />;
