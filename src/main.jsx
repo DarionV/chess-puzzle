@@ -36,6 +36,7 @@ createRoot(document.getElementById("root")).render(
       withGlobalStyles
       withNormalizeCSS
       defaultColorScheme="auto"
+      theme={{ cursorType: "pointer" }}
     >
       <RecoilRoot>
         <RouterProvider router={router} />
