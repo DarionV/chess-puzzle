@@ -4,7 +4,7 @@
 
 @keyframes dropDown {
   from {
-    translate: 0px -10px;
+    translate: 0px -20px;
   }
   to {
     translate: 0px 0px;
