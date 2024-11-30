@@ -50,8 +50,17 @@ const AboutModal = ({ opened, toggleAbout }) => {
         target="blank"
         title="3D-assets"
       >
-        Stanleyerland @ Thingiverse
+        Original models by Stanleyerland @ Thingiverse
       </a>
+      <a
+        href="https://creativecommons.org/licenses/by/4.0/"
+        target="blank"
+        title="CC-license"
+      >
+        Licensed under CC by 4.0
+      </a>
+      <p>Changes: Edited and enhanced for Royalriddles.com</p>
+      <p>The original creator does not endorse this project.</p>
     </Modal>
   );
 };
