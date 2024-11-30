@@ -2,11 +2,24 @@
   animation: dropDown 0.1s ease-in-out forwards;
 }
 
+.jump {
+  animation: jump 0.05s ease-in-out forwards;
+}
+
 @keyframes dropDown {
   from {
     translate: 0px -20px;
   }
   to {
     translate: 0px 0px;
+  }
+}
+
+@keyframes jump {
+  from {
+    translate: 0px 0px;
+  }
+  to {
+    translate: 0px -16px;
   }
 }

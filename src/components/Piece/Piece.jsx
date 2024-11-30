@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import pawnWhite from "../../assets/images/pawn-white.png";
 import pawnBlack from "../../assets/images/pawn-black.png";
@@ -21,9 +21,18 @@ import kingRed from "../../assets/images/king-red.png";
 import BoardContext from "../../context/BoardContext";
 
 import style from "./Piece.module.css";
+import { useRecoilState } from "recoil";
+import { madeMoveState } from "../TouchTarget/TouchTarget";
 
 const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
   const topOffset = size * 0.43; // To center piece in tile properly. Based on size to scale properly.
+  const [madeMove] = useRecoilState(madeMoveState);
+
+  const [jumpClass, setJumpClass] = useState("");
+
+  useEffect(() => {
+    setJumpClass(madeMove && highlighted ? style.jump : "");
+  }, [madeMove]);
 
   const { board } = useContext(BoardContext);
   let leftOffset;
@@ -74,7 +83,7 @@ const Piece = ({ piece, size, yPos, xPos, highlighted }) => {
 
   return (
     <img
-      className={style.piece}
+      className={`${style.piece} ${jumpClass}`}
       src={imageSrc}
       height={`${size}px`}
       width={`${size}px`}

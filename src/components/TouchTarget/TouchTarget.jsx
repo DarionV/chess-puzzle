@@ -4,10 +4,16 @@ import BoardContext from "../../context/BoardContext";
 import useHasValidMove from "../../hooks/useHasValidMove";
 import useMakeMove from "../../hooks/useMakeMove";
 import useGetPiece from "../../hooks/useGetPiece";
+import { atom, useRecoilState } from "recoil";
 
 // The function of the TouchTarget is to act as a button or selector for the tiles.
 // Each TouchTarget is overlayed on top of each tile.
 // When clicked, it evaluated if there is a legal move available for that piece.
+
+export const madeMoveState = atom({
+  key: "madeMove",
+  default: false,
+});
 
 const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   const { board, setBoard } = useContext(BoardContext);
@@ -15,6 +21,7 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
   const hasValidMove = useHasValidMove();
   const makeMove = useMakeMove();
   const getPiece = useGetPiece();
+  const [madeMove, setMadeMove] = useRecoilState(madeMoveState);
 
   //To center piece in tile properly, adjusted manually.
   const topOffset = size * 0.19;
@@ -25,7 +32,11 @@ const TouchTarget = ({ size, yPos, xPos, pieces, setHighlightedPieceId }) => {
     const piece = getPiece(yPos, xPos);
 
     if (hasValidMove(piece)) {
-      makeMove(piece);
+      setMadeMove(true);
+      setTimeout(() => {
+        makeMove(piece);
+        setMadeMove(false);
+      }, 50);
     }
   };
 
