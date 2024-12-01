@@ -1,25 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BoardContext from "../context/BoardContext";
+import tileWhite from "../assets/images/tile-white.png";
+import tileWhiteHover from "../assets/images/tile-white-hover.png";
+import tileBlackHover from "../assets/images/tile-black-hover.png";
+import tileBlack from "../assets/images/tile-black.png";
+import tileRed from "../assets/images/tile-red.png";
+import tileRedHover from "../assets/images/tile-red-hover.png";
 
 const Tile = ({ tileSize, yPos, xPos, color, highlighted }) => {
   const { board } = useContext(BoardContext);
+  const [imageSrc, setImageSrc] = useState("");
   let leftOffset;
 
-  const isEmptyTile = board[yPos][xPos].includes("-");
+  useEffect(() => {
+    if (color === "red") setImageSrc(highlighted ? tileRedHover : tileRed);
+    else if (color === "white")
+      setImageSrc(highlighted ? tileWhiteHover : tileWhite);
+    else if (color === "black")
+      setImageSrc(highlighted ? tileBlackHover : tileBlack);
+  }, [highlighted, color]);
 
   leftOffset = (board[0].length - board.length) * (tileSize / 6);
 
   return (
     <img
-      src={color}
+      src={imageSrc}
       width={`${tileSize}px`}
       height={`${tileSize}px`}
       style={{
-        transform: highlighted
-          ? "translateY(-3px)"
-          : isEmptyTile
-          ? "translateY(-3px)"
-          : "",
         position: "absolute",
         top: `${xPos * 0.21 * tileSize + yPos * 0.21 * tileSize}px`,
         left: `${
