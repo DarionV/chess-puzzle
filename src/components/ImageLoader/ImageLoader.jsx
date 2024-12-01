@@ -18,6 +18,13 @@ import kingWhite from "../../assets/images/king-white.png";
 import kingBlack from "../../assets/images/king-black.png";
 import kingRed from "../../assets/images/king-red.png";
 
+import tileWhite from "../assets/images/tile-white.png";
+import tileWhiteHover from "../assets/images/tile-white-hover.png";
+import tileBlackHover from "../assets/images/tile-black-hover.png";
+import tileBlack from "../assets/images/tile-black.png";
+import tileRed from "../assets/images/tile-red.png";
+import tileRedHover from "../assets/images/tile-red-hover.png";
+
 import style from "../Board/Board.module.css";
 
 import { Loader } from "@mantine/core";
@@ -44,6 +51,12 @@ export const ImageLoader = ({ children }) => {
     kingWhite,
     kingBlack,
     kingRed,
+    tileBlack,
+    tileBlackHover,
+    tileRed,
+    tileRedHover,
+    tileWhite,
+    tileWhiteHover,
   ];
 
   useEffect(() => {
