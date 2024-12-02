@@ -14,6 +14,13 @@ const useMakeMove = () => {
     //Check if dark piece
     let isDark = name.includes("D");
 
+    let oldname = name; //We modify the name at row 22, so we need to keep a ref to the old name.
+
+    // Check if promoted piece, and if yes, remove the +.
+    // The + is only needed to add the inital drop animation.
+    let isPromoted = name.includes("+");
+    if (isPromoted) name = name.replace("+", "");
+
     let newBoard = board.map((row) => [...row]);
     const emptyTilePosition = getEmptyTile(board);
 
@@ -25,7 +32,7 @@ const useMakeMove = () => {
 
     newBoard[emptyTilePosition[0]][emptyTilePosition[1]] = newTileString;
 
-    let oldTileString = newBoard[yPos][xPos].replace(name, "-");
+    let oldTileString = newBoard[yPos][xPos].replace(oldname, "-");
     if (isHero) oldTileString = oldTileString.replace("H", "");
     if (isDark) oldTileString = oldTileString.replace("D", "");
 
@@ -33,6 +40,7 @@ const useMakeMove = () => {
 
     setBoard(newBoard);
     setMoveCount(moveCount + 1);
+    console.log(board);
   };
 
   return makeMove;

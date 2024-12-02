@@ -43,7 +43,7 @@ const PromoteModal = ({ promotePawn }) => {
         newBoard[rowIndex][0] = piecePosition.replace("P", "B");
         break;
       case "Q":
-        newBoard[rowIndex][0] = piecePosition.replace("P", "Q");
+        newBoard[rowIndex][0] = piecePosition.replace("P", "Q+");
         break;
 
       default:
