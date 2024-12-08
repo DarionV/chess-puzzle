@@ -116,8 +116,6 @@ const puzzles = [
       ["BD", "ND", null, "N", "B"],
     ],
     solution: [[null], [null, "KD", null, "K", null], [null]],
-    puzzleLink:
-      "https://www.etsy.com/se-en/listing/1742748085/exchange-the-kings-3rd-puzzle-in-the?click_key=913514fb65155ac31caa7ce804e62cb56a0ea4f8%3A1742748085&click_sum=c72c6abd&ref=shop_home_active_13&pro=1&sts=1",
     url: "exchange-the-kings-puzzle",
     metaDescription:
       "Play the Exchange The Kings chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
