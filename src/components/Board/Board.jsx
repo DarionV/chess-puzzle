@@ -28,7 +28,7 @@ const Board = () => {
   return (
     <ImageLoader>
       <Helmet>
-        <title>{getTitle()}</title>
+        <title>Royal Riddles | {getTitle()}</title>
         <meta name="description" content={getMetaDescription()} />
       </Helmet>
       <AnimatedHeading heading={getTitle()} />
