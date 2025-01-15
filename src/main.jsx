@@ -14,7 +14,7 @@ import Error from "./pages/Error";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/pawn-queen-puzzle" replace />,
+    element: <Navigate to="/the-bishop" replace />,
     errorElement: <Error />,
   },
   {

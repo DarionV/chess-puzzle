@@ -13,24 +13,6 @@
 // in a row is null, have the entire row be null.
 const puzzles = [
   {
-    title: "Pawn = Queen",
-    info: "Get the red pawn to the red square",
-    board: [
-      ["N", "B", "R", "PH"],
-      ["N", "B", "R", null],
-      ["N", "B", "R", null],
-      ["N", "B", "R", "-G"],
-    ],
-    solution: [[null], [null], [null], [null, null, null, "H"]],
-    puzzleLink:
-      "https://www.etsy.com/se-en/listing/1718348748/pawn-queen-puzzle-get-the-pawn-to-the?click_key=26a4b01629d1eec34fafadaa6f8b364aa3bd4245%3A1718348748&click_sum=795cbe16&ref=related-3&sts=1",
-    url: "pawn-queen-puzzle",
-    metaDescription:
-      "Play the Pawn = Queen chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
-    desginer: "Designed by Sherzod Khaydarbekov. Developed by DarionV",
-  },
-
-  {
     title: "The Bishop",
     info: "Exchange the kings",
     board: [
@@ -46,6 +28,23 @@ const puzzles = [
     metaDescription:
       "Play the The Bishop chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
     desginer: "Designed and developed by DarionV",
+  },
+  {
+    title: "Pawn = Queen",
+    info: "Get the red pawn to the red square",
+    board: [
+      ["N", "B", "R", "PH"],
+      ["N", "B", "R", null],
+      ["N", "B", "R", null],
+      ["N", "B", "R", "-G"],
+    ],
+    solution: [[null], [null], [null], [null, null, null, "H"]],
+    puzzleLink:
+      "https://www.etsy.com/se-en/listing/1718348748/pawn-queen-puzzle-get-the-pawn-to-the?click_key=26a4b01629d1eec34fafadaa6f8b364aa3bd4245%3A1718348748&click_sum=795cbe16&ref=related-3&sts=1",
+    url: "pawn-queen-puzzle",
+    metaDescription:
+      "Play the Pawn = Queen chess puzzle online or on mobile. Challenge your logic with this interactive puzzle by Sherzod Khaydarbekov and DarionV.",
+    desginer: "Designed by Sherzod Khaydarbekov. Developed by DarionV",
   },
   {
     title: "Pawn's Journey",
